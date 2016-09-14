@@ -41,7 +41,7 @@ Route::get('forms',['uses'=>'RutasController@getFormsPage', 'as'=>'forms']);
 
 //Rutas que necesitan autentificación--------------------------------------------------------
 //Route::get('profile.php',['middleware'=>'UsuarioController@validarUsuario', 'uses'=>'RutasController@getProfilePage']);
-Route::get('profile',['uses'=>'RutasController@getProfilePage', 'as' =>'profile']);
-Route::get('admin',['uses'=>'RutasController@getAdminPage', 'as'=>'admin']);
-Route::get('director',['uses'=>'RutasController@getDirectorPage', 'as'=>'director']);
+Route::get('/usuario/profile',['uses'=>'RutasController@getProfilePage', 'as' =>'profile']);
+Route::get('/admin/admin',['uses'=>'RutasController@getAdminPage', 'as'=>'admin']);
+Route::get('/director/director',['uses'=>'RutasController@getDirectorPage', 'as'=>'director']);
 

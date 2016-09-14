@@ -95,7 +95,7 @@ class UsuarioController extends Controller
             //ACCIONES, SI ES ADMINISTRADOR, DIRECTOR, O USUARIO COMÚN
             switch($rol->tipo){
                 case 'A':
-                    return Redirect::to('admin')->with('usuario', $data);
+                    return Redirect::to('/admin/admin')->with('usuario', $data);
                     break;
                 case 'D':
                     return Redirect::to('director');

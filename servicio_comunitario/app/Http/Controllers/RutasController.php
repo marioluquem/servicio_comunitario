@@ -9,7 +9,7 @@ use servicio_comunitario\Http\Requests;
 class RutasController extends Controller
 {
     public function getAdminPage(){
-        return view('admin');
+        return view('/admin/admin');
     }
     public function getProfilePage(){
         return view('profile');
