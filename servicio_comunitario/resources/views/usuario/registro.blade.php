@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-    <!-- Bootstrap -->
+    <!-- Bootstrap, HtmlUnknownTarget -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- styles -->
+    <!-- styles, HtmlUnknownTarget -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <link href="css/styles.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -36,7 +39,8 @@
                <div class="col-md-12">
                   <!-- Logo -->
                   <div class="logo">
-                     <h1><a href="index.php">CEFODAR - REGISTRO</a></h1>
+                     <h1><!--suppress HtmlUnknownTarget -->
+                         <a href="index.php">CEFODAR - REGISTRO</a></h1>
                   </div>
                </div>
             </div>
@@ -109,11 +113,14 @@
 
     </script>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Include all compiled plugins (below), or include individual files as needed, HtmlUnknownTarget -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/custom.js"></script>
 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/validacion_formulario.js"></script>
 </body>
 </html>

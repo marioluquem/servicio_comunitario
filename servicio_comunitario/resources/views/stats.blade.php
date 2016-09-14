@@ -2,16 +2,59 @@
          
 
 @section('includesHead')
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--suppress ALL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/styles.css" rel="stylesheet">
 
-    <link href="css/stats.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/stats.css" rel="stylesheet">
 @stop     
                 
 @section('content')
@@ -174,22 +217,35 @@
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="vendors/morris/morris.css">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<link rel="stylesheet" href="vendors/morris/morris.css">
 
 
-    <script src="vendors/jquery.knob.js"></script>
-    <script src="vendors/raphael-min.js"></script>
-    <script src="vendors/morris/morris.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/jquery.knob.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/raphael-min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/morris/morris.min.js"></script>
 
-    <script src="vendors/flot/jquery.flot.js"></script>
-    <script src="vendors/flot/jquery.flot.categories.js"></script>
-    <script src="vendors/flot/jquery.flot.pie.js"></script>
-    <script src="vendors/flot/jquery.flot.time.js"></script>
-    <script src="vendors/flot/jquery.flot.stack.js"></script>
-    <script src="vendors/flot/jquery.flot.resize.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/flot/jquery.flot.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/flot/jquery.flot.categories.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/flot/jquery.flot.pie.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/flot/jquery.flot.time.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/flot/jquery.flot.stack.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="vendors/flot/jquery.flot.resize.js"></script>
 
-    <script src="js/custom.js"></script>
-    <script src="js/stats.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="js/custom.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+<script src="js/stats.js"></script>
 @stop

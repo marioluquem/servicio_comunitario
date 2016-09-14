@@ -1,7 +1,5 @@
-<?php
-	session_start();
-?>
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html>
   <head>
     <title>Bootstrap Admin Theme v3</title>
@@ -22,7 +20,8 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.php">Bootstrap Admin Theme</a></h1>
+	                 <h1><!--suppress HtmlUnknownTarget -->
+						 <a href="index.php">Bootstrap Admin Theme</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-5">

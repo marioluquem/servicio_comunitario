@@ -1,14 +1,51 @@
 @extends('layouts.main')
 
 @section('includesHead')
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--suppress ALL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+   <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+   <link href="css/styles.css" rel="stylesheet">
 @stop  
 
 @section('content')
@@ -94,23 +131,32 @@
 
 
 @section('includes')
-    <link rel="stylesheet" type="text/css" href="vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css"></link> 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css"></link>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="vendors/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="vendors/ckeditor/ckeditor.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="vendors/ckeditor/adapters/jquery.js"></script>
 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
     <script type="text/javascript" src="vendors/tinymce/js/tinymce/tinymce.min.js"></script>
 
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/custom.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/editors.js"></script>
 @stop

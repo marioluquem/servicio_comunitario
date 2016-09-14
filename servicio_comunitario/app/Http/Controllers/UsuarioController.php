@@ -83,13 +83,19 @@ class UsuarioController extends Controller
                         ->select('ROL.tipo')
                         ->where('USUARIO.cedula', '=', $request['cedula'])
                         ->first();
-            //Iniciamos la sesión y guardamos el usuario en sesión
-            $_SESSION['usuario'] = $usuario->usuario;
+            //Arreglamos la data para regresarla
+            $data =  array(
+
+                'usuario' => $usuario->usuario,
+                'primer_nombre' => $usuario->primer_nombre,
+                'segundo_nombre' => $usuario->segundo_nombre
+            );
+
 
             //ACCIONES, SI ES ADMINISTRADOR, DIRECTOR, O USUARIO COMÚN
             switch($rol->tipo){
                 case 'A':
-                    return Redirect::to('admin');
+                    return Redirect::to('admin')->with('usuario', $data);
                     break;
                 case 'D':
                     return Redirect::to('director');

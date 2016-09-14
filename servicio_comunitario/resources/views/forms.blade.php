@@ -1,21 +1,94 @@
 @extends('layouts.main')
 
 @section('includesHead')
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--suppress ALL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/styles.css" rel="stylesheet">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
-    <link href="vendors/select/bootstrap-select.min.css" rel="stylesheet">
-    <link href="vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
 
-    <link href="css/forms.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/forms.css" rel="stylesheet">
 @stop
 
 
@@ -1524,16 +1597,22 @@
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/styles.css" rel="stylesheet">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
-    <link href="vendors/select/bootstrap-select.min.css" rel="stylesheet">
-    <link href="vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
 
-    <link href="css/forms.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="css/forms.css" rel="stylesheet">
 @stop  
 
 @section('includes')
@@ -1542,28 +1621,39 @@
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="js/bootstrap.min.js"></script>
 
-    <script src="vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
 
-    <script src="vendors/select/bootstrap-select.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/select/bootstrap-select.min.js"></script>
 
-    <script src="vendors/tags/js/bootstrap-tags.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/tags/js/bootstrap-tags.min.js"></script>
 
-    <script src="vendors/mask/jquery.maskedinput.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/mask/jquery.maskedinput.min.js"></script>
 
-    <script src="vendors/moment/moment.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/moment/moment.min.js"></script>
 
-    <script src="vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
 
      <!-- bootstrap-datetimepicker -->
-     <link href="vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
-     <script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script> 
+     <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<link href="vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+     <!--suppress HtmlUnknownTarget, HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
-    <script src="js/custom.js"></script>
-    <script src="js/forms.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="js/custom.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	<script src="js/forms.js"></script>
 @stop

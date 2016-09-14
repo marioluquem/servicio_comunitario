@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html>
   <head>
     <title>Bootstrap Admin Theme v3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <!-- Bootstrap, HtmlUnknownTarget -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles, HtmlUnknownTarget -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	  <link href="css/styles.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,7 +26,8 @@
 	           <div class="col-md-12">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.php">Login - CEFODAR</a></h1>
+	                 <h1><!--suppress HtmlUnknownTarget -->
+						 <a href="index.php">Login - CEFODAR</a></h1>
 	              </div>
 	           </div>
 	        </div>
@@ -41,7 +45,8 @@
 			                <div class="social">
 	                            <a class="face_login" href="#">
 	                                <span class="face_icon">
-	                                    <img src="images/facebook.png" alt="fb">
+	                                    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+										<img src="images/facebook.png" alt="fb">
 	                                </span>
 	                                <span class="text">Iniciar Sesión con Facebook</span>
 	                            </a>
@@ -63,7 +68,8 @@
 
 			        <div class="already">
 			            <p>Aún no tienes una cuenta? Ingresa aquí </p>
-			            <a href="registro.php">Registrarse</a>
+			            <!--suppress HtmlUnknownTarget -->
+						<a href="registro.php">Registrarse</a>
 			        </div>
 			    </div>
 			</div>
@@ -74,8 +80,10 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed, HtmlUnknownTarget -->
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+  <script src="js/bootstrap.min.js"></script>
+    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+  <script src="js/custom.js"></script>
   </body>
 </html>
