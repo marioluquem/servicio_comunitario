@@ -41,10 +41,15 @@
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
 	                      <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta <b class="caret"></b></a>
 	                        <ul class="dropdown-menu animated fadeInUp">
-	                          <li><a href={{ route('profile') }}>Profile</a></li>
-	                          <li><a href="{{ route('logout') }}">Logout</a></li>
+								@if(session()->get('key', null) == null)
+	                          		<li><a href={{ route('login') }}>Iniciar Sesión</a></li>
+	                          		<li><a href="{{ route('registro') }}">Registrarse</a></li>
+								@else
+									<li><a href={{ route('profile') }}>Mi Perfil</a></li>
+									<li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+								@endif
 	                        </ul>
 	                      </li>
 	                    </ul>
@@ -68,17 +73,6 @@
                     <li><a href={{ Route('buttons') }}><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
                      <li><a href={{ Route('editors') }}><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
                     <li><a href={{ Route('forms') }}><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
-                    <li class="submenu">
-                         <a href="#">
-                            <i class="glyphicon glyphicon-list"></i> Pages
-                            <span class="caret pull-right"></span>
-                         </a>
-                         <!-- Sub menu -->
-                         <ul>
-                            <li><a href={{ Route('login') }}>Login</a></li>
-                            <li><a href={{ Route('registro') }}>Registro</a></li>
-                        </ul>
-                    </li>
                 </ul>
              </div>
 		  </div>

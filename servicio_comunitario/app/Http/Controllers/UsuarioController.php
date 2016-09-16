@@ -2,6 +2,7 @@
 
 namespace servicio_comunitario\Http\Controllers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
@@ -13,19 +14,25 @@ use servicio_comunitario\Http\Requests;
 class UsuarioController extends Controller
 {
 
+
+
 // INSERTAR NUEVO USUARIO-------------------------------------------------------
     public function registrarUsuario(Request $request)
     {
+
         //Obtiene el nombre de los archivos (imágenes)
-        $archivoFoto = $request->file('foto');
-        $nombre_foto = $archivoFoto->getClientOriginalName();
+        $imageName = $request->file('foto');
+        $nombre_foto = $imageName->getClientOriginalName();
+        $key =  $request['cedula']."/". $nombre_foto;
 
         $archivoDNI = $request->file('dni');
         $nombre_dni = $archivoDNI->getClientOriginalName();
+        $key2 =  $request['cedula']."/". $nombre_dni;
+
 
         //Guardamos las imágenes en disco local
-        \Storage::disk('local')->put($nombre_foto, $request->file($archivoFoto));
-        \Storage::disk('local')->put($nombre_dni, $request->file($archivoDNI));
+        \Storage::disk('images')->put($key,file_get_contents($request->file('foto')));
+        \Storage::disk('images')->put($key2,file_get_contents($request->file('dni')));
 
         //Cambiamos el formato de la fecha para adecuarlo a la BD
         $date = date("Y-m-d", strtotime($request['fecha_nacimiento']));
@@ -58,7 +65,7 @@ class UsuarioController extends Controller
             );
 
             Session::flash('message', 'Se ha registrado satisfactoriamente');
-            return Redirect::to('index');
+            return Redirect::to('/');
         }
 
     }
@@ -70,9 +77,10 @@ class UsuarioController extends Controller
     {
 
         //Traemos el usuario de la BD
-        $usuario = DB::table('USUARIO')->select('*')->where([
-            ['cedula', '=', $request['cedula']],
-        ])->first();
+        $usuario = DB::table('USUARIO')->select('*')->where('cedula', '=', $request['cedula'])->first();
+
+        //Creamos el path del que se leerán las imágenes
+        $path = 'images/'.$usuario->cedula.'/';
 
         //Si el usuario existe y la contraseña introducida coincide
         if (($usuario != null) && (password_verify($request['password'], $usuario->password))) {
@@ -83,27 +91,28 @@ class UsuarioController extends Controller
                         ->select('ROL.tipo')
                         ->where('USUARIO.cedula', '=', $request['cedula'])
                         ->first();
+
             //Arreglamos la data para regresarla
             $data =  array(
 
-                'usuario' => $usuario->usuario,
+                'nombre_usuario' => $usuario->usuario,
                 'primer_nombre' => $usuario->primer_nombre,
-                'segundo_nombre' => $usuario->segundo_nombre
+                'segundo_nombre' => $usuario->segundo_nombre,
+                'primer_apellido' => $usuario->primer_apellido,
+                'segundo_apellido' => $usuario->segundo_apellido,
+                'correo' => $usuario->correo,
+                'fecha_nacimiento' => $usuario->fecha_nacimiento,
+                'sexo' => $usuario->sexo,
+                'foto' => $path.$usuario->foto,
+                'dni' => $path.$usuario->dni,
+                'rol' => $rol->tipo
             );
 
+            //Creamos la sesión del usuario
+            $request->session()->put('key', $usuario->cedula);
+            $request->session()->put('data', $data);
 
-            //ACCIONES, SI ES ADMINISTRADOR, DIRECTOR, O USUARIO COMÚN
-            switch($rol->tipo){
-                case 'A':
-                    return Redirect::to('/admin/admin')->with('usuario', $data);
-                    break;
-                case 'D':
-                    return Redirect::to('director');
-                    break;
-                case 'U':
-                    return Redirect::to('profile');
-                break;
-            }
+            return View::make('profile', $data);
         }
         else{ // Si no existe el usuario o la contraseña es incorrecta
             Session::flash('message-error', 'Datos incorrectos');
@@ -113,8 +122,12 @@ class UsuarioController extends Controller
 
 
     public function cerrarSesion(){
-        session_destroy();
-        Redirect::to('index');
+
+        if (session()->has('key')){
+            session()->flush();
+            Session::flash('message', 'Ha cerrado sesión exitosamente');
+        }
+        return Redirect::to('/');
     }
 
 

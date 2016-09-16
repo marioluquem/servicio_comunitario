@@ -3,25 +3,32 @@
 namespace servicio_comunitario\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 use servicio_comunitario\Http\Requests;
 
 class RutasController extends Controller
 {
     public function getAdminPage(){
-        return view('/admin/admin');
+        return view('admin');
     }
     public function getProfilePage(){
-        return view('profile');
+        if(session()->has('data')){
+            $data = session('data');
+            return View::make('profile', $data);
+        }
+        else{
+            return view('profile');
+        }
     }
     public function getDirectorPage(){
         return view('director');
     }
     public function getLoginPage(){
-        return view('/usuario/login');
+        return view('login');
     }
     public function getRegisterPage(){
-        return view('/usuario/registro');
+        return view('registro');
     }
     public function getCalendarPage(){
         return view('calendar');

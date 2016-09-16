@@ -27,7 +27,7 @@
 
 
 @section('content')
-	<h1>BIENVENIDO ADMINISTRADOR {{ $usuario }}</h1>
+	<h1>BIENVENIDO ADMINISTRADOR  {{ $nombre_usuario }}</h1>
 @stop
 
 

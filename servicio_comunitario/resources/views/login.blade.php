@@ -40,7 +40,7 @@
 				<div class="login-wrapper">
 			        <div class="box">
 			            <div class="content-wrap">
-							{!! Form::open(array('url'=>'/usuario/login', 'method'=>'POST', 'id'=>'formulario_login')) !!}
+							{!! Form::open(array('url'=>'login', 'method'=>'POST', 'id'=>'formulario_login')) !!}
 			                <h6>Inicio de Sesión</h6>
 			                <div class="social">
 	                            <a class="face_login" href="#">
@@ -69,7 +69,7 @@
 			        <div class="already">
 			            <p>Aún no tienes una cuenta? Ingresa aquí </p>
 			            <!--suppress HtmlUnknownTarget -->
-						<a href="registro.php">Registrarse</a>
+						<a href={{  route('registro') }}>Registrarse</a>
 			        </div>
 			    </div>
 			</div>

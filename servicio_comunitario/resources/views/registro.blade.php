@@ -52,7 +52,7 @@
                 <div class="login-wrapper">
                     <div class="box">
                         <div class="content-wrap">
-                            {!!Form::open(array('url'=>'usuario/registrar', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
+                            {!!Form::open(array('url'=>'registrar', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
                                 <div class="form-group">
                                     {!!Form::text('cedula', null, array('class'=>'form-control','placeholder'=>'Ingrese cédula','id'=>'cedula', 'onchange' => 'validar_campo_numerico(this.id)'))!!}
 

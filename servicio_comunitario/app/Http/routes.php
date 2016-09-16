@@ -14,7 +14,7 @@
 //Enrutamiento al index --------------------------------------------------------------------------
 Route::get('/', [
     'uses' => function(){
-        return view("index");
+        return view('index');
     },
     'as' => 'index'
 ]);
@@ -22,9 +22,9 @@ Route::get('/', [
 //Lecturas de Formularios ------------------------------------------------------------------------
 
 //Registro
-Route::post('/usuario/registrar', 'UsuarioController@registrarUsuario');
+Route::post('registrar', 'UsuarioController@registrarUsuario');
 //Login
-Route::post('/usuario/login','UsuarioController@validarUsuario');
+Route::post('login','UsuarioController@validarUsuario');
 
 //Logout
 Route::get('logout',['uses'=>'UsuarioController@cerrarSesion', 'as' =>'logout']);
@@ -41,7 +41,7 @@ Route::get('forms',['uses'=>'RutasController@getFormsPage', 'as'=>'forms']);
 
 //Rutas que necesitan autentificación--------------------------------------------------------
 //Route::get('profile.php',['middleware'=>'UsuarioController@validarUsuario', 'uses'=>'RutasController@getProfilePage']);
-Route::get('/usuario/profile',['uses'=>'RutasController@getProfilePage', 'as' =>'profile']);
-Route::get('/admin/admin',['uses'=>'RutasController@getAdminPage', 'as'=>'admin']);
-Route::get('/director/director',['uses'=>'RutasController@getDirectorPage', 'as'=>'director']);
+Route::get('profile',['uses'=>'RutasController@getProfilePage', 'as' =>'profile']);
+Route::get('admin',['uses'=>'RutasController@getAdminPage', 'as'=>'admin']);
+Route::get('director',['uses'=>'RutasController@getDirectorPage', 'as'=>'director']);
 
