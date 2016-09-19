@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use League\Flysystem\Exception;
 use servicio_comunitario\Http\Requests\LoginRequest;
 
 use servicio_comunitario\Http\Requests;
@@ -21,18 +22,17 @@ class UsuarioController extends Controller
     {
 
         //Obtiene el nombre de los archivos (imágenes)
-        $imageName = $request->file('foto');
-        $nombre_foto = $imageName->getClientOriginalName();
+        $archivoFoto = $request->file('foto');
+        $nombre_foto = $archivoFoto->getClientOriginalName();
         $key =  $request['cedula']."/". $nombre_foto;
 
         $archivoDNI = $request->file('dni');
         $nombre_dni = $archivoDNI->getClientOriginalName();
         $key2 =  $request['cedula']."/". $nombre_dni;
 
-
         //Guardamos las imágenes en disco local
-        \Storage::disk('images')->put($key,file_get_contents($request->file('foto')));
-        \Storage::disk('images')->put($key2,file_get_contents($request->file('dni')));
+        \Storage::disk('images')->put($key,file_get_contents($archivoFoto));
+        \Storage::disk('images')->put($key2,file_get_contents($archivoDNI));
 
         //Cambiamos el formato de la fecha para adecuarlo a la BD
         $date = date("Y-m-d", strtotime($request['fecha_nacimiento']));
@@ -94,7 +94,6 @@ class UsuarioController extends Controller
 
             //Arreglamos la data para regresarla
             $data =  array(
-
                 'nombre_usuario' => $usuario->usuario,
                 'primer_nombre' => $usuario->primer_nombre,
                 'segundo_nombre' => $usuario->segundo_nombre,
@@ -120,6 +119,37 @@ class UsuarioController extends Controller
         }
     }
 
+
+    public function actualizarUsuario(Request $request){
+        try{
+            DB::table('USUARIO')->where('cedula', $request->cedula)
+                ->update([
+                    'cedula' => $request->cedula,
+                    'primer_nombre' => $request->primer_nombre,
+                    'primer_apellido' => $request->primer_apellido,
+                    'correo' => $request->correo,
+                    'sexo' =>  $request->sexo
+                ]);
+            Session::flash('message', 'Se ha actualizado con éxito');
+        }catch (Exception $e){
+            Session::flash('message-error', 'No se pudo actualizar');
+        }
+        return Redirect::to('manageUsers');
+
+
+
+    }
+
+
+    public function eliminarUsuario($cedula){
+        try{
+            DB::table('USUARIO')->where('cedula', $cedula)->delete();
+            Session::flash('message', 'Usuario eliminado satisfactoriamente');
+        }catch (Exception $e){
+            Session::flash('message-error', 'No se pudo eliminar al usuario');
+        }
+        return Redirect::to('manageUsers');
+    }
 
     public function cerrarSesion(){
 

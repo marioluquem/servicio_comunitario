@@ -22,12 +22,17 @@ Route::get('/', [
 //Lecturas de Formularios ------------------------------------------------------------------------
 
 //Registro
-Route::post('registrar', 'UsuarioController@registrarUsuario');
+
 //Login
 Route::post('login','UsuarioController@validarUsuario');
-
 //Logout
 Route::get('logout',['uses'=>'UsuarioController@cerrarSesion', 'as' =>'logout']);
+
+
+//Gestion de Usuarios
+Route::post('registrar', 'UsuarioController@registrarUsuario');
+Route::post('updateUser', ['uses' => 'UsuarioController@actualizarUsuario', 'as' => 'updateUser']);
+Route::get('deleteUser/{cedula}', ['uses' => 'UsuarioController@eliminarUsuario', 'as' => 'deleteUser']);
 
 //Enrutamiento entre páginas, a través de controllers ---------------------------------------
 Route::get('registro',['uses'=>'RutasController@getRegisterPage', 'as'=>'registro']);
@@ -38,6 +43,11 @@ Route::get('tables',['uses'=>'RutasController@getTablesPage', 'as'=>'tables']);
 Route::get('buttons',['uses'=>'RutasController@getButtonsPage', 'as'=>'buttons']);
 Route::get('editors',['uses'=>'RutasController@getEditorsPage', 'as'=>'editors']);
 Route::get('forms',['uses'=>'RutasController@getFormsPage', 'as'=>'forms']);
+
+//CRUD
+Route::get('createUser', ['uses' => 'RutasController@getCreateUser', 'as' => 'createUser']);
+Route::get('manageUsers', ['uses' => 'RutasController@getManageUsers', 'as' => 'manageUsers']);
+Route::get('detailUser/{cedula}', ['uses' => 'RutasController@getDetailUser', 'as' => 'detailUser']);
 
 //Rutas que necesitan autentificación--------------------------------------------------------
 //Route::get('profile.php',['middleware'=>'UsuarioController@validarUsuario', 'uses'=>'RutasController@getProfilePage']);

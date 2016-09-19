@@ -2,15 +2,17 @@
 
 namespace servicio_comunitario\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 
 use servicio_comunitario\Http\Requests;
 
 class RutasController extends Controller
 {
+
+    //--------------------------NORMAL PAGES----------------------------
     public function getAdminPage(){
-        return view('admin');
+        return view('CRUD');
     }
     public function getProfilePage(){
         if(session()->has('data')){
@@ -48,4 +50,25 @@ class RutasController extends Controller
     public function getFormsPage(){
         return view('forms');
     }
+
+    //---------------------------CRUDS ADMIN-------------------------------
+
+    public function getCreateUser(){
+        return view('userCRUD/createUser');
+    }
+
+    public function getDetailUser($cedula){
+
+        if ($cedula != null){
+            $user = DB::table('USUARIO')->select('*')->where('cedula', $cedula)->get();
+            return View::make('userCRUD/detailUser', array('data' => $user));
+        }
+    }
+
+    public function getManageUsers(){
+        $users = DB::table('USUARIO')->select('*')->get();
+        return View::make('userCRUD/manageUsers', array('data' =>$users));
+    }
+
+
 }

@@ -26,7 +26,7 @@
                 showAnim: "slideDown",
                 showButtonPanel: true,
                 showMonthAfterYear: true,
-                yearRange: "1970:2030"
+                yearRange: "1930:2050"
             });
         } );
     </script>
@@ -114,6 +114,9 @@
     </script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed, HtmlUnknownTarget -->
+    {!!Html::script('https://code.jquery.com/jquery.js')!!}
+            <!-- jQuery UI -->
+    {!!Html::script('https://code.jquery.com/ui/1.10.3/jquery-ui.js')!!}
     <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
     <script src="js/bootstrap.min.js"></script>
 
