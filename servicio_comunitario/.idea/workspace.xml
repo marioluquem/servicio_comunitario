@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab0f6765-bdc5-4ff8-87d2-66d4743ffc15" name="Default" comment="Tercer Commit:&#10;- Pestaña &quot;Usuarios&quot; creada en el administrador.&#10;- Se creó un menú diferente para cada usuario: admin, director, usuario regular.&#10;- Se creó la opción &quot;crear usuario&quot; en admin.&#10;- Se creó la opción &quot;gestionar usuarios&quot; en admin, edita y elimina usuarios.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/CRUD/createTeam.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/CRUD/createUniversity.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/CRUD/detailUniv.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/CRUD/manageTeams.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/CRUD/manageUniversities.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/registro.blade.php" afterPath="$PROJECT_DIR$/resources/views/register.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/userCRUD/createUser.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/createUser.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/userCRUD/detailUser.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/detailUser.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/userCRUD/manageUsers.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/manageUsers.blade.php" />
+    <list default="true" id="ab0f6765-bdc5-4ff8-87d2-66d4743ffc15" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/RutasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/RutasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" />
     </list>
     <ignored path="servicio_comunitario.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -587,16 +572,23 @@
       <option name="project" value="LOCAL" />
       <updated>1474322005940</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Cuarto Commit:&#10;- creacion y gestion de usuarios&#10;- creacion y gestion de universidades&#10;- creacion y gestion de equipos&#10;Faltan :&#10;-cuando se cambie una disciplina al crear equipo que filtre las modalidades.&#10;-realizar el detalle de cada equipo para editarlo&#10;-opcion de asignar entrenador a un determinado equipo&#10;-realizar los arreglos en los query para que cuando se ingrese como director,&#10;solo muestre las cosas de SU universidad y le permita crear equipos de SU &#10;universidad etc.">
+      <created>1474939373708</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1474939373708</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27891654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23501578" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -605,7 +597,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23501578" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -632,7 +623,8 @@
     <MESSAGE value="Primer commit: probando cambios para obtener la data desde el controller hacia la vista" />
     <MESSAGE value="Segundo Commit:&#10;- Registro exitoso (con imágenes almacenadas)&#10;- Login exitoso con distintos usuarios&#10;- Se quitó el submenú izquierdo que contenía &quot;login&quot; y &quot;registro&quot;&#10;- Se colocó en la esquina superior derecha el menú &quot;Mi Cuenta&quot;&#10;- Se creó y se almacenó la session en el UsuarioController al iniciar sesión.&#10;- Se colocó una validación en el main.blade que cambia el menú &quot;Mi Cuenta&quot; dependiendo de si hay una sesión iniciada o no. Si hay sesión muestra : &quot;Mi perfil&quot; y &quot;Cerrar Sesión&quot;, si no hay sesión muestra: &quot;Iniciar Sesión&quot; y &quot;Registrarse&quot;&#10;- Se agrego el método &quot;cerrarSesion()&quot; al UsuarioController." />
     <MESSAGE value="Tercer Commit:&#10;- Pestaña &quot;Usuarios&quot; creada en el administrador.&#10;- Se creó un menú diferente para cada usuario: admin, director, usuario regular.&#10;- Se creó la opción &quot;crear usuario&quot; en admin.&#10;- Se creó la opción &quot;gestionar usuarios&quot; en admin, edita y elimina usuarios." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tercer Commit:&#10;- Pestaña &quot;Usuarios&quot; creada en el administrador.&#10;- Se creó un menú diferente para cada usuario: admin, director, usuario regular.&#10;- Se creó la opción &quot;crear usuario&quot; en admin.&#10;- Se creó la opción &quot;gestionar usuarios&quot; en admin, edita y elimina usuarios." />
+    <MESSAGE value="Cuarto Commit:&#10;- creacion y gestion de usuarios&#10;- creacion y gestion de universidades&#10;- creacion y gestion de equipos&#10;Faltan :&#10;-cuando se cambie una disciplina al crear equipo que filtre las modalidades.&#10;-realizar el detalle de cada equipo para editarlo&#10;-opcion de asignar entrenador a un determinado equipo&#10;-realizar los arreglos en los query para que cuando se ingrese como director,&#10;solo muestre las cosas de SU universidad y le permita crear equipos de SU &#10;universidad etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cuarto Commit:&#10;- creacion y gestion de usuarios&#10;- creacion y gestion de universidades&#10;- creacion y gestion de equipos&#10;Faltan :&#10;-cuando se cambie una disciplina al crear equipo que filtre las modalidades.&#10;-realizar el detalle de cada equipo para editarlo&#10;-opcion de asignar entrenador a un determinado equipo&#10;-realizar los arreglos en los query para que cuando se ingrese como director,&#10;solo muestre las cosas de SU universidad y le permita crear equipos de SU &#10;universidad etc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -876,6 +868,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.555555">
           <caret line="42" column="95" selection-start-line="42" selection-start-column="95" selection-end-line="42" selection-end-column="95" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -890,6 +883,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.5555553">
           <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
