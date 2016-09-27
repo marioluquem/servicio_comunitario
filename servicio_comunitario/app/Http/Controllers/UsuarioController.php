@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use League\Flysystem\Exception;
 use servicio_comunitario\Http\Requests\LoginRequest;
-
 use servicio_comunitario\Http\Requests;
 
 class UsuarioController extends Controller
@@ -43,11 +42,11 @@ class UsuarioController extends Controller
 
        if ($existeCedula != null){
             Session::flash('message-error', 'La cédula ya está registrada en el Sistema');
-            return Redirect::to('registro');
+            return Redirect::to('register');
         }
         else{
-            DB::table('USUARIO')->insert(
-                [
+            try{
+                DB::table('USUARIO')->insert([
                     'cedula'=>$request['cedula'],
                     'usuario'=>$request['usuario'],
                     'password'=>password_hash($request['password'], PASSWORD_DEFAULT),
@@ -61,10 +60,13 @@ class UsuarioController extends Controller
                     'foto'=>$nombre_foto,
                     'dni'=>$nombre_dni,
                     'fk_rol'=>3
-                ]
-            );
+                ]);
 
-            Session::flash('message', 'Se ha registrado satisfactoriamente');
+
+                Session::flash('message', 'Se ha registrado satisfactoriamente');
+            }catch (Exception $e){
+                Session::flash('message-error', 'Hubo un problema SQL');
+            }
             return Redirect::to('/');
         }
 
@@ -121,22 +123,23 @@ class UsuarioController extends Controller
 
 
     public function actualizarUsuario(Request $request){
-        try{
-            DB::table('USUARIO')->where('cedula', $request->cedula)
+         try{
+
+            DB::table('USUARIO')
+                ->where('USUARIO.cedula', '=', $request->cedula)
                 ->update([
-                    'cedula' => $request->cedula,
-                    'primer_nombre' => $request->primer_nombre,
-                    'primer_apellido' => $request->primer_apellido,
-                    'correo' => $request->correo,
-                    'sexo' =>  $request->sexo
+                    'USUARIO.cedula' => $request->cedula,
+                    'USUARIO.primer_nombre' => $request->primer_nombre,
+                    'USUARIO.primer_apellido' => $request->primer_apellido,
+                    'USUARIO.fk_rol' =>$request->rol,
+                    'USUARIO.correo' => $request->correo,
+                    'USUARIO.sexo' =>  $request->sexo
                 ]);
             Session::flash('message', 'Se ha actualizado con éxito');
         }catch (Exception $e){
             Session::flash('message-error', 'No se pudo actualizar');
         }
         return Redirect::to('manageUsers');
-
-
 
     }
 

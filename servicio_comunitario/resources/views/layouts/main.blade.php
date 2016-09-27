@@ -44,7 +44,7 @@
 	                        <ul class="dropdown-menu animated fadeInUp">
 								@if(session()->get('key', null) == null)
 	                          		<li><a href={{ route('login') }}>Iniciar Sesión</a></li>
-	                          		<li><a href="{{ route('registro') }}">Registrarse</a></li>
+	                          		<li><a href="{{ route('register') }}">Registrarse</a></li>
 								@else
 									<li><a href={{ route('profile') }}>Mi Perfil</a></li>
 									<li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
@@ -76,12 +76,32 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createUser') }}>Nuevo Usuario</a></li>
-								<li><a href={{ Route('manageUsers') }}>Gestionar Usuarios</a></li>
+								<li><a href={{ Route('createUser') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Usuario</a></li>
+								<li><a href={{ Route('manageUsers') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Usuarios</a></li>
 							</ul>
 						</li>
-						<li><a href={{ Route('editors') }}><i class="glyphicon glyphicon-pencil"></i> Editors Admin</a></li>
-						<li><a href={{ Route('forms') }}><i class="glyphicon glyphicon-tasks"></i> Forms Admin</a></li>
+						<li class="submenu">
+							<a href="#">
+								<i class="glyphicon glyphicon-list"></i> Universidades
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href={{ Route('createUniversity') }}><i class="glyphicon glyphicon-pencil"></i> Nueva Universidad</a></li>
+								<li><a href={{ Route('manageUniversities') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Universidades</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="glyphicon glyphicon-list"></i> Equipos
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Equipo</a></li>
+								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Equipos</a></li>
+							</ul>
+						</li>
 					</ul>
 				@elseif(session()->get('data')['rol'] == 'D') <!--PESTAÑAS DEL DIRECTOR -->
 					<ul class="nav">

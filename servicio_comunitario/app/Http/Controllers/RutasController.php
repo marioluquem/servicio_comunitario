@@ -30,7 +30,7 @@ class RutasController extends Controller
         return view('login');
     }
     public function getRegisterPage(){
-        return view('registro');
+        return view('register');
     }
     public function getCalendarPage(){
         return view('calendar');
@@ -54,21 +54,67 @@ class RutasController extends Controller
     //---------------------------CRUDS ADMIN-------------------------------
 
     public function getCreateUser(){
-        return view('userCRUD/createUser');
+        return view('CRUD/createUser');
     }
 
     public function getDetailUser($cedula){
 
         if ($cedula != null){
-            $user = DB::table('USUARIO')->select('*')->where('cedula', $cedula)->get();
-            return View::make('userCRUD/detailUser', array('data' => $user));
+            $user = DB::table('USUARIO')
+                ->select('*')->where('cedula', $cedula)->get();
+            return View::make('CRUD/detailUser', array('data' => $user));
         }
     }
 
     public function getManageUsers(){
-        $users = DB::table('USUARIO')->select('*')->get();
-        return View::make('userCRUD/manageUsers', array('data' =>$users));
+
+        //NO MUESTRA ADMINISTRADORES YA QUE LOS ADMIN NO TIENEN UNA UNIVERSIDAD DEFINIDA Y AQUI FILTRA POR UNIV
+        $users = DB::table('USUARIO')
+            ->join('ROL', 'USUARIO.fk_rol', '=', 'ROL.id')
+            ->join('USU_EQUI_UNI', 'USUARIO.cedula', '=', 'USU_EQUI_UNI.fk_usuario')
+            ->join('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id')
+            ->select('*')->get();
+        return View::make('CRUD/manageUsers', array('data' =>$users));
     }
 
+
+    public function getCreateUniversity(){
+        return view('CRUD/createUniversity');
+    }
+
+    public function getManageUniversities(){
+        $univ = DB::table('UNIVERSIDAD')
+            ->select('*')->get();
+        return View::make('CRUD/manageUniversities', array('data' =>$univ));
+    }
+
+    public function getDetailUniv($id){
+
+        if ($id != null){
+            $univ = DB::table('UNIVERSIDAD')->select('*')->where('id', $id)->get();
+            return View::make('CRUD/detailUniv', array('data' => $univ));
+        }
+    }
+
+    public function getCreateTeam(){
+        $univ = DB::table('UNIVERSIDAD')->select('*')->get();
+        $disciplinaNombre = DB::table('DISCIPLINA')->select('*')->get();
+        $disciplinaModalidad = $disciplinaNombre;
+        return View::make('CRUD/createTeam', array('univ' => $univ, 'disciplinaNombre' => $disciplinaNombre, 'disciplinaModalidad' => $disciplinaModalidad));
+    }
+
+    public function getManageTeams(){
+        $equipos = DB::table('EQUIPO')
+            ->join('USU_EQUI_UNI', 'EQUIPO.id', '=', 'USU_EQUI_UNI.fk_equipo')
+            ->join('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id')
+            ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id')
+            ->select('*')->get();
+
+        return View::make('CRUD/manageTeams', array('equipos' => $equipos));
+    }
+
+    public function getDetailTeam($id){
+
+    }
 
 }

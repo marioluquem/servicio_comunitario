@@ -39,7 +39,8 @@
             <div class="row">
                 <div class="box">
                     <div class="content-wrap">
-                        {!!Form::open(array('url'=>'registrar', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
+                        {!!Form::open(array('url'=>'register', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="form-group">
                             {!!Form::text('cedula', null, array('class'=>'form-control','placeholder'=>'Ingrese cédula','id'=>'cedula', 'onchange' => 'validar_campo_numerico(this.id)'))!!}
                             <br>

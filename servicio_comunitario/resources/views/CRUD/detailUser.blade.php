@@ -36,23 +36,47 @@
                             @foreach($data as $user)
                                 <div class="content-wrap">
                                 <div class="form-group">
+                                    <label for="">Cédula</label>
                                     <input class="form-control" type="number" placeholder="cédula" name="cedula" value="{{ $user->cedula }}">
                                     <br>
+                                    <label for="">Primer Nombre</label>
                                     <input class="form-control" type="text" placeholder="primer nombre" name="primer_nombre" value="{{$user->primer_nombre}}">
                                     <br>
+                                    <label for="">Primer Apellido</label>
                                     <input class="form-control" type="text" placeholder="primer apellido" name="primer_apellido" value="{{$user->primer_apellido}}">
                                     <br>
+                                    <label for="">Rol</label>
+                                    <select name="rol" class="form-control">
+                                        @if($user->fk_rol == 1)
+                                            <option value="1" selected>Administrador</option>
+                                        @else
+                                            <option value="1" selected>Administrador</option>
+                                        @endif
+                                        @if($user->fk_rol == 2)
+                                            <option value="2" selected>Director</option>
+                                        @else
+                                            <option value="2" >Director</option>
+                                        @endif
+                                        @if($user->fk_rol == 3)
+                                            <option value="3" selected>Usuario común</option>
+                                        @else
+                                            <option value="3">Usuario común</option>
+                                        @endif
+                                    </select>
+                                    <br>
+                                    <label for="">Universidad</label>
                                     <input class="form-control" type="text" placeholder="universidad" name="universidad" value="Universidad">
                                     <br>
+                                    <label for="">Correo</label>
                                     <input class="form-control" type="email" placeholder="correo" name="correo" value="{{ $user->correo }}">
                                     <br>
                                     {!!Form::label('Género: ', null, array('style'=>'font-size:14px;'))!!}
                                     @if( $user->sexo == 'm')
-                                    {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'm', array('class'=>'genero', 'style' =>'margin-left: 4px; margin-right: 4px;','checked'))!!}
-                                    {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'f', array('class'=>'genero',  'style' =>'margin-left: 4px; margin-right: 4px;'))!!}
-                                    @else
-                                     {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'm', array('class'=>'genero',  'style' =>'margin-left: 4px; margin-right: 4px;'))!!}
-                                     {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'f', array('class'=>'genero',  'style' =>'margin-left: 4px; margin-right: 4px;', 'cheched'))!!}
+                                        {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="m" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
+                                        {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="f" class="genero"  style ="margin-left: 4px; margin-right: 4px;" >
+                                    @elseif ($user->sexo == 'f')
+                                        {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="m" class="genero"  style ="margin-left: 4px; margin-right: 4px;" >
+                                        {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="f" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
                                      @endif
                                     <br>
                                     <input type="submit" class="btn btn-primary" value="Guardar Cambios" onclick="javascript:validar_formulario()">

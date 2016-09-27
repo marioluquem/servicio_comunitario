@@ -52,7 +52,7 @@
                 <div class="login-wrapper">
                     <div class="box">
                         <div class="content-wrap">
-                            {!!Form::open(array('url'=>'registrar', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
+                            {!!Form::open(array('url'=>'register', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
                                 <div class="form-group">
                                     {!!Form::text('cedula', null, array('class'=>'form-control','placeholder'=>'Ingrese cédula','id'=>'cedula', 'onchange' => 'validar_campo_numerico(this.id)'))!!}
 
@@ -70,6 +70,7 @@
                                     
                                     {!!Form::email('correo', null, array('class'=>'form-control','placeholder'=>'Ingrese dirección de correo','id'=>'correo', 'onchange' => 'validar_correo(this.id)'))!!}
                                     <br>
+
                                     {!!Form::label('Género: ', null, array('style'=>'font-size:14px;'))!!}
                                     {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'm', array('class'=>'genero', 'checked'))!!}
                                     {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'f', array('class'=>'genero'))!!}

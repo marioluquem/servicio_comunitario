@@ -28,14 +28,8 @@ Route::post('login','UsuarioController@validarUsuario');
 //Logout
 Route::get('logout',['uses'=>'UsuarioController@cerrarSesion', 'as' =>'logout']);
 
-
-//Gestion de Usuarios
-Route::post('registrar', 'UsuarioController@registrarUsuario');
-Route::post('updateUser', ['uses' => 'UsuarioController@actualizarUsuario', 'as' => 'updateUser']);
-Route::get('deleteUser/{cedula}', ['uses' => 'UsuarioController@eliminarUsuario', 'as' => 'deleteUser']);
-
 //Enrutamiento entre páginas, a través de controllers ---------------------------------------
-Route::get('registro',['uses'=>'RutasController@getRegisterPage', 'as'=>'registro']);
+Route::get('register',['uses'=>'RutasController@getRegisterPage', 'as'=>'register']);
 Route::get('login',['uses'=>'RutasController@getLoginPage', 'as'=>'login']);
 Route::get('calendar',['uses'=>'RutasController@getCalendarPage', 'as'=>'calendar']);
 Route::get('stats',['uses'=>'RutasController@getStatsPage', 'as'=>'stats']);
@@ -44,14 +38,52 @@ Route::get('buttons',['uses'=>'RutasController@getButtonsPage', 'as'=>'buttons']
 Route::get('editors',['uses'=>'RutasController@getEditorsPage', 'as'=>'editors']);
 Route::get('forms',['uses'=>'RutasController@getFormsPage', 'as'=>'forms']);
 
-//CRUD
-Route::get('createUser', ['uses' => 'RutasController@getCreateUser', 'as' => 'createUser']);
-Route::get('manageUsers', ['uses' => 'RutasController@getManageUsers', 'as' => 'manageUsers']);
-Route::get('detailUser/{cedula}', ['uses' => 'RutasController@getDetailUser', 'as' => 'detailUser']);
-
-//Rutas que necesitan autentificación--------------------------------------------------------
-//Route::get('profile.php',['middleware'=>'UsuarioController@validarUsuario', 'uses'=>'RutasController@getProfilePage']);
+//Rutas dependiendo del usuario--------------------------------------------------------
 Route::get('profile',['uses'=>'RutasController@getProfilePage', 'as' =>'profile']);
 Route::get('admin',['uses'=>'RutasController@getAdminPage', 'as'=>'admin']);
 Route::get('director',['uses'=>'RutasController@getDirectorPage', 'as'=>'director']);
+
+//Rutas de los CRUD------------------------------------------------------------------------
+//pagina crear usuario
+Route::get('createUser', ['uses' => 'RutasController@getCreateUser', 'as' => 'createUser']);
+//pagina editar usuarios
+Route::get('manageUsers', ['uses' => 'RutasController@getManageUsers', 'as' => 'manageUsers']);
+//pagina detalle usuario
+Route::get('detailUser/{cedula}', ['uses' => 'RutasController@getDetailUser', 'as' => 'detailUser']);
+//pagina crear universidad
+Route::get('createUniversity', ['uses' => 'RutasController@getCreateUniversity', 'as' => 'createUniversity']);
+//pagina editar universidades
+Route::get('manageUniversities', ['uses' => 'RutasController@getManageUniversities', 'as' => 'manageUniversities']);
+//pagina detalle universidad
+Route::get('detailUniv/{id}', ['uses' => 'RutasController@getDetailUniv', 'as' => 'detailUniv']);
+//pagina crear equipo
+Route::get('createTeam', ['uses' => 'RutasController@getCreateTeam', 'as' => 'createTeam']);
+//pagina editar equipos
+Route::get('manageTeams', ['uses' => 'RutasController@getManageTeams', 'as' => 'manageTeams']);
+//pagina detalle equipo
+Route::get('detailTeam', ['uses' => 'RutasController@getDetailTeam', 'as' => 'detailTeam']);
+
+//CRUD----------------------------------------------------------------------------------------------
+//crear usuario
+Route::post('register', ['uses' => 'UsuarioController@registrarUsuario', 'as' => 'register']);
+//actualizar usuario
+Route::post('updateUser', ['uses' => 'UsuarioController@actualizarUsuario', 'as' => 'updateUser']);
+//eliminar usuario
+Route::get('deleteUser/{cedula}', ['uses' => 'UsuarioController@eliminarUsuario', 'as' => 'deleteUser']);
+
+//crear universidad
+Route::post('createUniversity', ['uses' => 'UniversidadController@crearUniversidad', 'as' => 'createUniversity']);
+//actualizar universidad
+Route::post('updateUniv', ['uses' => 'UniversidadController@actualizarUniversidad', 'as' => 'updateUniv']);
+//eliminar universidad
+Route::get('deleteUniv/{id}', ['uses' => 'UniversidadController@eliminarUniversidad', 'as' => 'deleteUniv']);
+
+//crear equipo
+Route::post('createTeam', ['uses' => 'EquipoController@crearEquipo', 'as' => 'createTeam']);
+
+//eliminar equipo
+Route::get('deleteTeam/{id}', ['uses' => 'EquipoController@eliminarEquipo', 'as' => 'deleteTeam']);
+
+
+
 

@@ -52,7 +52,7 @@
 	                            </a>
 	                            <div class="division">
 	                                <hr class="left">
-	                                <span>o</span>
+	                                <span>o bien,</span>
 	                                <hr class="right">
 	                            </div>
 	                        </div>
@@ -69,7 +69,7 @@
 			        <div class="already">
 			            <p>Aún no tienes una cuenta? Ingresa aquí </p>
 			            <!--suppress HtmlUnknownTarget -->
-						<a href={{  route('registro') }}>Registrarse</a>
+						<a href={{  route('register') }}>Registrarse</a>
 			        </div>
 			    </div>
 			</div>
