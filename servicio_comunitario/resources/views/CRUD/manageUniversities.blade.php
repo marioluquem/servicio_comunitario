@@ -43,11 +43,11 @@
                 @foreach($data as $univ)
                 <tr class="odd gradeX" id="{{$univ->id}}" >
                     <td><a href="{{ route('detailUniv', array('id' => $univ->id)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
-                    <td class="center">{{ $univ->nombre }} <br> <img src="{{ asset('images/'.$univ->acronimo.'/'.$univ->imagen) }}" height="100px" width="200px"></td>
+                    <td class="center">{{ $univ->nombre_universidad }} <br> <img src="{{ asset('images/'.$univ->acronimo.'/'.$univ->imagen_universidad) }}" height="100px" width="200px"></td>
                     <td class="center">{{ $univ->acronimo}}</td>
                     <td class="center">{{ $univ->codigo_inscripcion}}</td>
-                    <td> {{ $univ->direccion }}</td>
-                    <td class="center">{{ $univ->rif}} </td>
+                    <td> {{ $univ->direccion_universidad }}</td>
+                    <td class="center">{{ $univ->rif_universidad}} </td>
                     <td><a href="{{ route('deleteUniv', array('id' => $univ->id)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                 </tr>
                 @endforeach

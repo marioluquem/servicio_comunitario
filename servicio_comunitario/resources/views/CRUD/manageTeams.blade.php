@@ -43,8 +43,8 @@
                         <tr class="odd gradeX" id="{{$equipo->id}}" >
                             <td><a href="{{ route('detailTeam', array('id' => $equipo->id)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
                             <td class="center">{{ $equipo->acronimo }}</td>
-                            <td class="center">{{ $equipo->nombreEquipo}}</td>
-                            <td class="center">{{ $equipo->nombre}}</td>
+                            <td class="center">{{ $equipo->nombre_equipo}}</td>
+                            <td class="center">{{ $equipo->nombre_disciplina}}</td>
                             <td> {{ $equipo->modalidad }}</td>
                             <td><a href="{{ route('deleteTeam', array('id' => $equipo->id)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                         </tr>

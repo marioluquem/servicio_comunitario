@@ -46,7 +46,7 @@
                                         <td><a href="{{ route('detailUser', array('cedula' => $user->cedula)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
                                         <td>{{ $user->cedula }} <br>  <img src="{{ asset('images/'.$user->cedula.'/'.$user->foto) }}" height="80px" width="80px"></td>
                                         <td>{{ $user->primer_nombre ." ". $user->primer_apellido }}</td>
-                                        <td>{{ $user->tipo}}</td>
+                                        <td>{{ $user->tipo_rol}}</td>
                                         <td> {{ $user->acronimo }}</td>
                                         <td class="center"> {{ $user->correo }}</td>
                                         <td class="center">{{ $user->sexo}} </td>

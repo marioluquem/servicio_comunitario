@@ -52,7 +52,7 @@
                 <div class="login-wrapper">
                     <div class="box">
                         <div class="content-wrap">
-                            {!!Form::open(array('url'=>'register', 'method'=>'post','files'=>'true','id'=>'formulario_registro'))!!}
+                            {!!Form::open(array('url'=>'register', 'method'=>'POST','files'=>'true','id'=>'formulario_registro'))!!}
                                 <div class="form-group">
                                     {!!Form::text('cedula', null, array('class'=>'form-control','placeholder'=>'Ingrese cédula','id'=>'cedula', 'onchange' => 'validar_campo_numerico(this.id)'))!!}
 
@@ -103,15 +103,26 @@
     
     <script>
         function validar_formulario(){
-            var listaCampos = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), $('#correo').val()];
+            //separamos los nombres de las imagenes de su URL para poder validar correctamente
+            var split1 = $('#foto').val().split('\\');
+            var nombreFoto = split1[split1.length-1].split('.')[0];
+            split1 = $('#dni').val().split('\\');
+            var nombreDNI = split1[split1.length-1].split('.')[0];
 
-            var no_vacios = validar_espacios_vacios(listaCampos);
+            //listas de campos a validar
+            var listaCamposValidarVacios = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), $('#correo').val(), nombreFoto, nombreDNI];
 
-            if (no_vacios){
+            var listaCamposValidarCaracteres = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), nombreFoto, nombreDNI];
+
+            //validaciones
+            var no_vacios = validar_espacios_vacios(listaCamposValidarVacios);
+            var no_caracteres_especiales = validar_caracteres_especiales(listaCamposValidarCaracteres);
+            var correo_ok = validar_correo('correo');
+
+            if (no_vacios && no_caracteres_especiales && correo_ok){
                 $('#formulario_registro').submit();
             }
         }
-
     </script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed, HtmlUnknownTarget -->

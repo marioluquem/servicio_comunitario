@@ -61,7 +61,7 @@ Route::get('createTeam', ['uses' => 'RutasController@getCreateTeam', 'as' => 'cr
 //pagina editar equipos
 Route::get('manageTeams', ['uses' => 'RutasController@getManageTeams', 'as' => 'manageTeams']);
 //pagina detalle equipo
-Route::get('detailTeam', ['uses' => 'RutasController@getDetailTeam', 'as' => 'detailTeam']);
+Route::get('detailTeam/{id}', ['uses' => 'RutasController@getDetailTeam', 'as' => 'detailTeam']);
 
 //CRUD----------------------------------------------------------------------------------------------
 //crear usuario
@@ -81,8 +81,14 @@ Route::get('deleteUniv/{id}', ['uses' => 'UniversidadController@eliminarUniversi
 //crear equipo
 Route::post('createTeam', ['uses' => 'EquipoController@crearEquipo', 'as' => 'createTeam']);
 
+//actualizar equipo
+Route::post('updateTeam', ['uses' => 'EquipoController@actualizarEquipo', 'as' => 'updateTeam']);
+
 //eliminar equipo
 Route::get('deleteTeam/{id}', ['uses' => 'EquipoController@eliminarEquipo', 'as' => 'deleteTeam']);
+
+//eliminar usuario de un equipo
+Route::get('deleteUserFromTeam/{idUser}/{nombreEquipo}', ['uses' => 'EquipoController@eliminarUsuarioDeEquipo', 'as' => 'deleteUserFromTeam']);
 
 
 

@@ -39,7 +39,7 @@
                                     <label class="control-label" style="font-size:14px;">Disciplina:</label>
                                     <select name="disciplina" id="disciplina" class="form-control">
                                         @foreach($disciplinaNombre as $disciplina)
-                                            <option value="{{$disciplina->id}}">{{$disciplina->nombre}}</option>
+                                            <option value="{{$disciplina->id}}">{{$disciplina->nombre_disciplina}}</option>
                                             @endforeach
                                     </select>
                                     <br>

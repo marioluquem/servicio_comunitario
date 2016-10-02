@@ -65,8 +65,12 @@
                                     </select>
                                     <br>
                                     <label for="">Universidad</label>
-                                    <input class="form-control" type="text" placeholder="universidad" name="universidad" value="Universidad">
-                                    <br>
+                                            @if($user->acronimo != null )
+                                                <input class="form-control" type="text" value="{{$user->acronimo}}" disabled/>
+                                            @else
+                                                <input class="form-control" type="text" value="No tiene Universidad" disabled/>
+                                            @endif
+                                   <br>
                                     <label for="">Correo</label>
                                     <input class="form-control" type="email" placeholder="correo" name="correo" value="{{ $user->correo }}">
                                     <br>
@@ -79,7 +83,7 @@
                                         {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="f" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
                                      @endif
                                     <br>
-                                    <input type="submit" class="btn btn-primary" value="Guardar Cambios" onclick="javascript:validar_formulario()">
+                                    <input type="submit" class="btn btn-primary" value="Guardar Cambios" onclick="validar_formulario()">
                                 </div>
                                 </div>
                             @endforeach

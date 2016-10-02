@@ -37,7 +37,7 @@
                         <div class="content-wrap">
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input class="form-control" type="text" placeholder="Nombre..." name="nombre" value="{{ $univ->nombre }}">
+                                <input class="form-control" type="text" placeholder="Nombre..." name="nombre" value="{{ $univ->nombre_universidad }}">
                                 <br>
                                 <label for="">Acrónimo</label>
                                 <input class="form-control" type="text" placeholder="Acrónimo..." name="acronimo" value="{{$univ->acronimo}}">
@@ -46,10 +46,10 @@
                                 <input class="form-control" type="text" placeholder="Código de Inscripción..." name="codigo_inscripcion" value="{{$univ->codigo_inscripcion}}">
                                 <br>
                                 <label for="">Dirección</label>
-                                <input class="form-control" type="text" placeholder="Dirección..." name="direccion" value="{{$univ->direccion}}">
+                                <input class="form-control" type="text" placeholder="Dirección..." name="direccion" value="{{$univ->direccion_universidad}}">
                                 <br>
                                 <label for="">Rif</label>
-                                <input class="form-control" type="text" placeholder="Rif......" name="rif" value="{{$univ->rif}}">
+                                <input class="form-control" type="text" placeholder="Rif......" name="rif" value="{{$univ->rif_universidad}}">
                                 <br>
                                 <input type="submit" class="btn btn-primary" value="Guardar Cambios">
                             </div>

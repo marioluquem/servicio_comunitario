@@ -29,9 +29,11 @@
                             return true;
                         case 'outlook.com':
                             return true;
+                        case 'yahoo.com':
+                            return true;
                     }
                     $("#"+id).val("");
-                    alert('Introduzca una extensión de correo válida (@hotmail.com, @outlook.com, @gmail.com).');
+                    alert('Introduzca una extensión de correo válida (@hotmail.com, @outlook.com, @gmail.com, @yahoo.com).');
                 }
                 if (i == campo.length){
                     $("#"+id).val("");
@@ -75,12 +77,27 @@
         }
 
 
-        function validar_caracteres_especiales(id) {
-            var campo = $("#"+id).val();
-            var characterReg = /[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
+        function validar_caracteres_especiales(lista) {
+            var characterReg = '[`~!@#$%^&*()_°¬|+-=?;:\',.<>{}[]\\/]';
 
-            if (characterReg.test(campo)) {
-                alert("caracteres especiales presentes")
-                $("#"+id).val(campo.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''));
+            for (var i= 0; i< lista.length; i++){
+                var campo = lista[i];
+                for(var j= 0;j<campo.length;j++){
+                    for (var k=0; k<characterReg.length;k++){
+                        if(campo[j] == characterReg[k]){
+                            alert("Favor eliminar los caracteres especiales presentes en campos y nombres de archivos: "+campo);
+                            return false;
+                        }
+                    }
+                }
             }
+            return true;
+
+           /* if (characterReg.test(campo)) {
+                alert("Favor eliminar los caracteres especiales presentes en campos y nombres de archivos")
+                $("#"+id).val(campo.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''));
+                return false;
+            }else{
+                return true;
+            }*/
         }

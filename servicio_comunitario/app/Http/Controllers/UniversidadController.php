@@ -43,12 +43,12 @@ class UniversidadController extends Controller
         }
         else{
             DB::table('UNIVERSIDAD')->insertGetId([
-                    'nombre' => $request->nombre,
+                    'nombre_universidad' => $request->nombre,
                     'acronimo' => $request->acronimo,
                     'codigo_inscripcion' => $codigoUniversidad,
-                    'direccion' => $request->direccion,
-                    'rif' => $request->rif,
-                    'imagen' => $nombre_foto
+                    'direccion_universidad' => $request->direccion,
+                    'rif_universidad' => $request->rif,
+                    'imagen_universidad' => $nombre_foto
             ]);
             Session::flash('message', 'Universidad creada exitosamente.');
             return Redirect::to('createUniversity');
@@ -63,11 +63,11 @@ class UniversidadController extends Controller
             DB::table('UNIVERSIDAD')
                 ->where('acronimo', '=', $request->acronimo)
                 ->update([
-                    'nombre' => $request->nombre,
+                    'nombre_universidad' => $request->nombre,
                     'acronimo' => $request->acronimo,
                     'codigo_inscripcion' => $request->codigo_inscripcion,
-                    'direccion' => $request->direccion,
-                    'rif' => $request->rif
+                    'direccion_universidad' => $request->direccion,
+                    'rif_universidad' => $request->rif
                 ]);
             Session::flash('message', 'Se actualizó correctamente.');
         }catch (Exception $e){
