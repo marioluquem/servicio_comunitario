@@ -28,7 +28,7 @@ CREATE TABLE UNIVERSIDAD(
 	codigo_inscripcion varchar(20) not null,
 	direccion_universidad text,
 	imagen_universidad text,
-	rif varchar(30)
+	rif_universidad varchar(30)
 );
 
 CREATE TABLE DISCIPLINA(
