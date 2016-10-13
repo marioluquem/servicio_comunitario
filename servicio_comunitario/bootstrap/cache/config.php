@@ -162,7 +162,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\framework/cache',
+        'path' => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/storage/framework/cache',
       ),
       'memcached' => 
       array (
@@ -255,18 +255,18 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\app',
+        'root' => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\app/public/storage',
+        'root' => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/storage/app/public/storage',
         'visibility' => 'public',
       ),
       'images' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\public/images',
+        'root' => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/public/images',
         'visibility' => 'public',
       ),
       's3' => 
@@ -370,7 +370,7 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\framework/sessions',
+    'files' => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'lottery' => 
@@ -388,8 +388,8 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\resources\\views',
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/resources/views',
     ),
-    'compiled' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\framework\\views',
+    'compiled' => '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/storage/framework/views',
   ),
 );
