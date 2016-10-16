@@ -21,9 +21,12 @@ class EquipoController extends Controller
 
             $idDisciplina = $request->disciplina;
 
+
             DB::table('EQUIPO')->insert([
                 'nombre_equipo' => $request->nombre,
-                'fk_disciplina' => $idDisciplina
+                'fk_disciplina' => $idDisciplina,
+                'genero'=> $request->genero
+
             ]);
 
             $idEquipo = DB::table('EQUIPO')->select('*')->where('nombre_equipo','=', $request->nombre)->first();
@@ -61,7 +64,7 @@ class EquipoController extends Controller
                 ->update([
                     'EQUIPO.nombre_equipo' => $request->nombre_equipo,
                     'DISCIPLINA.nombre_disciplina' => $request->nombre_disciplina,
-                    'DISCIPLINA.modalidad' => $request->modalidad,
+                    'EQUIPO.genero' => $request->genero,
                     'UNIVERSIDAD.acronimo' => $request->acronimo
                 ]);
         }catch (Exception $e){

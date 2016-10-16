@@ -34,7 +34,7 @@
                         <th>Universidad</th>
                         <th>Nombre</th>
                         <th>Disciplina</th>
-                        <th>Modalidad</th>
+                        <th>Categoría</th>
                         <th>Eliminar</th>
                     </tr>
                     </thead>
@@ -45,7 +45,7 @@
                             <td class="center">{{ $equipo->acronimo }}</td>
                             <td class="center">{{ $equipo->nombre_equipo}}</td>
                             <td class="center">{{ $equipo->nombre_disciplina}}</td>
-                            <td> {{ $equipo->modalidad }}</td>
+                            <td> {{ $equipo->genero }}</td>
                             <td><a href="{{ route('deleteTeam', array('id' => $equipo->id)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                         </tr>
                     @endforeach

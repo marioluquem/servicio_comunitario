@@ -43,10 +43,10 @@
                                             @endforeach
                                     </select>
                                     <br>
-                                    <select name="modalidad" id="modalidad" class="form-control">
-                                        @foreach($disciplinaModalidad as $disciplina)
-                                            <option value="{{$disciplina->modalidad}}">{{$disciplina->modalidad}}</option>
-                                        @endforeach
+                                    <label class="control-label" style="font-size:14px;">Categoria:</label>
+                                    <select name="genero" id="genero" class="form-control">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
                                     </select>
                                     <br>
                                     <label class="control-label" style="font-size:14px;">Nombre:</label>

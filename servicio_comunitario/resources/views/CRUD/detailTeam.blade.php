@@ -67,8 +67,11 @@
                                 <label for="">Disciplina</label>
                                 <input class="form-control" type="text" placeholder="Disciplina..." name="nombre_disciplina" value="{{$equipo->nombre_disciplina}}">
                                 <br>
-                                <label for="">Modalidad</label>
-                                <input class="form-control" type="text" placeholder="Modalidad..." name="modalidad" value="{{$equipo->modalidad}}">
+                                <label for="">Categoría</label>
+                                <select name="genero" id="genero" class="form-control">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
                                 <br>
                                 <label for="">Universidad</label>
                                 <input class="form-control" type="text" placeholder="Universidad..." name="acronimo" value="{{$equipo->acronimo}}">
