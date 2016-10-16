@@ -78,7 +78,7 @@
 
 
         function validar_caracteres_especiales(lista) {
-            var characterReg = '[`~!@#$%^&*()_°¬|+-=?;:\',.<>{}[]\\/]';
+            var characterReg = '[`~!@#$%^&*()°¬|+=?;:\',.<>{}[]\\/]';
 
             for (var i= 0; i< lista.length; i++){
                 var campo = lista[i];

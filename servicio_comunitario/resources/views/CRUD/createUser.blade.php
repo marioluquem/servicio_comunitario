@@ -94,7 +94,7 @@
         var nombreDNI = split1[split1.length-1].split('.')[0];
 
         //listas de campos a validar
-        var listaCamposValidarVacios = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), $('#correo').val(), nombreFoto, nombreDNI];
+        var listaCamposValidarVacios = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(),  $('#primer_apellido').val(), $('#segundo_apellido').val(), $('#correo').val(), nombreFoto, nombreDNI];
 
         var listaCamposValidarCaracteres = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), nombreFoto, nombreDNI];
 

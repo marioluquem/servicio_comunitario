@@ -72,8 +72,8 @@
                                     <br>
 
                                     {!!Form::label('Género: ', null, array('style'=>'font-size:14px;'))!!}
-                                    {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'm', array('class'=>'genero', 'checked'))!!}
-                                    {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'f', array('class'=>'genero'))!!}
+                                    {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'M', array('class'=>'genero', 'checked'))!!}
+                                    {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  {!!Form::radio('sexo', 'F', array('class'=>'genero'))!!}
                                     <br>
                                         <label class="control-label" style="font-size:14px;">Fecha de nacimiento:</label>
                                         <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
@@ -110,7 +110,7 @@
             var nombreDNI = split1[split1.length-1].split('.')[0];
 
             //listas de campos a validar
-            var listaCamposValidarVacios = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), $('#correo').val(), nombreFoto, nombreDNI];
+            var listaCamposValidarVacios = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(),  $('#primer_apellido').val(), $('#segundo_apellido').val(), $('#correo').val(), nombreFoto, nombreDNI];
 
             var listaCamposValidarCaracteres = [$('#cedula').val(), $('#usuario').val(), $('#password').val(), $('#primer_nombre').val(), $('#segundo_nombre').val(), $('#primer_apellido').val(), $('#segundo_apellido').val(), nombreFoto, nombreDNI];
 
