@@ -17,23 +17,19 @@ class EquipoController extends Controller
     public function crearEquipo(Request $request){
 
         try{
-            $idUniv = DB::table('UNIVERSIDAD')->select('*')->where('acronimo', '=', $request->universidad)->first();
-
-            $idDisciplina = $request->disciplina;
-
 
             DB::table('EQUIPO')->insert([
                 'nombre_equipo' => $request->nombre,
-                'fk_disciplina' => $idDisciplina,
-                'genero'=> $request->genero
+                'fk_disciplina' => $request->id_disciplina,
+                'genero_equipo'=> $request->genero
 
             ]);
 
-            $idEquipo = DB::table('EQUIPO')->select('*')->where('nombre_equipo','=', $request->nombre)->first();
+            $id_equipo = DB::table('EQUIPO')->select('*')->where('nombre_equipo','=', $request->nombre)->first();
 
             DB::table('USU_EQUI_UNI')->insert([
-                'fk_equipo' => $idEquipo->id,
-                'fk_universidad' => $idUniv->id
+                'fk_equipo' => $id_equipo->id_equipo,
+                'fk_universidad' => $request->id_universidad
             ]);
             Session::flash('message', 'Se creó el equipo exitosamente.');
         }catch (Exception $e){
@@ -49,23 +45,30 @@ class EquipoController extends Controller
 
     public function actualizarEquipo(Request $request){
         //Obtenemos el id de la Universidad-------------------------------------------------------------------------
-        $idUniv = DB::table('UNIVERSIDAD')->select('id')->where('acronimo', $request->acronimo)->first();
+        $id_universidad = $request->id_universidad;
 
         //Obtenemos el id del equipo--------------------------------------------------------------------------------
-        $idEquipo = DB::table('EQUIPO')->select('id')->where('nombre_equipo', $request->nombre_equipo)->first();
+        $id_equipo = $request->id_equipo;
+
 
         //actualizamos los datos del equipo--------------------------------------------------------------------------------
         try{
             DB::table('EQUIPO')
-                ->join('USU_EQUI_UNI','USU_EQUI_UNI.fk_equipo', '=','EQUIPO.id')
-                ->join('UNIVERSIDAD','UNIVERSIDAD.id', '=','USU_EQUI_UNI.fk_universidad')
-                ->join('DISCIPLINA','DISCIPLINA.id', '=','EQUIPO.fk_disciplina')
-                ->where('EQUIPO.id',  '=', $idEquipo->id)
+                ->join('USU_EQUI_UNI','USU_EQUI_UNI.fk_equipo', '=','EQUIPO.id_equipo')
+                ->join('UNIVERSIDAD','UNIVERSIDAD.id_universidad', '=','USU_EQUI_UNI.fk_universidad')
+                ->join('DISCIPLINA','DISCIPLINA.id_disciplina', '=','EQUIPO.fk_disciplina')
+                ->where('EQUIPO.id_equipo',  '=', $id_equipo)
                 ->update([
                     'EQUIPO.nombre_equipo' => $request->nombre_equipo,
-                    'DISCIPLINA.nombre_disciplina' => $request->nombre_disciplina,
-                    'EQUIPO.genero' => $request->genero,
-                    'UNIVERSIDAD.acronimo' => $request->acronimo
+                    'EQUIPO.fk_disciplina' => $request->id_disciplina,
+                    'EQUIPO.genero_equipo' => $request->genero_equipo
+                ]);
+
+            //actualizamos la universidad a la que está asociado
+            DB::table('USU_EQUI_UNI')
+                ->where('fk_equipo', '=', $id_equipo)
+                ->update([
+                    'fk_universidad' => $id_universidad
                 ]);
         }catch (Exception $e){
             Session::flash('message', 'No se pudo actualizar datos del equipo');
@@ -79,16 +82,16 @@ class EquipoController extends Controller
                     ->select('*')
                     ->where([
                         ['fk_usuario', '=', $request->cedulaNuevoUsuario1],
-                        ['fk_equipo', '=', $idEquipo->id],
-                        ['fk_universidad', '=', $idUniv->id]
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
                 if ($existeUsuario == null) // si no existe ese usuario en el equipo
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario1,
-                            'fk_equipo' => $idEquipo->id,
-                            'fk_universidad' => $idUniv->id
+                            'fk_equipo' => $id_equipo,
+                            'fk_universidad' => $id_universidad
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario1 . ' ya existe en el equipo');
@@ -101,15 +104,15 @@ class EquipoController extends Controller
                     ->select('*')
                     ->where([
                         ['fk_usuario', '=', $request->cedulaNuevoUsuario2],
-                        ['fk_equipo', '=', $idEquipo->id],
-                        ['fk_universidad', '=', $idUniv->id]
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad]
                     ])->get();
                 if ($existeUsuario == null) // si no existe ese usuario en el equipo
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario2,
-                            'fk_equipo' => $idEquipo->id,
-                            'fk_universidad' => $idUniv->id
+                            'fk_equipo' => $id_equipo,
+                            'fk_universidad' => $id_universidad
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario2 . ' ya existe en el equipo');
@@ -122,16 +125,16 @@ class EquipoController extends Controller
                     ->select('*')
                     ->where([
                         ['fk_usuario', '=', $request->cedulaNuevoUsuario3],
-                        ['fk_equipo', '=', $idEquipo->id],
-                        ['fk_universidad', '=', $idUniv->id]
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
                 if ($existeUsuario == null) // si no existe ese usuario en el equipo
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario3,
-                            'fk_equipo' => $idEquipo->id,
-                            'fk_universidad' => $idUniv->id
+                            'fk_equipo' => $id_equipo,
+                            'fk_universidad' => $id_universidad
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario3 . ' ya existe en el equipo');
@@ -144,16 +147,16 @@ class EquipoController extends Controller
                     ->select('*')
                     ->where([
                         ['fk_usuario', '=', $request->cedulaNuevoUsuario4],
-                        ['fk_equipo', '=', $idEquipo->id],
-                        ['fk_universidad', '=', $idUniv->id]
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
                 if ($existeUsuario == null) // si no existe ese usuario en el equipo
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario4,
-                            'fk_equipo' => $idEquipo->id,
-                            'fk_universidad' => $idUniv->id
+                            'fk_equipo' => $id_equipo,
+                            'fk_universidad' => $id_universidad
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario4 . ' ya existe en el equipo');
@@ -166,16 +169,16 @@ class EquipoController extends Controller
                     ->select('*')
                     ->where([
                         ['fk_usuario', '=', $request->cedulaNuevoUsuario5],
-                        ['fk_equipo', '=', $idEquipo->id],
-                        ['fk_universidad', '=', $idUniv->id]
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
                 if ($existeUsuario == null) // si no existe ese usuario en el equipo
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario5,
-                            'fk_equipo' => $idEquipo->id,
-                            'fk_universidad' => $idUniv->id
+                            'fk_equipo' => $id_equipo,
+                            'fk_universidad' => $id_universidad
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario5 . ' ya existe en el equipo');
@@ -188,8 +191,8 @@ class EquipoController extends Controller
                 //reseteamos todos los boolean de representante de ese equipo a 0
                 DB::table('USU_EQUI_UNI')
                     ->where([
-                        ['fk_equipo', '=', $request->idEquipo],
-                        ['fk_universidad', '=', $request->idUniv],
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad],
                         ['fk_usuario','!=', null]
                     ])
                     ->update([
@@ -200,8 +203,8 @@ class EquipoController extends Controller
                 DB::table('USU_EQUI_UNI')
                     ->where([
                         ['fk_usuario', '=', $request->representante],
-                        ['fk_equipo', '=', $request->idEquipo],
-                        ['fk_universidad', '=', $request->idUniv]
+                        ['fk_equipo', '=', $id_equipo],
+                        ['fk_universidad', '=', $id_universidad]
                     ])
                     ->update([
                             'representante' => 1
@@ -217,15 +220,14 @@ class EquipoController extends Controller
     }
 
 
-    public function eliminarUsuarioDeEquipo($idUser, $nombreEquipo){
-        //Obtenemos el id del equipo
-        $idEquipo = DB::table('EQUIPO')->select('id')->where('nombre_equipo', $nombreEquipo)->first();
+    public function eliminarUsuarioDeEquipo($cedula_usuario, $id_equipo){
+
         try{
 
            DB::table('USU_EQUI_UNI')
                ->where([
-                   ['fk_usuario','=', $idUser],
-                   ['fk_equipo','=',$idEquipo->id]
+                   ['fk_usuario','=', $cedula_usuario],
+                   ['fk_equipo','=',$id_equipo]
                ])
                ->delete();
            Session::flash('message', 'Se elimino satisfactoriamente');
@@ -235,7 +237,14 @@ class EquipoController extends Controller
         return Redirect::to('manageTeams');
     }
 
-    public function eliminarEquipo($id){
-
+    public function eliminarEquipo($id_equipo){
+        try{
+            DB::table('EQUIPO')->where('id_equipo', '=', $id_equipo)->delete();
+            DB::table('USU_EQUI_UNI')->where('fk_equipo', '=', $id_equipo)->delete();
+            Session::flash('message', 'Equipo eliminado satisfactoriamente');
+        }catch (Exception $e){
+            Session::flash('message-error', 'No se pudo eliminar el Equipo');
+        }
+        return Redirect::to('manageTeams');
     }
 }

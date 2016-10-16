@@ -47,9 +47,13 @@
                                 @foreach($jugadores as $jugador)
                                     <tr class="odd gradeX" id="{{$jugador->cedula}}" >
                                         <td><a href="{{ route('detailUser', array('id' => $jugador->cedula)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
-                                        <td class="center"><input type="radio" id="radio" name="radio" class="radio" value="{{$jugador->cedula}}" onclick="evaluarRepresentante({{$jugador->cedula}})"></td>
+                                        @if($jugador->representante == 1)
+                                            <td class="center"><input type="radio" id="radio" name="radio" class="radio" value="{{$jugador->cedula}}" onclick="evaluarRepresentante({{$jugador->cedula}})" checked></td>
+                                        @else
+                                            <td class="center"><input type="radio" id="radio" name="radio" class="radio" value="{{$jugador->cedula}}" onclick="evaluarRepresentante({{$jugador->cedula}})" checked></td>
+                                        @endif
                                         <td class="center">{{ $jugador->primer_nombre.' '.$jugador->primer_apellido.' '.$jugador->segundo_apellido}}</td>
-                                        <td><a href="{{ route('deleteUserFromTeam', array('idUser' => $jugador->cedula, 'nombreEquipo' => $equipo->nombre_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
+                                        <td><a href="{{ route('deleteUserFromTeam', array('cedula_usuario' => $jugador->cedula, 'id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -58,23 +62,44 @@
                         <br>
                     {!!Form::open(array('url'=>'updateTeam', 'method'=>'post','id'=>'formulario_update'))!!}
                         <input type="hidden" name="representante" id="representante" value="0"/>
-                        <input type="hidden" name="nombreEquipo" id="nombreEquipo" value="{{$equipo->nombre_equipo}}"/>
+                        <input type="hidden" name="id_equipo" id="id_equipo" value="{{$equipo->id_equipo}}"/>
                         <div class="content-wrap">
                             <div class="form-group">
                                 <label for="">Nombre</label>
                                 <input class="form-control" type="text" placeholder="Nombre..." name="nombre_equipo" value="{{ $equipo->nombre_equipo }}">
                                 <br>
                                 <label for="">Disciplina</label>
-                                <input class="form-control" type="text" placeholder="Disciplina..." name="nombre_disciplina" value="{{$equipo->nombre_disciplina}}">
+                                <select name="id_disciplina" id="id_disciplina" class="form-control">
+                                    @foreach($disciplinas as $disciplina)
+                                        @if($equipo->nombre_disciplina == $disciplina->nombre_disciplina)
+                                            <option value="{{$disciplina->id_disciplina}}" selected>{{$disciplina->nombre_disciplina}}</option>
+                                        @else
+                                            <option value="{{$disciplina->id_disciplina}}">{{$disciplina->nombre_disciplina}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                                 <br>
                                 <label for="">Categoría</label>
-                                <select name="genero" id="genero" class="form-control">
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Femenino">Femenino</option>
+                                <select name="genero_equipo" id="genero_equipo" class="form-control">
+                                    @if($equipo->genero_equipo == 'M')
+                                        <option value="M" selected>Masculino</option>
+                                        <option value="F">Femenino</option>
+                                    @else
+                                        <option value="M">Masculino</option>
+                                        <option value="F" selected>Femenino</option>
+                                    @endif
                                 </select>
                                 <br>
                                 <label for="">Universidad</label>
-                                <input class="form-control" type="text" placeholder="Universidad..." name="acronimo" value="{{$equipo->acronimo}}">
+                                <select name="id_universidad" id="id_universidad" class="form-control">
+                                    @foreach($universidades as $univ)
+                                        @if($equipo->acronimo == $univ->acronimo)
+                                            <option value="{{$univ->id_universidad}}" selected>{{$univ->acronimo}}</option>
+                                        @else
+                                            <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                                 <br>
                                 <label for="">Insertar nuevos jugadores en el equipo</label>
                                 <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario1" value="">

@@ -30,23 +30,23 @@
                                 <div class="form-group">
 
                                     <label class="control-label" style="font-size:14px;">Universidad:</label>
-                                    <select name="universidad" id="universidad" class="form-control">
+                                    <select name="id_universidad" id="id_universidad" class="form-control">
                                         @foreach($univ as $univ)
-                                        <option value="{{$univ->acronimo}}">{{$univ->acronimo}}</option>
+                                        <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
                                         @endforeach
                                     </select>
                                     <br>
                                     <label class="control-label" style="font-size:14px;">Disciplina:</label>
-                                    <select name="disciplina" id="disciplina" class="form-control">
+                                    <select name="id_disciplina" id="id_disciplina" class="form-control">
                                         @foreach($disciplinaNombre as $disciplina)
-                                            <option value="{{$disciplina->id}}">{{$disciplina->nombre_disciplina}}</option>
+                                            <option value="{{$disciplina->id_disciplina}}">{{$disciplina->nombre_disciplina}}</option>
                                             @endforeach
                                     </select>
                                     <br>
                                     <label class="control-label" style="font-size:14px;">Categoria:</label>
                                     <select name="genero" id="genero" class="form-control">
-                                        <option value="Masculino">Masculino</option>
-                                        <option value="Femenino">Femenino</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
                                     </select>
                                     <br>
                                     <label class="control-label" style="font-size:14px;">Nombre:</label>

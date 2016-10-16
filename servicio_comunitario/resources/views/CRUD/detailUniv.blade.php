@@ -34,6 +34,7 @@
                 <div class="panel-body">
                     {!!Form::open(array('url'=>'updateUniv', 'method'=>'post','id'=>'formulario_update'))!!}
                     @foreach($data as $univ)
+                        <input type="hidden" name="id_universidad" id="id_universidad" value="{{$univ->id_universidad}}">
                         <div class="content-wrap">
                             <div class="form-group">
                                 <label for="">Nombre</label>

@@ -61,7 +61,7 @@ class UniversidadController extends Controller
 
         try{
             DB::table('UNIVERSIDAD')
-                ->where('acronimo', '=', $request->acronimo)
+                ->where('id_universidad', '=', $request->id_universidad)
                 ->update([
                     'nombre_universidad' => $request->nombre,
                     'acronimo' => $request->acronimo,
@@ -77,9 +77,20 @@ class UniversidadController extends Controller
     }
 
 
-    public function eliminarUniversidad($id){
+    public function eliminarUniversidad($id_universidad){
         try{
-            DB::table('UNIVERSIDAD')->where('id', '=', $id)->delete();
+            $id_equipos_universidad = DB::table('USU_EQUI_UNI')->select('fk_equipo')->where('fk_universidad', '=', $id_universidad)->get();
+
+            //Borramos la universidad
+            DB::table('UNIVERSIDAD')->where('id_universidad', '=', $id_universidad)->delete();
+            //Borramos las asociaciones de la universidad con los equipos
+            DB::table('USU_EQUI_UNI')->where('fk_universidad', '=', $id_universidad)->delete();
+
+            //Borramos los equipos de dicha universidad
+            foreach ($id_equipos_universidad as $id_equipo){
+                DB::table('EQUIPO')->where('id_equipo', '=', $id_equipo->id_equipo)->delete();
+            }
+
             Session::flash('message', 'Universidad eliminada satisfactoriamente');
         }catch (Exception $e){
             Session::flash('message-error', 'No se pudo eliminar la universidad');

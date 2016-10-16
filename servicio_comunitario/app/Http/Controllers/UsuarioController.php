@@ -107,7 +107,7 @@ class UsuarioController extends Controller
 
                 //Obtenemos el ROL del usuario
                 $rol = DB::table('ROL')
-                    ->join('USUARIO', 'USUARIO.fk_rol', '=', 'ROL.id')
+                    ->join('USUARIO', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
                     ->select('ROL.tipo_rol')
                     ->where('USUARIO.cedula', '=', $request['cedula'])
                     ->first();

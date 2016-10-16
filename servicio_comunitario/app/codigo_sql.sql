@@ -1,7 +1,7 @@
 
 ---------------------------------------------------------CREATES--------------------------------------------------------------------
 CREATE TABLE ROL(
-	id integer not null auto_increment primary key, 
+	id_rol integer not null auto_increment primary key, 
 	tipo_rol char(1) not null
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE USUARIO(
 );
 
 CREATE TABLE UNIVERSIDAD(
-	id integer not null auto_increment primary key,
+	id_universidad integer not null auto_increment primary key,
 	nombre_universidad varchar(100) not null,
 	acronimo varchar(10) not null,
 	codigo_inscripcion varchar(20) not null,
@@ -32,14 +32,14 @@ CREATE TABLE UNIVERSIDAD(
 );
 
 CREATE TABLE DISCIPLINA(
-	id integer not null auto_increment primary key,
-	nombre_disciplina varchar(50) not null,
-	modalidad varchar(50) not null
+	id_disciplina integer not null auto_increment primary key,
+	nombre_disciplina varchar(50) not null
 );
 
 CREATE TABLE EQUIPO(
-	id integer not null auto_increment primary key,
+	id_equipo integer not null auto_increment primary key,
 	nombre_equipo varchar(50) not null,
+	genero_equipo char(1) not null,
 	fk_disciplina integer not null
 );								
 
@@ -52,7 +52,7 @@ CREATE TABLE USU_EQUI_UNI(
 );
 
 CREATE TABLE TORNEO(
-	id integer not null auto_increment primary key,
+	id_torneo integer not null auto_increment primary key,
 	nombre_torneo varchar(50) not null,
 	fecha_inicio date not null,
 	fecha_fin date,
@@ -66,13 +66,13 @@ CREATE TABLE TOR_EQUI(
 );
 
 CREATE TABLE CANCHA(
-	id integer not null auto_increment primary key,
+	id_cancha integer not null auto_increment primary key,
 	disponibilidad varchar(50),
 	imagen_cancha text
 );
 
 CREATE TABLE PARTIDO(
-	id integer not null auto_increment primary key,
+	id_partido integer not null auto_increment primary key,
 	fecha_partido date not null,
 	puntos_equipo1 integer,
 	puntos_equipo2 integer,
@@ -87,17 +87,17 @@ CREATE TABLE PARTIDO(
 ---------------------------------------------------------CONSTRAINTS-----------------------------------------------------------------
 
 
-ALTER TABLE USUARIO ADD FOREIGN KEY (fk_rol) REFERENCES ROL(id) ON DELETE CASCADE;
+ALTER TABLE USUARIO ADD FOREIGN KEY (fk_rol) REFERENCES ROL(id_rol) ON DELETE CASCADE;
 ALTER TABLE USU_EQUI_UNI ADD FOREIGN KEY (fk_usuario) REFERENCES USUARIO(cedula) ON DELETE CASCADE;
-ALTER TABLE USU_EQUI_UNI ADD FOREIGN KEY (fk_universidad) REFERENCES UNIVERSIDAD(id) ON DELETE CASCADE;
-ALTER TABLE EQUIPO ADD FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA(id) ON DELETE CASCADE;
-ALTER TABLE USU_EQUI_UNI ADD FOREIGN KEY (fk_equipo) REFERENCES EQUIPO(id) ON DELETE CASCADE;
-ALTER TABLE TOR_EQUI ADD FOREIGN KEY (fk_torneo) REFERENCES TORNEO(id) ON DELETE CASCADE;
-ALTER TABLE TOR_EQUI ADD FOREIGN KEY (fk_equipo) REFERENCES EQUIPO(id) ON DELETE CASCADE;
-ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_torneo) REFERENCES TORNEO(id) ON DELETE CASCADE;
-ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_equipo1) REFERENCES EQUIPO(id) ON DELETE CASCADE;
-ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_equipo2) REFERENCES EQUIPO(id) ON DELETE CASCADE;
-ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_cancha) REFERENCES CANCHA(id) ON DELETE CASCADE;
+ALTER TABLE USU_EQUI_UNI ADD FOREIGN KEY (fk_universidad) REFERENCES UNIVERSIDAD(id_universidad) ON DELETE CASCADE;
+ALTER TABLE EQUIPO ADD FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA(id_disciplina) ON DELETE CASCADE;
+ALTER TABLE USU_EQUI_UNI ADD FOREIGN KEY (fk_equipo) REFERENCES EQUIPO(id_equipo) ON DELETE CASCADE;
+ALTER TABLE TOR_EQUI ADD FOREIGN KEY (fk_torneo) REFERENCES TORNEO(id_torneo) ON DELETE CASCADE;
+ALTER TABLE TOR_EQUI ADD FOREIGN KEY (fk_equipo) REFERENCES EQUIPO(id_equipo) ON DELETE CASCADE;
+ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_torneo) REFERENCES TORNEO(id_torneo) ON DELETE CASCADE;
+ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_equipo1) REFERENCES EQUIPO(id_equipo) ON DELETE CASCADE;
+ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_equipo2) REFERENCES EQUIPO(id_equipo) ON DELETE CASCADE;
+ALTER TABLE PARTIDO ADD FOREIGN KEY (fk_cancha) REFERENCES CANCHA(id_cancha) ON DELETE CASCADE;
 
 ---------------------------------------------------------INSERTS-----------------------------------------------------------------
 
@@ -105,9 +105,8 @@ INSERT INTO ROL VALUES(1, 'A');
 INSERT INTO ROL VALUES(2, 'D');
 INSERT INTO ROL VALUES(3, 'U');
 
-INSERT INTO DISCIPLINA VALUES(1, 'FUTBOL CAMPO', '11-11');
-INSERT INTO DISCIPLINA VALUES(2, 'FUTBOL SALA', '6-6');
-INSERT INTO DISCIPLINA VALUES(3, 'VOLEIBOL', '6-6');
-INSERT INTO DISCIPLINA VALUES(4, 'BASKET', '3-3');
-INSERT INTO DISCIPLINA VALUES(5, 'TENIS DE MESA', '1-1');
-INSERT INTO DISCIPLINA VALUES(6, 'TENIS DE MESA', '2-2');
+INSERT INTO DISCIPLINA VALUES(1, 'FUTBOL CAMPO');
+INSERT INTO DISCIPLINA VALUES(2, 'FUTBOL SALA');
+INSERT INTO DISCIPLINA VALUES(3, 'VOLEIBOL');
+INSERT INTO DISCIPLINA VALUES(4, 'BASKET');
+INSERT INTO DISCIPLINA VALUES(5, 'TENIS DE MESA');

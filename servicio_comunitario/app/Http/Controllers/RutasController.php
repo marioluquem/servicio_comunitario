@@ -62,7 +62,7 @@ class RutasController extends Controller
         if ($cedula != null){
             $user = DB::table('USUARIO')
                 ->leftjoin('USU_EQUI_UNI', 'USU_EQUI_UNI.fk_usuario','=','USUARIO.cedula')
-                ->leftjoin('UNIVERSIDAD','UNIVERSIDAD.id','=','USU_EQUI_UNI.fk_universidad')
+                ->leftjoin('UNIVERSIDAD','UNIVERSIDAD.id_universidad','=','USU_EQUI_UNI.fk_universidad')
                 ->select('*')->where('cedula', $cedula)->get();
             return View::make('CRUD/detailUser', array('data' => $user));
         }
@@ -71,9 +71,9 @@ class RutasController extends Controller
     public function getManageUsers(){
 
         $users = DB::table('USUARIO')
-            ->join('ROL', 'USUARIO.fk_rol', '=', 'ROL.id')
+            ->join('ROL', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
             ->leftjoin('USU_EQUI_UNI', 'USUARIO.cedula', '=', 'USU_EQUI_UNI.fk_usuario')
-            ->leftjoin('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id')
+            ->leftjoin('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
             ->select('*')->get();
 
         return View::make('CRUD/manageUsers', array('data' =>$users));
@@ -90,10 +90,10 @@ class RutasController extends Controller
         return View::make('CRUD/manageUniversities', array('data' =>$univ));
     }
 
-    public function getDetailUniv($id){
+    public function getDetailUniv($id_universidad){
 
-        if ($id != null){
-            $univ = DB::table('UNIVERSIDAD')->select('*')->where('id', $id)->get();
+        if ($id_universidad != null){
+            $univ = DB::table('UNIVERSIDAD')->select('*')->where('id_universidad', $id_universidad)->get();
             return View::make('CRUD/detailUniv', array('data' => $univ));
         }
     }
@@ -107,25 +107,25 @@ class RutasController extends Controller
 
     public function getManageTeams(){
         $equipos = DB::table('EQUIPO')
-            ->join('USU_EQUI_UNI', 'EQUIPO.id', '=', 'USU_EQUI_UNI.fk_equipo')
-            ->join('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id')
-            ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id')
+            ->join('USU_EQUI_UNI', 'EQUIPO.id_equipo', '=', 'USU_EQUI_UNI.fk_equipo')
+            ->join('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
+            ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id_disciplina')
             ->select('*')
             ->where('USU_EQUI_UNI.fk_usuario', null)->distinct()->get();
 
         return View::make('CRUD/manageTeams', array('equipos' => $equipos));
     }
 
-    public function getDetailTeam($id){
+    public function getDetailTeam($id_equipo){
 
-        if ($id != null) {
+        if ($id_equipo != null) {
             $equipo = DB::table('EQUIPO')
-                ->join('USU_EQUI_UNI', 'USU_EQUI_UNI.fk_equipo', '=', 'EQUIPO.id')
-                ->join('UNIVERSIDAD', 'UNIVERSIDAD.id', '=', 'USU_EQUI_UNI.fk_universidad')
-                ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id')
+                ->join('USU_EQUI_UNI', 'USU_EQUI_UNI.fk_equipo', '=', 'EQUIPO.id_equipo')
+                ->join('UNIVERSIDAD', 'UNIVERSIDAD.id_universidad', '=', 'USU_EQUI_UNI.fk_universidad')
+                ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id_disciplina')
                 ->select('*')
                 ->where([
-                    ['EQUIPO.id', $id],
+                    ['EQUIPO.id_equipo', $id_equipo],
                     ['USU_EQUI_UNI.fk_usuario', null]
                 ])
                 ->distinct()
@@ -133,15 +133,18 @@ class RutasController extends Controller
 
             $jugadores = DB::table('USUARIO')
                 ->join('USU_EQUI_UNI', 'USU_EQUI_UNI.fk_usuario', '=', 'USUARIO.cedula')
-                ->join('EQUIPO', 'EQUIPO.id', '=', 'USU_EQUI_UNI.fk_equipo')
-                ->join('UNIVERSIDAD', 'UNIVERSIDAD.id', '=', 'USU_EQUI_UNI.fk_universidad')
+                ->join('EQUIPO', 'EQUIPO.id_equipo', '=', 'USU_EQUI_UNI.fk_equipo')
+                ->join('UNIVERSIDAD', 'UNIVERSIDAD.id_universidad', '=', 'USU_EQUI_UNI.fk_universidad')
                 ->select('*')
-                ->where('EQUIPO.id', $id)
+                ->where('EQUIPO.id_equipo', $id_equipo)
                 ->distinct()
                 ->get();
 
+            $disciplinas = DB::table('DISCIPLINA')->select('*')->get();
+            $universidades = DB::table('UNIVERSIDAD')->select('*')->get();
 
-            return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores));
+
+            return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' =>$disciplinas, 'universidades' => $universidades));
         }
     }
 

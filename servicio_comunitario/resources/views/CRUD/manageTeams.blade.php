@@ -40,13 +40,13 @@
                     </thead>
                     <tbody>
                     @foreach($equipos as $equipo)
-                        <tr class="odd gradeX" id="{{$equipo->id}}" >
-                            <td><a href="{{ route('detailTeam', array('id' => $equipo->id)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
+                        <tr class="odd gradeX" id="{{$equipo->id_equipo}}" >
+                            <td><a href="{{ route('detailTeam', array('id_equipo' => $equipo->id_equipo)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
                             <td class="center">{{ $equipo->acronimo }}</td>
                             <td class="center">{{ $equipo->nombre_equipo}}</td>
                             <td class="center">{{ $equipo->nombre_disciplina}}</td>
-                            <td> {{ $equipo->genero }}</td>
-                            <td><a href="{{ route('deleteTeam', array('id' => $equipo->id)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
+                            <td> {{ $equipo->genero_equipo }}</td>
+                            <td><a href="{{ route('deleteTeam', array('id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                         </tr>
                     @endforeach
                     </tbody>
