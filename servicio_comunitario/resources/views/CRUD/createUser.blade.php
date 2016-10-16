@@ -66,10 +66,10 @@
                             <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
 
                             <br>
-                            <label class="control-label" style="font-size:14px;">Seleccione su imagen de perfil:</label>
+                            <label class="control-label" style="font-size:14px;">Subir Foto para Nómina de Juego:</label>
                             <input id="foto" name="foto" type="file" class=" form-control file">
                             <br>
-                            <label class="control-label" style="font-size:14px;">Seleccione su documento de identidad:</label>
+                            <label class="control-label" style="font-size:14px;">Subir imagen de Cédula de Identidad:</label>
                             <input id="dni" name="dni" type="file" class=" form-control file">
                             <br>
                             <input type="button" class="btn btn-primary" value="Crear Usuario" onclick="validar_formulario()">
