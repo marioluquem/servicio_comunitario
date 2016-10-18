@@ -91,12 +91,15 @@ class EquipoController extends Controller
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario1,
                             'fk_equipo' => $id_equipo,
-                            'fk_universidad' => $id_universidad
+                            'fk_universidad' => $id_universidad,
+                            'rol_equipo' => $request->rol_equipo
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario1 . ' ya existe en el equipo');
                     return Redirect::to('manageTeams');
                 }
+
+               
             }
             if ($request->cedulaNuevoUsuario2 != ""){
                 //verificamos que el usuario no exista ya en el equipo
@@ -112,7 +115,8 @@ class EquipoController extends Controller
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario2,
                             'fk_equipo' => $id_equipo,
-                            'fk_universidad' => $id_universidad
+                            'fk_universidad' => $id_universidad,
+                            'rol_equipo' => $request->rol_equipo
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario2 . ' ya existe en el equipo');
@@ -134,7 +138,8 @@ class EquipoController extends Controller
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario3,
                             'fk_equipo' => $id_equipo,
-                            'fk_universidad' => $id_universidad
+                            'fk_universidad' => $id_universidad,
+                            'rol_equipo' => $request->rol_equipo
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario3 . ' ya existe en el equipo');
@@ -156,7 +161,8 @@ class EquipoController extends Controller
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario4,
                             'fk_equipo' => $id_equipo,
-                            'fk_universidad' => $id_universidad
+                            'fk_universidad' => $id_universidad,
+                            'rol_equipo' => $request->rol_equipo
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario4 . ' ya existe en el equipo');
@@ -178,7 +184,8 @@ class EquipoController extends Controller
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario5,
                             'fk_equipo' => $id_equipo,
-                            'fk_universidad' => $id_universidad
+                            'fk_universidad' => $id_universidad,
+                            'rol_equipo' => $request->rol_equipo
                         ]);
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario5 . ' ya existe en el equipo');

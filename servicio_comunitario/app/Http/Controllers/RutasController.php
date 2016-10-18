@@ -142,9 +142,10 @@ class RutasController extends Controller
 
             $disciplinas = DB::table('DISCIPLINA')->select('*')->get();
             $universidades = DB::table('UNIVERSIDAD')->select('*')->get();
+            $usus_equi_uni = DB::table('USU_EQUI_UNI')->select('*')->where('USU_EQUI_UNI.fk_equipo',$id_equipo)->get();
 
 
-            return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' =>$disciplinas, 'universidades' => $universidades));
+            return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' =>$disciplinas, 'universidades' => $universidades, 'usus_equi_uni'=>$usus_equi_uni));
         }
     }
 

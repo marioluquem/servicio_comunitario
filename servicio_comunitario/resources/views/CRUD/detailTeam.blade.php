@@ -37,7 +37,7 @@
                             <thead>
                             <tr>
                                 <th>Editar</th>
-                                <th>Representante</th>
+                                <th>Rol</th>
                                 <th>Nombre</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -47,14 +47,17 @@
                                 @foreach($jugadores as $jugador)
                                     <tr class="odd gradeX" id="{{$jugador->cedula}}" >
                                         <td><a href="{{ route('detailUser', array('id' => $jugador->cedula)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
-                                        @if($jugador->representante == 1)
-                                            <td class="center"><input type="radio" id="radio" name="radio" class="radio" value="{{$jugador->cedula}}" onclick="evaluarRepresentante({{$jugador->cedula}})" checked></td>
-                                        @else
-                                            <td class="center"><input type="radio" id="radio" name="radio" class="radio" value="{{$jugador->cedula}}" onclick="evaluarRepresentante({{$jugador->cedula}})" checked></td>
-                                        @endif
+                                            @if($usus_equi_uni!=null)
+                                                @foreach($usus_equi_uni as $usu_equi_uni)
+                                                    @if($usu_equi_uni->fk_usuario == $jugador->cedula)
+                                                        <td class="center">{{$usu_equi_uni->rol_equipo}}</td>
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         <td class="center">{{ $jugador->primer_nombre.' '.$jugador->primer_apellido.' '.$jugador->segundo_apellido}}</td>
                                         <td><a href="{{ route('deleteUserFromTeam', array('cedula_usuario' => $jugador->cedula, 'id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                                     </tr>
+
                                 @endforeach
                             @endif
                             </tbody>
@@ -101,8 +104,17 @@
                                     @endforeach
                                 </select>
                                 <br>
-                                <label for="">Insertar nuevos jugadores en el equipo</label>
-                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario1" value="">
+                                <label for="">Insertar usuario en nómina del equipo</label>
+                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario1"  value="">
+                                <label for="">Rol</label>
+                                <select name="rol_equipo" id="rol_equipo" class="form-control">
+                                    <option value="Jugador">Jugador</option>
+                                    <option value="Entrenador">Entrenador</option>
+                                    <option value="Asistente Técnico">Asistente Técnico</option>
+                                    <option value="Médico">Médico</option>
+                                    <option value="Utilero">Utilero</option>
+                                    <option value="Delegado">Delegado</option>
+                                </select>
                                 <br>
                                 <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario2" value="">
                                 <br>
