@@ -86,20 +86,39 @@ class EquipoController extends Controller
                         ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
-                if ($existeUsuario == null) // si no existe ese usuario en el equipo
-                    DB::table('USU_EQUI_UNI')
-                        ->insert([
-                            'fk_usuario' => $request->cedulaNuevoUsuario1,
-                            'fk_equipo' => $id_equipo,
-                            'fk_universidad' => $id_universidad,
-                            'rol_equipo' => $request->rol_equipo
-                        ]);
-                else {
+                if ($existeUsuario == null) { // si no existe ese usuario en el equipo
+
+                    if ($request->rol_equipo == 'Entrenador') {
+
+                        $poseeEntrenador = DB::table('USU_EQUI_UNI')->select('fk_usuario')
+                            ->where([['fk_equipo', '=', $id_equipo],
+                                ['rol_equipo', '=', $request->rol_equipo]])
+                            ->get();
+                        if ($poseeEntrenador != null) {
+
+                            Session::flash('message-error', 'El rol : ' . $request->rol_equipo . ' ya esta asignado en el equipo');
+                            return Redirect::to('manageTeams');
+                        }
+
+                    }
+                    DB::table('USU_EQUI_UNI')->insert([
+                        'fk_usuario' => $request->cedulaNuevoUsuario1,
+                        'fk_equipo' => $id_equipo,
+                        'fk_universidad' => $id_universidad,
+                        'rol_equipo' => $request->rol_equipo
+                    ]);
+                }else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario1 . ' ya existe en el equipo');
                     return Redirect::to('manageTeams');
                 }
 
-               
+
+
+
+
+
+
+
             }
             if ($request->cedulaNuevoUsuario2 != ""){
                 //verificamos que el usuario no exista ya en el equipo
