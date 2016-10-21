@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-10-2016 a las 19:59:14
+-- Tiempo de generación: 21-10-2016 a las 23:01:56
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `CANCHA` (
-`id` int(11) NOT NULL,
+`id_cancha` int(11) NOT NULL,
   `disponibilidad` varchar(50) DEFAULT NULL,
   `imagen_cancha` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -35,48 +35,67 @@ CREATE TABLE IF NOT EXISTS `CANCHA` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `disciplina`
+-- Estructura de tabla para la tabla `DISCIPLINA`
 --
 
-CREATE TABLE IF NOT EXISTS `disciplina` (
-`id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `DISCIPLINA` (
+`id_disciplina` int(11) NOT NULL,
   `nombre_disciplina` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `disciplina`
+-- Volcado de datos para la tabla `DISCIPLINA`
 --
 
-INSERT INTO `disciplina` (`id`, `nombre_disciplina`) VALUES
+INSERT INTO `DISCIPLINA` (`id_disciplina`, `nombre_disciplina`) VALUES
 (1, 'FUTBOL CAMPO'),
 (2, 'FUTBOL SALA'),
 (3, 'VOLEIBOL'),
 (4, 'BASKET'),
 (5, 'TENIS DE MESA'),
-(6, 'TENIS DE MESA');
+(6, 'AJEDREZ'),
+(7, 'VOLEIBOL DE PLAYA');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `equipo`
+-- Estructura de tabla para la tabla `EQUIPO`
 --
 
-CREATE TABLE IF NOT EXISTS `equipo` (
-`id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `EQUIPO` (
+`id_equipo` int(11) NOT NULL,
   `nombre_equipo` varchar(50) NOT NULL,
-  `fk_disciplina` int(11) NOT NULL,
-  `genero` varchar(25) NOT NULL
+  `genero_equipo` char(1) NOT NULL,
+  `fk_disciplina` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `equipo`
+-- Volcado de datos para la tabla `EQUIPO`
 --
 
-INSERT INTO `equipo` (`id`, `nombre_equipo`, `fk_disciplina`, `genero`) VALUES
-(1, 'Los Guerreros', 1, 'Masculino'),
-(2, 'guerreros', 1, 'Masculino'),
-(3, 'ThunderCat', 3, 'Masculino'),
-(4, 'Powerpuff', 2, 'Femenino');
+INSERT INTO `EQUIPO` (`id_equipo`, `nombre_equipo`, `genero_equipo`, `fk_disciplina`) VALUES
+(1, 'Guerreros de Antimano', 'M', 1),
+(2, 'Guerreros de Antimano', 'M', 1),
+(3, 'Powerpuff', 'F', 7),
+(4, 'Guaros', 'M', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `INSCRIPCION`
+--
+
+CREATE TABLE IF NOT EXISTS `INSCRIPCION` (
+`id_inscripcion` int(11) NOT NULL,
+  `fecha_limite` date DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `INSCRIPCION`
+--
+
+INSERT INTO `INSCRIPCION` (`id_inscripcion`, `fecha_limite`) VALUES
+(1, '2016-10-19');
 
 -- --------------------------------------------------------
 
@@ -85,7 +104,7 @@ INSERT INTO `equipo` (`id`, `nombre_equipo`, `fk_disciplina`, `genero`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `PARTIDO` (
-`id` int(11) NOT NULL,
+`id_partido` int(11) NOT NULL,
   `fecha_partido` date NOT NULL,
   `puntos_equipo1` int(11) DEFAULT NULL,
   `puntos_equipo2` int(11) DEFAULT NULL,
@@ -102,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `PARTIDO` (
 --
 
 CREATE TABLE IF NOT EXISTS `ROL` (
-`id` int(11) NOT NULL,
+`id_rol` int(11) NOT NULL,
   `tipo_rol` char(1) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -110,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `ROL` (
 -- Volcado de datos para la tabla `ROL`
 --
 
-INSERT INTO `ROL` (`id`, `tipo_rol`) VALUES
+INSERT INTO `ROL` (`id_rol`, `tipo_rol`) VALUES
 (1, 'A'),
 (2, 'D'),
 (3, 'U');
@@ -122,7 +141,7 @@ INSERT INTO `ROL` (`id`, `tipo_rol`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `TORNEO` (
-`id` int(11) NOT NULL,
+`id_torneo` int(11) NOT NULL,
   `nombre_torneo` varchar(50) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date DEFAULT NULL,
@@ -148,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `TOR_EQUI` (
 --
 
 CREATE TABLE IF NOT EXISTS `UNIVERSIDAD` (
-`id` int(11) NOT NULL,
+`id_universidad` int(11) NOT NULL,
   `nombre_universidad` varchar(100) NOT NULL,
   `acronimo` varchar(10) NOT NULL,
   `codigo_inscripcion` varchar(20) NOT NULL,
@@ -161,9 +180,9 @@ CREATE TABLE IF NOT EXISTS `UNIVERSIDAD` (
 -- Volcado de datos para la tabla `UNIVERSIDAD`
 --
 
-INSERT INTO `UNIVERSIDAD` (`id`, `nombre_universidad`, `acronimo`, `codigo_inscripcion`, `direccion_universidad`, `imagen_universidad`, `rif_universidad`) VALUES
-(1, 'Universidad Catolica Andres Bello', 'UCAB', 'n94luqetcr', 'Montalban', 'logo ucab.tiff', 'J-19841245'),
-(2, 'Universidad Santa Maria', 'USM', 'i2kiy33dyb', 'PETARE', 'pelicula.jpg', 'J-19657333');
+INSERT INTO `UNIVERSIDAD` (`id_universidad`, `nombre_universidad`, `acronimo`, `codigo_inscripcion`, `direccion_universidad`, `imagen_universidad`, `rif_universidad`) VALUES
+(1, 'Universidad Catolica Andres Bello', 'UCAB', '5pzxmqu5jz', 'Montalban', 'logo ucab.tiff', 'J-19657333'),
+(2, 'Universidad Santa Maria', 'USM', 'olcz3pup51', 'Terrazas del Avila', 'pelicula.jpg', 'J-19841245');
 
 -- --------------------------------------------------------
 
@@ -192,30 +211,37 @@ CREATE TABLE IF NOT EXISTS `USUARIO` (
 --
 
 INSERT INTO `USUARIO` (`cedula`, `usuario`, `password`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `correo`, `fecha_nacimiento`, `sexo`, `foto`, `dni`, `fk_rol`) VALUES
-(19841247, 'clara', '$2y$10$T4EufOe8Mqsd2K3YtGN3VOuijqS9gebVwT.5QmUvnmNsiWRriaNgK', 'clara', 'rosa', 'aguilarte', 'trias', 'clara.at48@gmail.com', '1990-02-24', 'f', 'pelicula.jpg', 'cedula.jpg', 1);
+(18257123, 'pedrito', '$2y$10$JTFgwEIP.DFQrtvC82luWOdaZTHa77Wn32zi8NVglRfFSOk/LSbDW', 'Pedro', 'Alberto', 'Perez', 'Lopez', 'perezlopedro@gmail.com', '1998-11-05', '', 'ancons2.jpg', 'Unknown.png', 2),
+(19650337, 'ovidio', '$2y$10$/NlTt4Hnx8CfTO7qaF4zquiyb6HqfOM0fV6/oQIB6Ae1WtFJHKjQW', 'Ovidio', 'Jose', 'Dominguez', 'Omana', 'ovido22_9@hotmail.com', '1990-11-28', '', 'pelicula.jpg', 'pelicula.jpg', 2),
+(19841247, 'clara', '$2y$10$pRUfgQKOQAoJL6mtwRZ66.DFIEu20fOFzwUClZBVfmoKVQYr7zWCy', 'Clara', 'Rosa', 'Aguilarte', 'Trias', 'clara.at48@gmail.com', '1990-02-24', 'F', 'pelicula.jpg', 'pelicula.jpg', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `USU_EQUI_UNI`
+-- Estructura de tabla para la tabla `usu_equi_uni`
 --
 
-CREATE TABLE IF NOT EXISTS `USU_EQUI_UNI` (
-  `representante` tinyint(1) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `usu_equi_uni` (
   `fk_usuario` int(11) DEFAULT NULL,
   `fk_universidad` int(11) NOT NULL,
-  `fk_equipo` int(11) NOT NULL
+  `fk_equipo` int(11) NOT NULL,
+  `rol_equipo` varchar(50) DEFAULT NULL,
+  `representante` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `USU_EQUI_UNI`
+-- Volcado de datos para la tabla `usu_equi_uni`
 --
 
-INSERT INTO `USU_EQUI_UNI` (`representante`, `fk_usuario`, `fk_universidad`, `fk_equipo`) VALUES
-(NULL, NULL, 2, 1),
-(NULL, NULL, 1, 2),
-(NULL, NULL, 1, 3),
-(NULL, NULL, 2, 4);
+INSERT INTO `usu_equi_uni` (`fk_usuario`, `fk_universidad`, `fk_equipo`, `rol_equipo`, `representante`) VALUES
+(NULL, 1, 1, NULL, NULL),
+(NULL, 1, 1, NULL, NULL),
+(NULL, 2, 3, NULL, NULL),
+(NULL, 1, 4, NULL, NULL),
+(19650337, 1, 1, 'Entrenador', NULL),
+(19650337, 2, 3, 'Entrenador', NULL),
+(19841247, 1, 4, 'Entrenador', NULL),
+(19841247, 2, 3, 'Jugador', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -225,37 +251,43 @@ INSERT INTO `USU_EQUI_UNI` (`representante`, `fk_usuario`, `fk_universidad`, `fk
 -- Indices de la tabla `CANCHA`
 --
 ALTER TABLE `CANCHA`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id_cancha`);
 
 --
--- Indices de la tabla `disciplina`
+-- Indices de la tabla `DISCIPLINA`
 --
-ALTER TABLE `disciplina`
- ADD PRIMARY KEY (`id`);
+ALTER TABLE `DISCIPLINA`
+ ADD PRIMARY KEY (`id_disciplina`);
 
 --
--- Indices de la tabla `equipo`
+-- Indices de la tabla `EQUIPO`
 --
-ALTER TABLE `equipo`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_disciplina` (`fk_disciplina`);
+ALTER TABLE `EQUIPO`
+ ADD PRIMARY KEY (`id_equipo`), ADD KEY `fk_disciplina` (`fk_disciplina`);
+
+--
+-- Indices de la tabla `INSCRIPCION`
+--
+ALTER TABLE `INSCRIPCION`
+ ADD PRIMARY KEY (`id_inscripcion`);
 
 --
 -- Indices de la tabla `PARTIDO`
 --
 ALTER TABLE `PARTIDO`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_torneo` (`fk_torneo`), ADD KEY `fk_equipo1` (`fk_equipo1`), ADD KEY `fk_equipo2` (`fk_equipo2`), ADD KEY `fk_cancha` (`fk_cancha`);
+ ADD PRIMARY KEY (`id_partido`), ADD KEY `fk_torneo` (`fk_torneo`), ADD KEY `fk_equipo1` (`fk_equipo1`), ADD KEY `fk_equipo2` (`fk_equipo2`), ADD KEY `fk_cancha` (`fk_cancha`);
 
 --
 -- Indices de la tabla `ROL`
 --
 ALTER TABLE `ROL`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id_rol`);
 
 --
 -- Indices de la tabla `TORNEO`
 --
 ALTER TABLE `TORNEO`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id_torneo`);
 
 --
 -- Indices de la tabla `TOR_EQUI`
@@ -267,7 +299,7 @@ ALTER TABLE `TOR_EQUI`
 -- Indices de la tabla `UNIVERSIDAD`
 --
 ALTER TABLE `UNIVERSIDAD`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id_universidad`);
 
 --
 -- Indices de la tabla `USUARIO`
@@ -276,9 +308,9 @@ ALTER TABLE `USUARIO`
  ADD PRIMARY KEY (`cedula`), ADD KEY `fk_rol` (`fk_rol`);
 
 --
--- Indices de la tabla `USU_EQUI_UNI`
+-- Indices de la tabla `usu_equi_uni`
 --
-ALTER TABLE `USU_EQUI_UNI`
+ALTER TABLE `usu_equi_uni`
  ADD KEY `fk_usuario` (`fk_usuario`), ADD KEY `fk_universidad` (`fk_universidad`), ADD KEY `fk_equipo` (`fk_equipo`);
 
 --
@@ -289,76 +321,81 @@ ALTER TABLE `USU_EQUI_UNI`
 -- AUTO_INCREMENT de la tabla `CANCHA`
 --
 ALTER TABLE `CANCHA`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_cancha` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `disciplina`
+-- AUTO_INCREMENT de la tabla `DISCIPLINA`
 --
-ALTER TABLE `disciplina`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+ALTER TABLE `DISCIPLINA`
+MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT de la tabla `equipo`
+-- AUTO_INCREMENT de la tabla `EQUIPO`
 --
-ALTER TABLE `equipo`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+ALTER TABLE `EQUIPO`
+MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `INSCRIPCION`
+--
+ALTER TABLE `INSCRIPCION`
+MODIFY `id_inscripcion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `PARTIDO`
 --
 ALTER TABLE `PARTIDO`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `ROL`
 --
 ALTER TABLE `ROL`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `TORNEO`
 --
 ALTER TABLE `TORNEO`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_torneo` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `UNIVERSIDAD`
 --
 ALTER TABLE `UNIVERSIDAD`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_universidad` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `equipo`
+-- Filtros para la tabla `EQUIPO`
 --
-ALTER TABLE `equipo`
-ADD CONSTRAINT `equipo_ibfk_1` FOREIGN KEY (`fk_disciplina`) REFERENCES `DISCIPLINA` (`id`) ON DELETE CASCADE;
+ALTER TABLE `EQUIPO`
+ADD CONSTRAINT `equipo_ibfk_1` FOREIGN KEY (`fk_disciplina`) REFERENCES `DISCIPLINA` (`id_disciplina`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `PARTIDO`
 --
 ALTER TABLE `PARTIDO`
-ADD CONSTRAINT `partido_ibfk_1` FOREIGN KEY (`fk_torneo`) REFERENCES `TORNEO` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `partido_ibfk_2` FOREIGN KEY (`fk_equipo1`) REFERENCES `EQUIPO` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `partido_ibfk_3` FOREIGN KEY (`fk_equipo2`) REFERENCES `EQUIPO` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `partido_ibfk_4` FOREIGN KEY (`fk_cancha`) REFERENCES `CANCHA` (`id`) ON DELETE CASCADE;
+ADD CONSTRAINT `partido_ibfk_1` FOREIGN KEY (`fk_torneo`) REFERENCES `TORNEO` (`id_torneo`) ON DELETE CASCADE,
+ADD CONSTRAINT `partido_ibfk_2` FOREIGN KEY (`fk_equipo1`) REFERENCES `EQUIPO` (`id_equipo`) ON DELETE CASCADE,
+ADD CONSTRAINT `partido_ibfk_3` FOREIGN KEY (`fk_equipo2`) REFERENCES `EQUIPO` (`id_equipo`) ON DELETE CASCADE,
+ADD CONSTRAINT `partido_ibfk_4` FOREIGN KEY (`fk_cancha`) REFERENCES `CANCHA` (`id_cancha`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `TOR_EQUI`
 --
 ALTER TABLE `TOR_EQUI`
-ADD CONSTRAINT `tor_equi_ibfk_1` FOREIGN KEY (`fk_torneo`) REFERENCES `TORNEO` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `tor_equi_ibfk_2` FOREIGN KEY (`fk_equipo`) REFERENCES `EQUIPO` (`id`) ON DELETE CASCADE;
+ADD CONSTRAINT `tor_equi_ibfk_1` FOREIGN KEY (`fk_torneo`) REFERENCES `TORNEO` (`id_torneo`) ON DELETE CASCADE,
+ADD CONSTRAINT `tor_equi_ibfk_2` FOREIGN KEY (`fk_equipo`) REFERENCES `EQUIPO` (`id_equipo`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `USUARIO`
 --
 ALTER TABLE `USUARIO`
-ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`fk_rol`) REFERENCES `ROL` (`id`) ON DELETE CASCADE;
+ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`fk_rol`) REFERENCES `ROL` (`id_rol`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `USU_EQUI_UNI`
+-- Filtros para la tabla `usu_equi_uni`
 --
-ALTER TABLE `USU_EQUI_UNI`
+ALTER TABLE `usu_equi_uni`
 ADD CONSTRAINT `usu_equi_uni_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `USUARIO` (`cedula`) ON DELETE CASCADE,
-ADD CONSTRAINT `usu_equi_uni_ibfk_2` FOREIGN KEY (`fk_universidad`) REFERENCES `UNIVERSIDAD` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `usu_equi_uni_ibfk_3` FOREIGN KEY (`fk_equipo`) REFERENCES `EQUIPO` (`id`) ON DELETE CASCADE;
+ADD CONSTRAINT `usu_equi_uni_ibfk_2` FOREIGN KEY (`fk_universidad`) REFERENCES `UNIVERSIDAD` (`id_universidad`) ON DELETE CASCADE,
+ADD CONSTRAINT `usu_equi_uni_ibfk_3` FOREIGN KEY (`fk_equipo`) REFERENCES `EQUIPO` (`id_equipo`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
