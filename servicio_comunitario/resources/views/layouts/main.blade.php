@@ -100,6 +100,7 @@
 							<ul>
 								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Equipo</a></li>
 								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Equipos</a></li>
+								<li><a href={{ Route('registrationTeam') }}><i class="glyphicon glyphicon-pencil"></i>Inscripción</a></li>
 							</ul>
 						</li>
 					</ul>

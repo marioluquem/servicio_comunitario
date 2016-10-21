@@ -62,6 +62,9 @@ Route::get('createTeam', ['uses' => 'RutasController@getCreateTeam', 'as' => 'cr
 Route::get('manageTeams', ['uses' => 'RutasController@getManageTeams', 'as' => 'manageTeams']);
 //pagina detalle equipo
 Route::get('detailTeam/{id_universidad}', ['uses' => 'RutasController@getDetailTeam', 'as' => 'detailTeam']);
+//pagina inscripcion equipo
+Route::get('registrationTeam', ['uses' => 'RutasController@getRegistrationTeam', 'as' => 'registrationTeam']);
+
 
 //CRUD----------------------------------------------------------------------------------------------
 //crear usuario
@@ -90,6 +93,7 @@ Route::get('deleteTeam/{id_equipo}', ['uses' => 'EquipoController@eliminarEquipo
 //eliminar usuario de un equipo
 Route::get('deleteUserFromTeam/{cedula_usuario}/{id_equipo}', ['uses' => 'EquipoController@eliminarUsuarioDeEquipo', 'as' => 'deleteUserFromTeam']);
 
-
+//crear fecha limite de inscripcion
+Route::post('registrationTeam', ['uses' => 'EquipoController@fijarFechaInscripcion', 'as' => 'registrationTeam']);
 
 

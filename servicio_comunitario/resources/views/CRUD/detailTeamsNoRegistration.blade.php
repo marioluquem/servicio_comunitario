@@ -104,61 +104,6 @@
                                     @endforeach
                                 </select>
                                 <br>
-                                <label for="">Insertar usuario en nómina del equipo</label>
-                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario1"  value="">
-                                <label for="">Rol</label>
-                                <select name="rol_equipo1" id="rol_equipo1" class="form-control">
-                                    <option value="Jugador">Jugador</option>
-                                    <option value="Entrenador">Entrenador</option>
-                                    <option value="Asistente Técnico">Asistente Técnico</option>
-                                    <option value="Médico">Médico</option>
-                                    <option value="Utilero">Utilero</option>
-                                    <option value="Delegado">Delegado</option>
-                                </select>
-                                <br>
-                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario2" value="">
-                                <label for="">Rol</label>
-                                <select name="rol_equipo2" id="rol_equipo2" class="form-control">
-                                    <option value="Jugador">Jugador</option>
-                                    <option value="Entrenador">Entrenador</option>
-                                    <option value="Asistente Técnico">Asistente Técnico</option>
-                                    <option value="Médico">Médico</option>
-                                    <option value="Utilero">Utilero</option>
-                                    <option value="Delegado">Delegado</option>
-                                </select>
-                                <br>
-                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario3" value="">
-                                <label for="">Rol</label>
-                                <select name="rol_equipo3" id="rol_equipo3" class="form-control">
-                                    <option value="Jugador">Jugador</option>
-                                    <option value="Entrenador">Entrenador</option>
-                                    <option value="Asistente Técnico">Asistente Técnico</option>
-                                    <option value="Médico">Médico</option>
-                                    <option value="Utilero">Utilero</option>
-                                    <option value="Delegado">Delegado</option>
-                                </select>
-                                <br>
-                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario4" value="">
-                                <label for="">Rol</label>
-                                <select name="rol_equipo4" id="rol_equipo4" class="form-control">
-                                    <option value="Jugador">Jugador</option>
-                                    <option value="Entrenador">Entrenador</option>
-                                    <option value="Asistente Técnico">Asistente Técnico</option>
-                                    <option value="Médico">Médico</option>
-                                    <option value="Utilero">Utilero</option>
-                                    <option value="Delegado">Delegado</option>
-                                </select>
-                                <br>
-                                <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario5" value="">
-                                <label for="">Rol</label>
-                                <select name="rol_equipo5" id="rol_equipo5" class="form-control">
-                                    <option value="Jugador">Jugador</option>
-                                    <option value="Entrenador">Entrenador</option>
-                                    <option value="Asistente Técnico">Asistente Técnico</option>
-                                    <option value="Médico">Médico</option>
-                                    <option value="Utilero">Utilero</option>
-                                    <option value="Delegado">Delegado</option>
-                                </select>
                                 <br>
                                 <input type="submit" class="btn btn-primary" value="Guardar Cambios en Equipo" >
                             </div>

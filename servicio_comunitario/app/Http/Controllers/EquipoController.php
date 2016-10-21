@@ -88,15 +88,15 @@ class EquipoController extends Controller
 
                 if ($existeUsuario == null) { // si no existe ese usuario en el equipo
 
-                    if ($request->rol_equipo == 'Entrenador') {
+                    if ($request->rol_equipo1 == 'Entrenador') {
 
                         $poseeEntrenador = DB::table('USU_EQUI_UNI')->select('fk_usuario')
                             ->where([['fk_equipo', '=', $id_equipo],
-                                ['rol_equipo', '=', $request->rol_equipo]])
+                                ['rol_equipo', '=', $request->rol_equipo1]])
                             ->get();
                         if ($poseeEntrenador != null) {
 
-                            Session::flash('message-error', 'El rol : ' . $request->rol_equipo . ' ya esta asignado en el equipo');
+                            Session::flash('message-error', 'El rol entrenador  ya esta asignado en el equipo');
                             return Redirect::to('manageTeams');
                         }
 
@@ -105,7 +105,7 @@ class EquipoController extends Controller
                         'fk_usuario' => $request->cedulaNuevoUsuario1,
                         'fk_equipo' => $id_equipo,
                         'fk_universidad' => $id_universidad,
-                        'rol_equipo' => $request->rol_equipo
+                        'rol_equipo' => $request->rol_equipo1
                     ]);
                 }else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario1 . ' ya existe en el equipo');
@@ -129,14 +129,29 @@ class EquipoController extends Controller
                         ['fk_equipo', '=', $id_equipo],
                         ['fk_universidad', '=', $id_universidad]
                     ])->get();
-                if ($existeUsuario == null) // si no existe ese usuario en el equipo
+                if ($existeUsuario == null) {// si no existe ese usuario en el equipo
+
+                    if ($request->rol_equipo2 == 'Entrenador') {
+
+                        $poseeEntrenador = DB::table('USU_EQUI_UNI')->select('fk_usuario')
+                            ->where([['fk_equipo', '=', $id_equipo],
+                                ['rol_equipo', '=', $request->rol_equipo2]])
+                            ->get();
+                        if ($poseeEntrenador != null) {
+
+                            Session::flash('message-error', 'El rol entrenador  ya esta asignado en el equipo');
+                            return Redirect::to('manageTeams');
+                        }
+
+                    }
+
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario2,
                             'fk_equipo' => $id_equipo,
                             'fk_universidad' => $id_universidad,
-                            'rol_equipo' => $request->rol_equipo
-                        ]);
+                            'rol_equipo' => $request->rol_equipo2
+                        ]);}
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario2 . ' ya existe en el equipo');
                     return Redirect::to('manageTeams');
@@ -152,14 +167,29 @@ class EquipoController extends Controller
                         ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
-                if ($existeUsuario == null) // si no existe ese usuario en el equipo
+                if ($existeUsuario == null) {// si no existe ese usuario en el equipo
+
+                    if ($request->rol_equipo3 == 'Entrenador') {
+
+                        $poseeEntrenador = DB::table('USU_EQUI_UNI')->select('fk_usuario')
+                            ->where([['fk_equipo', '=', $id_equipo],
+                                ['rol_equipo', '=', $request->rol_equipo3]])
+                            ->get();
+                        if ($poseeEntrenador != null) {
+
+                            Session::flash('message-error', 'El rol entrenador  ya esta asignado en el equipo');
+                            return Redirect::to('manageTeams');
+                        }
+
+                    }
+
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario3,
                             'fk_equipo' => $id_equipo,
                             'fk_universidad' => $id_universidad,
-                            'rol_equipo' => $request->rol_equipo
-                        ]);
+                            'rol_equipo' => $request->rol_equipo3
+                        ]);}
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario3 . ' ya existe en el equipo');
                     return Redirect::to('manageTeams');
@@ -175,16 +205,31 @@ class EquipoController extends Controller
                         ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
-                if ($existeUsuario == null) // si no existe ese usuario en el equipo
+                if ($existeUsuario == null){// si no existe ese usuario en el equipo
+
+                    if ($request->rol_equipo4 == 'Entrenador') {
+
+                        $poseeEntrenador = DB::table('USU_EQUI_UNI')->select('fk_usuario')
+                            ->where([['fk_equipo', '=', $id_equipo],
+                                ['rol_equipo', '=', $request->rol_equipo4]])
+                            ->get();
+                        if ($poseeEntrenador != null) {
+
+                            Session::flash('message-error', 'El rol entrenador  ya esta asignado en el equipo');
+                            return Redirect::to('manageTeams');
+                        }
+
+                    }
+
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario4,
                             'fk_equipo' => $id_equipo,
                             'fk_universidad' => $id_universidad,
-                            'rol_equipo' => $request->rol_equipo
-                        ]);
+                            'rol_equipo' => $request->rol_equipo4
+                        ]);}
                 else {
-                    Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario4 . ' ya existe en el equipo');
+                    Session::flash('message-error', 'El rol entrenador  ya esta asignado en el equipo');
                     return Redirect::to('manageTeams');
                 }
             }
@@ -198,14 +243,29 @@ class EquipoController extends Controller
                         ['fk_universidad', '=', $id_universidad]
                     ])->get();
 
-                if ($existeUsuario == null) // si no existe ese usuario en el equipo
+                if ($existeUsuario == null){ // si no existe ese usuario en el equipo
+
+                    if ($request->rol_equipo5 == 'Entrenador') {
+
+                        $poseeEntrenador = DB::table('USU_EQUI_UNI')->select('fk_usuario')
+                            ->where([['fk_equipo', '=', $id_equipo],
+                                ['rol_equipo', '=', $request->rol_equipo5]])
+                            ->get();
+                        if ($poseeEntrenador != null) {
+
+                            Session::flash('message-error', 'El rol entrenador  ya esta asignado en el equipo');
+                            return Redirect::to('manageTeams');
+                        }
+
+                    }
+
                     DB::table('USU_EQUI_UNI')
                         ->insert([
                             'fk_usuario' => $request->cedulaNuevoUsuario5,
                             'fk_equipo' => $id_equipo,
                             'fk_universidad' => $id_universidad,
-                            'rol_equipo' => $request->rol_equipo
-                        ]);
+                            'rol_equipo' => $request->rol_equipo5
+                        ]);}
                 else {
                     Session::flash('message-error', 'El usuario : ' . $request->cedulaNuevoUsuario5 . ' ya existe en el equipo');
                     return Redirect::to('manageTeams');
@@ -273,4 +333,26 @@ class EquipoController extends Controller
         }
         return Redirect::to('manageTeams');
     }
+
+
+    public function fijarFechaInscripcion(Request $request){
+
+        $date = date("Y-m-d", strtotime($request['fecha_limite_inscripcion']));
+
+        try{
+
+            DB::table('INSCRIPCION')->where('id_inscripcion','=','1')
+                ->update(['fecha_limite'=> $date]);
+
+
+
+
+
+             Session::flash('message', 'Se establecio la fecha exitosamente.');
+        }catch (Exception $e){
+             Session::flash('message-error', 'No se puede establecer limite de inscripción');
+        }
+        return Redirect::to('/');
+    }
+
 }

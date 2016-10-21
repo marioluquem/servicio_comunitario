@@ -2,6 +2,8 @@
 
 namespace servicio_comunitario\Http\Controllers;
 
+
+use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 
@@ -118,6 +120,11 @@ class RutasController extends Controller
 
     public function getDetailTeam($id_equipo){
 
+
+        $fecha_actual = Carbon::now();
+
+
+
         if ($id_equipo != null) {
             $equipo = DB::table('EQUIPO')
                 ->join('USU_EQUI_UNI', 'USU_EQUI_UNI.fk_equipo', '=', 'EQUIPO.id_equipo')
@@ -143,10 +150,27 @@ class RutasController extends Controller
             $disciplinas = DB::table('DISCIPLINA')->select('*')->get();
             $universidades = DB::table('UNIVERSIDAD')->select('*')->get();
             $usus_equi_uni = DB::table('USU_EQUI_UNI')->select('*')->where('USU_EQUI_UNI.fk_equipo',$id_equipo)->get();
+            $fecha_inscripcion_max = DB::table('INSCRIPCION')->select('INSCRIPCION.fecha_limite')->where('INSCRIPCION.id_inscripcion','=','1')->first();
 
 
-            return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' =>$disciplinas, 'universidades' => $universidades, 'usus_equi_uni'=>$usus_equi_uni));
+
+            if ( $fecha_actual <= $fecha_inscripcion_max->fecha_limite) {
+
+                return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' => $disciplinas, 'universidades' => $universidades, 'usus_equi_uni' => $usus_equi_uni));
+            }
+            else{
+
+                return View::make('CRUD/detailTeamsNoRegistration', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' => $disciplinas, 'universidades' => $universidades, 'usus_equi_uni' => $usus_equi_uni));
+            }
+
         }
+    }
+
+
+    public function getRegistrationTeam(){
+
+
+        return View::make('CRUD/registrationTeam');
     }
 
 }
