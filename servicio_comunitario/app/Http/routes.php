@@ -96,4 +96,7 @@ Route::get('deleteUserFromTeam/{cedula_usuario}/{id_equipo}', ['uses' => 'Equipo
 //crear fecha limite de inscripcion
 Route::post('registrationTeam', ['uses' => 'EquipoController@fijarFechaInscripcion', 'as' => 'registrationTeam']);
 
+//generar pdf nomina
+Route::get('pdf/{id_equipo}',['uses' => 'PdfController@nominaEquipo', 'as' => 'pdf']);
+
 

@@ -36,6 +36,7 @@
                         <th>Disciplina</th>
                         <th>Categoría</th>
                         <th>Eliminar</th>
+                        <th>Nómina</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,7 @@
                             <td class="center">{{ $equipo->nombre_disciplina}}</td>
                             <td> {{ $equipo->genero_equipo }}</td>
                             <td><a href="{{ route('deleteTeam', array('id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
+                            <td><a href="{{ route('pdf',array('id_equipo'=>$equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-primary"><i class="glyphicon glyphicon-file"></i>Descargar</button></a></td>
                         </tr>
                     @endforeach
                     </tbody>

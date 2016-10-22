@@ -125,6 +125,7 @@ return [
 
         /*agregados por mi*/
         Collective\Html\HtmlServiceProvider::class,
+
         
         /*
          * Laravel Framework Service Providers...
@@ -158,6 +159,7 @@ return [
         servicio_comunitario\Providers\AuthServiceProvider::class,
         servicio_comunitario\Providers\EventServiceProvider::class,
         servicio_comunitario\Providers\RouteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -210,6 +212,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

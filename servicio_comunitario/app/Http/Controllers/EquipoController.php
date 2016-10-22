@@ -355,4 +355,6 @@ class EquipoController extends Controller
         return Redirect::to('/');
     }
 
+
+
 }
