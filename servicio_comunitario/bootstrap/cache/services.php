@@ -27,6 +27,7 @@
     23 => 'servicio_comunitario\\Providers\\AuthServiceProvider',
     24 => 'servicio_comunitario\\Providers\\EventServiceProvider',
     25 => 'servicio_comunitario\\Providers\\RouteServiceProvider',
+    26 => 'Barryvdh\\DomPDF\\ServiceProvider',
   ),
   'eager' => 
   array (
@@ -43,6 +44,7 @@
     10 => 'servicio_comunitario\\Providers\\AuthServiceProvider',
     11 => 'servicio_comunitario\\Providers\\EventServiceProvider',
     12 => 'servicio_comunitario\\Providers\\RouteServiceProvider',
+    13 => 'Barryvdh\\DomPDF\\ServiceProvider',
   ),
   'deferred' => 
   array (
