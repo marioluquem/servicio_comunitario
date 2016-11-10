@@ -26,6 +26,7 @@
             <div class="panel-heading">
                 <div class="panel-title"><h2>Tabla de Equipos</h2></div>
             </div>
+            @if($rol!="D")
             <div class="panel-body">
                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                     <thead>
@@ -54,6 +55,32 @@
                     </tbody>
                 </table>
             </div>
+            @else
+            <div class="panel-body">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                    <thead>
+                    <tr>
+                        <th>Universidad</th>
+                        <th>Nombre</th>
+                        <th>Disciplina</th>
+                        <th>Categoría</th>
+                        <th>Nómina</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($equipos as $equipo)
+                        <tr class="odd gradeX" id="{{$equipo->id_equipo}}" >
+                            <td class="center">{{ $equipo->acronimo }}</td>
+                            <td class="center">{{ $equipo->nombre_equipo}}</td>
+                            <td class="center">{{ $equipo->nombre_disciplina}}</td>
+                            <td> {{ $equipo->genero_equipo }}</td>
+                            <td><a href="{{ route('pdf',array('id_equipo'=>$equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-primary"><i class="glyphicon glyphicon-file"></i>Download</button></a></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @endif
         </div>
     </div>
 

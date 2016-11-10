@@ -36,9 +36,8 @@
                         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                             <thead>
                             <tr>
-                                <th>Editar</th>
-                                <th>Rol</th>
                                 <th>Nombre</th>
+                                <th>Rol</th>
                                 <th>Eliminar</th>
                             </tr>
                             </thead>
@@ -46,7 +45,7 @@
                             @if($jugadores != null)
                                 @foreach($jugadores as $jugador)
                                     <tr class="odd gradeX" id="{{$jugador->cedula}}" >
-                                        <td><a href="{{ route('detailUser', array('id' => $jugador->cedula)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
+                                        <td class="center">{{ $jugador->primer_nombre.' '.$jugador->primer_apellido.' '.$jugador->segundo_apellido}}</td>
                                             @if($usus_equi_uni!=null)
                                                 @foreach($usus_equi_uni as $usu_equi_uni)
                                                     @if($usu_equi_uni->fk_usuario == $jugador->cedula)
@@ -54,7 +53,6 @@
                                                     @endif
                                                 @endforeach
                                             @endif
-                                        <td class="center">{{ $jugador->primer_nombre.' '.$jugador->primer_apellido.' '.$jugador->segundo_apellido}}</td>
                                         <td><a href="{{ route('deleteUserFromTeam', array('cedula_usuario' => $jugador->cedula, 'id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
                                     </tr>
 
@@ -93,8 +91,8 @@
                                     @endif
                                 </select>
                                 <br>
+                                 <label for="">Universidad</label>
                                 @if($rol!='D')
-                                    <label for="">Universidad</label>
                                     <select name="id_universidad" id="id_universidad" class="form-control">
                                          @foreach($universidades as $univ)
                                          @if($equipo->acronimo == $univ->acronimo)
@@ -102,6 +100,12 @@
                                          @else
                                             <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
                                          @endif
+                                        @endforeach
+                                    </select>
+                                @else
+                                    <select name="id_universidad" id="id_universidad" class="form-control">
+                                        @foreach($universidades as $univ)
+                                             <option value="{{$univ->id_universidad}}" selected>{{$univ->acronimo}}</option>
                                         @endforeach
                                     </select>
                                 @endif

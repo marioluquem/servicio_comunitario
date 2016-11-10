@@ -46,23 +46,38 @@
                                     <input class="form-control" type="text" placeholder="primer apellido" name="primer_apellido" value="{{$user->primer_apellido}}">
                                     <br>
                                     <label for="">Rol</label>
-                                    <select name="rol" class="form-control">
-                                        @if($user->fk_rol == 1)
-                                            <option value="1" selected>Administrador</option>
-                                        @else
-                                            <option value="1" selected>Administrador</option>
-                                        @endif
-                                        @if($user->fk_rol == 2)
-                                            <option value="2" selected>Director</option>
-                                        @else
-                                            <option value="2" >Director</option>
-                                        @endif
-                                        @if($user->fk_rol == 3)
-                                            <option value="3" selected>Usuario común</option>
-                                        @else
-                                            <option value="3">Usuario común</option>
-                                        @endif
-                                    </select>
+                                    @if($rol!='D')
+                                        <select name="rol" class="form-control">
+                                            @if($user->fk_rol == 1)
+                                                <option value="1" selected>Administrador</option>
+                                            @else
+                                                <option value="1" selected>Administrador</option>
+                                            @endif
+                                            @if($user->fk_rol == 2)
+                                                <option value="2" selected>Director</option>
+                                            @else
+                                                <option value="2" >Director</option>
+                                            @endif
+                                            @if($user->fk_rol == 3)
+                                                <option value="3" selected>Usuario común</option>
+                                            @else
+                                                <option value="3">Usuario común</option>
+                                            @endif
+                                         </select>
+                                    @else
+                                         <select name="rol" class="form-control">
+                                            @if($user->fk_rol == 2)
+                                                <option value="2" selected>Director</option>
+                                            @else
+                                                <option value="2" >Director</option>
+                                            @endif
+                                            @if($user->fk_rol == 3)
+                                                <option value="3" selected>Usuario común</option>
+                                            @else
+                                                <option value="3">Usuario común</option>
+                                            @endif
+                                         </select>
+                                    @endif     
                                     <br>
                                     <label for="">Universidad</label>
                                         <select name="id_universidad" id="id_universidad" class="form-control">

@@ -91,6 +91,7 @@
 								<li><a href={{ Route('manageUniversities') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Universidades</a></li>
 							</ul>
 						</li>
+						
 						<li class="submenu">
 							<a href="#">
 								<i class="glyphicon glyphicon-list"></i> Equipos
@@ -107,11 +108,17 @@
 				@elseif(session()->get('data')['rol'] == 'D') <!--PESTAÑAS DEL DIRECTOR -->
 					<ul class="nav">
 						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i> Inicio Director</a></li>
-						<li><a href={{ Route('calendar') }}><i class="glyphicon glyphicon-calendar"></i> Calendar Director</a></li>
-						<li><a href={{ Route('stats') }}><i class="glyphicon glyphicon-stats"></i> Statistics (Charts) Director</a></li>
-						<li><a href={{ Route('tables') }}><i class="glyphicon glyphicon-list"></i> Tables Director</a></li>
-						<li><a href={{ Route('buttons') }}><i class="glyphicon glyphicon-record"></i> Buttons Director</a></li>
-						<li><a href={{ Route('editors') }}><i class="glyphicon glyphicon-pencil"></i> Editors Director</a></li>
+						<li class="submenu">
+							<a href="#">
+								<i class="glyphicon glyphicon-list"></i> Usuarios
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href={{ Route('createUser') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Usuario</a></li>
+								<li><a href={{ Route('manageUsers') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Usuarios</a></li>
+							</ul>
+						</li>
 						<li class="submenu">
 							<a href="#">
 								<i class="glyphicon glyphicon-list"></i> Equipos
@@ -121,6 +128,7 @@
 							<ul>
 								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Equipo</a></li>
 								<li><a href={{ Route('manageTeamsD') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Equipos</a></li>
+								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i>Otras Universidades</a></li>
 							</ul>
 						</li>
 					</ul>

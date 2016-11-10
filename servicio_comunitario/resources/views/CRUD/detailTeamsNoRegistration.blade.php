@@ -94,15 +94,23 @@
                                 </select>
                                 <br>
                                 <label for="">Universidad</label>
-                                <select name="id_universidad" id="id_universidad" class="form-control">
-                                    @foreach($universidades as $univ)
-                                        @if($equipo->acronimo == $univ->acronimo)
+                                   @if($rol!='D')
+                                    <select name="id_universidad" id="id_universidad" class="form-control">
+                                         @foreach($universidades as $univ)
+                                         @if($equipo->acronimo == $univ->acronimo)
                                             <option value="{{$univ->id_universidad}}" selected>{{$univ->acronimo}}</option>
-                                        @else
+                                         @else
                                             <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                                         @endif
+                                        @endforeach
+                                    </select>
+                                @else
+                                    <select name="id_universidad" id="id_universidad" class="form-control">
+                                        @foreach($universidades as $univ)
+                                             <option value="{{$univ->id_universidad}}" selected>{{$univ->acronimo}}</option>
+                                        @endforeach
+                                    </select>
+                                @endif
                                 <br>
                                 <br>
                                 <input type="submit" class="btn btn-primary" value="Guardar Cambios en Equipo" >
