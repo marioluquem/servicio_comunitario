@@ -324,6 +324,7 @@ class EquipoController extends Controller
     }
 
     public function eliminarEquipo($id_equipo){
+        $data = session('data');
         try{
             DB::table('EQUIPO')->where('id_equipo', '=', $id_equipo)->delete();
             DB::table('USU_EQUI_UNI')->where('fk_equipo', '=', $id_equipo)->delete();
@@ -331,7 +332,11 @@ class EquipoController extends Controller
         }catch (Exception $e){
             Session::flash('message-error', 'No se pudo eliminar el Equipo');
         }
-        return Redirect::to('manageTeams');
+
+        if ($data['rol']!='D') {
+            return Redirect::to('manageTeams');
+        }
+        return Redirect::to('manageTeamsD');
     }
 
 

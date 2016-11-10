@@ -93,16 +93,18 @@
                                     @endif
                                 </select>
                                 <br>
-                                <label for="">Universidad</label>
-                                <select name="id_universidad" id="id_universidad" class="form-control">
-                                    @foreach($universidades as $univ)
-                                        @if($equipo->acronimo == $univ->acronimo)
+                                @if($rol!='D')
+                                    <label for="">Universidad</label>
+                                    <select name="id_universidad" id="id_universidad" class="form-control">
+                                         @foreach($universidades as $univ)
+                                         @if($equipo->acronimo == $univ->acronimo)
                                             <option value="{{$univ->id_universidad}}" selected>{{$univ->acronimo}}</option>
-                                        @else
+                                         @else
                                             <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                                         @endif
+                                        @endforeach
+                                    </select>
+                                @endif
                                 <br>
                                 <label for="">Insertar usuario en nómina del equipo</label>
                                 <input class="form-control" type="text" placeholder="Inserte cédula..." name="cedulaNuevoUsuario1"  value="">

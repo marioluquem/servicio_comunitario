@@ -28,13 +28,20 @@
                             <form action="createTeam" method="post" enctype="multipart/form-data" id="formulario_equipo">
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <div class="form-group">
-
-                                    <label class="control-label" style="font-size:14px;">Universidad:</label>
-                                    <select name="id_universidad" id="id_universidad" class="form-control">
+                                    @if($rol!='D')
+                                        <label class="control-label" style="font-size:14px;">Universidad:</label>
+                                        <select name="id_universidad" id="id_universidad" class="form-control">
+                                            @foreach($univ as $univ)
+                                            <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
+                                            @endforeach
+                                         </select>
+                                    @else
+                                     <select name="id_universidad" id="id_universidad" class="form-control">
                                         @foreach($univ as $univ)
-                                        <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
+                                         <option visibility ="hidden" value="{{$univ->id_universidad}}" selected="selected">{{$univ->acronimo}}</option>
                                         @endforeach
-                                    </select>
+                                      </select>  
+                                    @endif          
                                     <br>
                                     <label class="control-label" style="font-size:14px;">Disciplina:</label>
                                     <select name="id_disciplina" id="id_disciplina" class="form-control">

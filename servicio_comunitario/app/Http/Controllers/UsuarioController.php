@@ -114,6 +114,7 @@ class UsuarioController extends Controller
 
                 //Arreglamos la data para regresarla
                 $data = array(
+                    'cedula' => $usuario->cedula,
                     'nombre_usuario' => $usuario->usuario,
                     'primer_nombre' => $usuario->primer_nombre,
                     'segundo_nombre' => $usuario->segundo_nombre,

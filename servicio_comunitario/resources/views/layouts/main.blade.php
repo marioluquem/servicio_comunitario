@@ -112,7 +112,17 @@
 						<li><a href={{ Route('tables') }}><i class="glyphicon glyphicon-list"></i> Tables Director</a></li>
 						<li><a href={{ Route('buttons') }}><i class="glyphicon glyphicon-record"></i> Buttons Director</a></li>
 						<li><a href={{ Route('editors') }}><i class="glyphicon glyphicon-pencil"></i> Editors Director</a></li>
-						<li><a href={{ Route('forms') }}><i class="glyphicon glyphicon-tasks"></i> Forms Director</a></li>
+						<li class="submenu">
+							<a href="#">
+								<i class="glyphicon glyphicon-list"></i> Equipos
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+							<ul>
+								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Equipo</a></li>
+								<li><a href={{ Route('manageTeamsD') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Equipos</a></li>
+							</ul>
+						</li>
 					</ul>
 				@elseif (session()->get('key',null) == null || session()->get('data')['rol'] == 'U') <!--PESTAÑAS DEL USUARIO COMÚN -->
 					<ul class="nav">
@@ -137,7 +147,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Developed by <a href='#'>Mario Luque</a>
+               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Developed by <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
             </div>
 
          </div>

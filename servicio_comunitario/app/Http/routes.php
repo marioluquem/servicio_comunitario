@@ -64,6 +64,8 @@ Route::get('manageTeams', ['uses' => 'RutasController@getManageTeams', 'as' => '
 Route::get('detailTeam/{id_universidad}', ['uses' => 'RutasController@getDetailTeam', 'as' => 'detailTeam']);
 //pagina inscripcion equipo
 Route::get('registrationTeam', ['uses' => 'RutasController@getRegistrationTeam', 'as' => 'registrationTeam']);
+//pagina de detalle equipo director
+Route::get('manageTeamsD',['uses'=> 'RutasController@getManageTeamsDirector','as'=> 'manageTeamsD']);
 
 
 //CRUD----------------------------------------------------------------------------------------------

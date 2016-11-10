@@ -102,10 +102,23 @@ class RutasController extends Controller
     }
 
     public function getCreateTeam(){
-        $univ = DB::table('UNIVERSIDAD')->select('*')->get();
+        $data = session('data');
+        if ($data['rol']!='D') {
+            $univ = DB::table('UNIVERSIDAD')->select('*')->get();
+        
+        }
+        else{
+            $iduniv = DB::table('USU_EQUI_UNI')->select('*')->
+            where('USU_EQUI_UNI.fk_usuario','=',$data['cedula'])->first();
+            $univ = DB::table('UNIVERSIDAD')->select('*')
+            ->where('id_universidad','=',$iduniv->fk_universidad)->get();
+            
+        }
+        
+        
         $disciplinaNombre = DB::table('DISCIPLINA')->select('*')->get();
         $disciplinaModalidad = $disciplinaNombre;
-        return View::make('CRUD/createTeam', array('univ' => $univ, 'disciplinaNombre' => $disciplinaNombre, 'disciplinaModalidad' => $disciplinaModalidad));
+        return View::make('CRUD/createTeam', array('univ' => $univ, 'disciplinaNombre' => $disciplinaNombre, 'disciplinaModalidad' => $disciplinaModalidad, 'rol'=>$data['rol']));
     }
 
     public function getManageTeams(){
@@ -114,15 +127,36 @@ class RutasController extends Controller
             ->join('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
             ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id_disciplina')
             ->select('*')
-            ->where('USU_EQUI_UNI.fk_usuario', null)->distinct()->get();
+            ->where('USU_EQUI_UNI.fk_usuario', null)->distinct()->get();    
 
         return View::make('CRUD/manageTeams', array('equipos' => $equipos));
+    }
+
+
+    public function getManageTeamsDirector(){
+        if(session()->has('data')){
+            $data = session('data');
+        $univ = DB::table('USU_EQUI_UNI')->select('*')->
+        where('USU_EQUI_UNI.fk_usuario','=',$data['cedula'])->first();
+
+       $equipos = DB::table('EQUIPO')
+            ->join('USU_EQUI_UNI', 'EQUIPO.id_equipo', '=', 'USU_EQUI_UNI.fk_equipo')
+            ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id_disciplina')
+            ->select('*')
+            ->where('USU_EQUI_UNI.fk_universidad','=',$univ->fk_universidad)->groupBy('id_equipo')->get();
+        
+
+    }
+
+    return View::make('CRUD/manageTeamsD',array('equipos' => $equipos));
+
     }
 
     public function getDetailTeam($id_equipo){
 
 
         $fecha_actual = Carbon::now();
+        $data = session('data');
 
 
 
@@ -157,7 +191,8 @@ class RutasController extends Controller
 
             if ( $fecha_actual <= $fecha_inscripcion_max->fecha_limite) {
 
-                return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' => $disciplinas, 'universidades' => $universidades, 'usus_equi_uni' => $usus_equi_uni));
+                return View::make('CRUD/detailTeam', array('equipo' => $equipo, 'jugadores' => $jugadores, 'disciplinas' => $disciplinas, 'universidades' => $universidades, 'usus_equi_uni' => $usus_equi_uni, 
+                    'rol'=>$data['rol']));
             }
             else{
 
