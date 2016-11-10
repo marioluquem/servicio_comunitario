@@ -65,11 +65,11 @@
                                     </select>
                                     <br>
                                     <label for="">Universidad</label>
-                                            @if($user->acronimo != null )
-                                                <input class="form-control" type="text" value="{{$user->acronimo}}" disabled/>
-                                            @else
-                                                <input class="form-control" type="text" value="No tiene Universidad" disabled/>
-                                            @endif
+                                        <select name="id_universidad" id="id_universidad" class="form-control">
+                                        @foreach($univ as $univ)
+                                        <option value="{{$univ->id_universidad}}">{{$univ->acronimo}}</option>
+                                        @endforeach
+                                    </select>
                                    <br>
                                     <label for="">Correo</label>
                                     <input class="form-control" type="email" placeholder="correo" name="correo" value="{{ $user->correo }}">

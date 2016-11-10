@@ -155,6 +155,25 @@ class UsuarioController extends Controller
                     'USUARIO.correo' => $request->correo,
                     'USUARIO.sexo' =>  $request->sexo
                 ]);
+
+             $existeUsuario = DB::table('USU_EQUI_UNI')->select('*')
+             ->where('fk_usuario','=',$request['cedula'])->first();   
+
+             if ($existeUsuario!= null) {
+
+                    DB::table('USU_EQUI_UNI')->where('fk_usuario','=',$request->cedula)
+                    ->update(['fk_universidad'=>$request->id_universidad]);
+                 # code...
+             } else{
+
+                DB::table('USU_EQUI_UNI')->insert([
+                        'fk_usuario' => $request['cedula'],
+                        'fk_universidad' => $request['id_universidad']
+                    ]);
+            }
+
+                 
+
             Session::flash('message', 'Se ha actualizado con éxito');
         }catch (Exception $e){
             Session::flash('message-error', 'No se pudo actualizar');

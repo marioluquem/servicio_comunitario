@@ -66,7 +66,8 @@ class RutasController extends Controller
                 ->leftjoin('USU_EQUI_UNI', 'USU_EQUI_UNI.fk_usuario','=','USUARIO.cedula')
                 ->leftjoin('UNIVERSIDAD','UNIVERSIDAD.id_universidad','=','USU_EQUI_UNI.fk_universidad')
                 ->select('*')->where('cedula', $cedula)->get();
-            return View::make('CRUD/detailUser', array('data' => $user));
+            $univ = DB::table('UNIVERSIDAD')->select('*')->get();    
+            return View::make('CRUD/detailUser', array('data' => $user , 'univ' => $univ));
         }
     }
 
@@ -76,7 +77,7 @@ class RutasController extends Controller
             ->join('ROL', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
             ->leftjoin('USU_EQUI_UNI', 'USUARIO.cedula', '=', 'USU_EQUI_UNI.fk_usuario')
             ->leftjoin('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
-            ->select('*')->get();
+            ->select('*')->distinct()->get();
 
         return View::make('CRUD/manageUsers', array('data' =>$users));
     }
