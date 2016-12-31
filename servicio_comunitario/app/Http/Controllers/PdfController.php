@@ -21,11 +21,15 @@ class PdfController extends Controller
         $dataEquipo = $this->obtenerDatosEquipo($id_equipo);
         $dataJugadores = $this->obtenerDatosJugadores($id_equipo);
         $usus_equi_uni = DB::table('USU_EQUI_UNI')->select('*')->where('USU_EQUI_UNI.fk_equipo',$id_equipo)->get();
+        $numero = count($dataJugadores);
 
-        $view = \View::make('pdf/rosterTeam',compact('dataEquipo','dataJugadores','usus_equi_uni','imageRoute'))->render();
+        $view = \View::make('pdf/rosterTeam',compact('dataEquipo','dataJugadores','usus_equi_uni','imageRoute','numero'))->render();
         $pdf = \App::make('dompdf.wrapper');
-
+        
+        $pdf->setPaper("L","portrait");
         $pdf->loadHTML($view);
+       
+       
         return $pdf->download('plantilla.pdf');
 
     }
