@@ -21,7 +21,7 @@
 	              <!-- Logo -->
 	              <div class="logo">
 	                 <h1><!--suppress HtmlUnknownTarget -->
-						 <a href="index.php">Liga Universitaria</a></h1>
+						 <a href="index.php">Liga U</a></h1>
 			   </div>
 	           </div>
 	           <div class="col-md-5">
@@ -155,7 +155,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Developed by <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
+               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Desarrollado por <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
             </div>
 
          </div>

@@ -170,16 +170,15 @@ class RutasController extends Controller
              $iduniv = DB::table('USU_EQUI_UNI')->select('*')->
             where('USU_EQUI_UNI.fk_usuario','=',$data['cedula'])->first();
 
-            $equipos = DB::table('EQUIPO')
-            ->join('USU_EQUI_UNI', 'EQUIPO.id_equipo', '=', 'USU_EQUI_UNI.fk_equipo')
-            ->join('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
-            ->join('DISCIPLINA', 'EQUIPO.fk_disciplina', '=', 'DISCIPLINA.id_disciplina')
-            ->select('*')
-            ->where('USU_EQUI_UNI.fk_universidad',"<>", $iduniv->fk_universidad)->distinct()->get(); 
+            $equipos =  DB::select('select distinct(id_equipo) id_equipo, acronimo, id_universidad , id_disciplina , nombre_disciplina , nombre_equipo , genero_equipo  from equipo , usu_equi_uni , disciplina , universidad where fk_universidad = id_universidad and fk_equipo = id_equipo and id_disciplina = fk_disciplina and fk_universidad <> ?', [$iduniv->fk_universidad]);
+           
 
         }     
 
-        return View::make('CRUD/manageTeams', array('equipos' => $equipos , 'rol'=>$data['rol']));
+       return View::make('CRUD/manageTeams', array('equipos' => $equipos , 'rol'=>$data['rol']));
+        
+
+        
     }
 
 

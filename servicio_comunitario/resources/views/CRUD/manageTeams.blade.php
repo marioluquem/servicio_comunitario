@@ -24,7 +24,7 @@
     <div class="col-md-10">
         <div class="content-box-large">
             <div class="panel-heading">
-                <div class="panel-title"><h2>Tabla de Equipos</h2></div>
+                <div class="panel-title"><h2>Equipos</h2></div>
             </div>
             @if($rol!="D")
             <div class="panel-body">
@@ -43,13 +43,13 @@
                     <tbody>
                     @foreach($equipos as $equipo)
                         <tr class="odd gradeX" id="{{$equipo->id_equipo}}" >
-                            <td><a href="{{ route('detailTeam', array('id_equipo' => $equipo->id_equipo)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
+                            <td><a href="{{ route('detailTeam', array('id_equipo' => $equipo->id_equipo)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button></a></td>
                             <td class="center">{{ $equipo->acronimo }}</td>
                             <td class="center">{{ $equipo->nombre_equipo}}</td>
                             <td class="center">{{ $equipo->nombre_disciplina}}</td>
                             <td> {{ $equipo->genero_equipo }}</td>
-                            <td><a href="{{ route('deleteTeam', array('id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
-                            <td><a href="{{ route('pdf',array('id_equipo'=>$equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-primary"><i class="glyphicon glyphicon-file"></i>Download</button></a></td>
+                            <td><a href="{{ route('deleteTeam', array('id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a></td>
+                            <td><a href="{{ route('pdf',array('id_equipo'=>$equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-primary"><i class="glyphicon glyphicon-file"></i></button></a></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -74,7 +74,7 @@
                             <td class="center">{{ $equipo->nombre_equipo}}</td>
                             <td class="center">{{ $equipo->nombre_disciplina}}</td>
                             <td> {{ $equipo->genero_equipo }}</td>
-                            <td><a href="{{ route('pdf',array('id_equipo'=>$equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-primary"><i class="glyphicon glyphicon-file"></i>Download</button></a></td>
+                            <td><a href="{{ route('pdf',array('id_equipo'=>$equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-primary"><i class="glyphicon glyphicon-file"></i></button></a></td>
                         </tr>
                     @endforeach
                     </tbody>

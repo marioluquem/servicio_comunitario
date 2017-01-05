@@ -44,7 +44,7 @@
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="datetimepicker">
                             <br>
-                            <label class="control-label" style="font-size:14px;">Fecha Limite de Inscripción de Usuarios en equipos:</label>
+                            <label class="control-label" style="font-size:14px;">Establecer Fecha Limite de Inscripción:</label>
                             <input class="datetimepicker" id="fecha_limite_inscripcion" name="fecha_limite_inscripcion">
 
                             <br>

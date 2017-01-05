@@ -42,9 +42,9 @@
                                 <br>
                                 <label for="">Acrónimo</label>
                                 <input class="form-control" type="text" placeholder="Acrónimo..." name="acronimo" value="{{$univ->acronimo}}">
-                                <br>
+                               <!-- <br>
                                 <label for="">Cód. Inscripción</label>
-                                <input class="form-control" type="text" placeholder="Código de Inscripción..." name="codigo_inscripcion" value="{{$univ->codigo_inscripcion}}">
+                                <input class="form-control" type="text" placeholder="Código de Inscripción..." name="codigo_inscripcion" value="{{$univ->codigo_inscripcion}}"> -->
                                 <br>
                                 <label for="">Dirección</label>
                                 <input class="form-control" type="text" placeholder="Dirección..." name="direccion" value="{{$univ->direccion_universidad}}">

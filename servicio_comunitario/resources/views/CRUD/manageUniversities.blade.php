@@ -24,7 +24,7 @@
 <div class="col-md-10">
     <div class="content-box-large">
         <div class="panel-heading">
-            <div class="panel-title"><h2>Tabla de Universidades</h2></div>
+            <div class="panel-title"><h2>Universidades</h2></div>
         </div>
         <div class="panel-body">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
@@ -33,7 +33,7 @@
                     <th>Editar</th>
                     <th>Nombre</th>
                     <th>Acrónimo</th>
-                    <th>Cód. Inscripción</th>
+                   <!-- <th>Cód. Inscripción</th> -->
                     <th>Dirección</th>
                     <th>Rif</th>
                     <th>Eliminar</th>
@@ -42,13 +42,13 @@
                 <tbody>
                 @foreach($data as $univ)
                 <tr class="odd gradeX" id="{{$univ->id_universidad}}" >
-                    <td><a href="{{ route('detailUniv', array('id_universidad' => $univ->id_universidad)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button></a></td>
+                    <td><a href="{{ route('detailUniv', array('id_universidad' => $univ->id_universidad)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button></a></td>
                     <td class="center">{{ $univ->nombre_universidad }} <br> <img src="{{ asset('images/'.$univ->acronimo.'/'.$univ->imagen_universidad) }}" height="100px" width="200px"></td>
                     <td class="center">{{ $univ->acronimo}}</td>
-                    <td class="center">{{ $univ->codigo_inscripcion}}</td>
+                  <!--  <td class="center">{{ $univ->codigo_inscripcion}}</td> -->
                     <td> {{ $univ->direccion_universidad }}</td>
                     <td class="center">{{ $univ->rif_universidad}} </td>
-                    <td><a href="{{ route('deleteUniv', array('id_universidad' => $univ->id_universidad)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
+                    <td><a href="{{ route('deleteUniv', array('id_universidad' => $univ->id_universidad)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a></td>
                 </tr>
                 @endforeach
                 </tbody>
