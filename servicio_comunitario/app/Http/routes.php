@@ -101,4 +101,15 @@ Route::post('registrationTeam', ['uses' => 'EquipoController@fijarFechaInscripci
 //generar pdf nomina
 Route::get('pdf/{id_equipo}',['uses' => 'PdfController@nominaEquipo', 'as' => 'pdf']);
 
+// atletas por disciplina 
+Route::get('managePlayers', ['uses' => 'RutasController@getManagePlayers', 'as' => 'managePlayers']);
+
+Route::get('managePlayers/{id_disciplina}', ['uses' => 'RutasController@getManagePlayers2', 'as' => 'managePl']);
+
+//cargar constancia de estudio
+
+Route::get('uploadRegistration/{cedula}' , ['uses' => 'RutasController@getUserData', 'as' => 'uploadRegistration']);
+
+Route::post('uploadRegistrationPlayer' , ['uses' => 'UsuarioController@uploadRegistrationPlayer', 'as' => 'uploadRegistrationPlayer']);
+
 

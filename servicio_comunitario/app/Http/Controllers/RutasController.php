@@ -26,6 +26,7 @@ class RutasController extends Controller
         }
     }
     public function getDirectorPage(){
+        
         return view('director');
     }
     public function getLoginPage(){
@@ -271,6 +272,67 @@ class RutasController extends Controller
 
 
         return View::make('CRUD/registrationTeam');
+    }
+
+
+    public function getManagePlayers(){
+
+
+          $data = session('data');
+
+             $iduniv = DB::table('USU_EQUI_UNI')->select('*')->
+            where('USU_EQUI_UNI.fk_usuario','=',$data['cedula'])->first();
+
+            /*$users = DB::table('USUARIO')
+            ->join('ROL', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
+            ->leftjoin('USU_EQUI_UNI', 'USUARIO.cedula', '=', 'USU_EQUI_UNI.fk_usuario')
+            ->leftjoin('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
+            ->join('DISCIPLINA', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
+            ->select('*')->where([['id_universidad','=',$iduniv->fk_universidad],['rol_equipo','=',"Jugador"]])
+            ->groupBy('cedula')->get(); */
+
+            $users= DB::select('select * from USUARIO , EQUIPO , DISCIPLINA , USU_EQUI_UNI where id_equipo = fk_equipo and id_disciplina = fk_disciplina and fk_usuario = cedula  and fk_universidad = ? and rol_equipo = ?' , [$iduniv->fk_universidad , 'Jugador']);
+
+
+
+        return View::make('CRUD/managePlayers', array('data' =>$users , 'rol'=>$data['rol']));
+
+       
+    }
+
+
+     public function getManagePlayers2($id_disciplina){
+
+
+          $data = session('data');
+
+             $iduniv = DB::table('USU_EQUI_UNI')->select('*')->
+            where('USU_EQUI_UNI.fk_usuario','=',$data['cedula'])->first();
+
+            /*$users = DB::table('USUARIO')
+            ->join('ROL', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
+            ->leftjoin('USU_EQUI_UNI', 'USUARIO.cedula', '=', 'USU_EQUI_UNI.fk_usuario')
+            ->leftjoin('UNIVERSIDAD', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
+            ->join('DISCIPLINA', 'USU_EQUI_UNI.fk_universidad', '=', 'UNIVERSIDAD.id_universidad')
+            ->select('*')->where([['id_universidad','=',$iduniv->fk_universidad],['rol_equipo','=',"Jugador"]])
+            ->groupBy('cedula')->get(); */
+
+            $users= DB::select('select * from USUARIO , EQUIPO , DISCIPLINA , USU_EQUI_UNI where id_equipo = fk_equipo and id_disciplina = fk_disciplina and fk_usuario = cedula and fk_universidad = ? and rol_equipo = ? and id_disciplina = ?' , [$iduniv->fk_universidad , 'Jugador' , $id_disciplina]);
+
+
+
+        //return View::make('CRUD/managePl', array('data' =>$users , 'rol'=>$data['rol']));
+            return View::make('CRUD/managePl', array('data' =>$users , 'rol'=>$data['rol']));
+
+            
+
+        
+    }
+
+
+    public function getUserData($cedula){
+
+        return View::make('CRUD/uploadRegistrationUser' ,array('cedula' => $cedula ));
     }
 
 }
