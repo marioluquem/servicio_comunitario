@@ -3,11 +3,16 @@
 namespace servicio_comunitario\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use League\Flysystem\Exception;
+use servicio_comunitario\Http\Requests\LoginRequest;
 use servicio_comunitario\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use PDF;
 use App;
+use Storage;
 
 
 
@@ -17,7 +22,7 @@ class PdfController extends Controller
     public function nominaEquipo($id_equipo){
 
 
-        $imageRoute = '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/public/images';
+        $imageRoute = 'images';
         $dataEquipo = $this->obtenerDatosEquipo($id_equipo);
         $dataJugadores = $this->obtenerDatosJugadores($id_equipo);
         $dataCuerpoTecnico = $this->obtenerDatosCuerpoTecnico($id_equipo);
@@ -92,4 +97,28 @@ class PdfController extends Controller
         return $jugadores;
 
     }
+
+
+    public function viewRegistrationData ($cedula){
+              
+        return response()->file('images/'.$cedula.'/ConstanciaEstudio.pdf');
+
+    }
+
+
+      public function deleteRegistrationData($cedula){
+
+
+       DB::update('update USUARIO set constancia = ? where cedula =? ',['N',$cedula]);
+
+        $path = public_path().'/images/'.$cedula.'/ConstanciaEstudio.pdf';
+        
+        unlink($path); 
+
+        Session::flash('message', 'Constancia eliminada'); 
+       
+        return Redirect::to('/');
+
+    }
+
 }

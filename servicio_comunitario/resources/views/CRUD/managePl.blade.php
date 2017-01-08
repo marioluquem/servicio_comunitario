@@ -42,7 +42,13 @@
                                         <td>{{ $user->cedula }} <br>  <img src="{{ asset('images/'.$user->cedula.'/'.$user->foto) }}" height="80px" width="80px"></td>
                                         <td>{{ $user->primer_nombre ." ". $user->primer_apellido }}</td>
                                         <td class="center"> {{ $user->nombre_equipo }}</td>
-                                        <td><a href={{ Route('uploadRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Adjuntar</i></button></a></td>
+                                        @if($user->constancia == 'S')
+                                            <td><a href={{ Route('viewRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Ver</i></button></a>
+                                            <a href={{ Route('deleteRegistration', $user->cedula) }}><button class="btn btn-danger"><i class="glyphicon glyphicon-file">Eliminar</i></button></a>
+                                            </td>
+                                        @else
+                                            <td><a href={{ Route('uploadRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Adjuntar</i></button></a></td>
+                                        @endif
                                     </tr>
                                     </tr>
                                 @endforeach

@@ -37,6 +37,7 @@
                                     <th>Nombre</th>
                                     <th>Equipo</th>
                                     <th>Disciplina</th>
+                                    <th>Constancia de Inscripción</th>
                                     
                                 </tr>
                                 </thead>
@@ -47,6 +48,13 @@
                                         <td>{{ $user->primer_nombre ." ". $user->primer_apellido }}</td>
                                         <td class="center"> {{ $user->nombre_equipo }}</td>
                                         <td class="center">{{ $user->nombre_disciplina}} </td>
+                                         @if($user->constancia == 'S')
+                                            <td><a href={{ Route('viewRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Ver</i></button></a>
+                                            <a href={{ Route('deleteRegistration', $user->cedula) }}><button class="btn btn-danger"><i class="glyphicon glyphicon-file">Eliminar</i></button></a>
+                                            </td>
+                                        @else
+                                            <td><a href={{ Route('uploadRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Adjuntar</i></button></a></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>

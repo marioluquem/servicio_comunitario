@@ -106,10 +106,14 @@ Route::get('managePlayers', ['uses' => 'RutasController@getManagePlayers', 'as' 
 
 Route::get('managePlayers/{id_disciplina}', ['uses' => 'RutasController@getManagePlayers2', 'as' => 'managePl']);
 
-//cargar constancia de estudio
+//rutas de constancia de estudio
 
 Route::get('uploadRegistration/{cedula}' , ['uses' => 'RutasController@getUserData', 'as' => 'uploadRegistration']);
 
 Route::post('uploadRegistrationPlayer' , ['uses' => 'UsuarioController@uploadRegistrationPlayer', 'as' => 'uploadRegistrationPlayer']);
+
+Route::get('viewRegistration/{cedula}' , ['uses' => 'PdfController@viewRegistrationData', 'as' => 'viewRegistration']);
+
+Route::get('deleteRegistration/{cedula}' , ['uses' => 'PdfController@deleteRegistrationData', 'as' => 'deleteRegistration']);
 
 

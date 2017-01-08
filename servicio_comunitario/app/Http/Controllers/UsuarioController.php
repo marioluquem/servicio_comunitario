@@ -205,14 +205,15 @@ class UsuarioController extends Controller
         return Redirect::to('/');
     }
 
-
-    public function uploadRegistrationPlayer(Request $request){
+ public function uploadRegistrationPlayer(Request $request){
 
          try{
             //Obtiene el nombre de los archivos (imágenes)
             $archivoConstancia = $request->file('Constancia');
             $nombre_constancia = $request->file('Constancia')->getClientOriginalName();
             $key =  $request['cedula']."/". "ConstanciaEstudio.pdf";
+
+            DB::update('update USUARIO set Constancia = ? where cedula = ?',['S',$request['cedula']]);
 
 
             try{
