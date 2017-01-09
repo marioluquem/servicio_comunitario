@@ -21,18 +21,20 @@
 	              <!-- Logo -->
 	              <div class="logo">
 	                 <h1><!--suppress HtmlUnknownTarget -->
-						 <a href="index.php">Liga Universitaria</a></h1>
+						 <a href="index.php">Liga U</a></h1>
 			   </div>
 	           </div>
 	           <div class="col-md-5">
 	              <div class="row">
 	                <div class="col-lg-12">
-	                  <div class="input-group form">
+	                <!-- Boton Buscar
+	                 <div class="input-group form">
 	                       <input type="text" class="form-control" placeholder="Su Búsqueda...">
 	                       <span class="input-group-btn">
 	                         <button class="btn btn-primary" type="button">Buscar</button>
 	                       </span>
-	                  </div>
+	                  </div> 
+	                  -->
 	                </div>
 	              </div>
 	           </div>
@@ -65,7 +67,7 @@
 				@if(session()->get('data')['rol'] == 'A')  <!--PESTAÑAS DEL ADMINISTRADOR -->
                 	<ul class="nav">
                     <!-- Main menu -->
-						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i> Inicio Admin</a></li>
+						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i>Inicio</a></li>
 						<li><a href={{ Route('calendar') }}><i class="glyphicon glyphicon-calendar"></i> Calendar Admin</a></li>
 						<li><a href={{ Route('stats') }}><i class="glyphicon glyphicon-stats"></i> Statistics (Charts) Admin</a></li>
 						<li><a href={{ Route('tables') }}><i class="glyphicon glyphicon-list"></i> Tables Admin</a></li>
@@ -76,8 +78,8 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createUser') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Usuario</a></li>
-								<li><a href={{ Route('manageUsers') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Usuarios</a></li>
+								<li><a href={{ Route('createUser') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo</a></li>
+								<li><a href={{ Route('manageUsers') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar</a></li>
 							</ul>
 						</li>
 						<li class="submenu">
@@ -87,8 +89,8 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createUniversity') }}><i class="glyphicon glyphicon-pencil"></i> Nueva Universidad</a></li>
-								<li><a href={{ Route('manageUniversities') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Universidades</a></li>
+								<li><a href={{ Route('createUniversity') }}><i class="glyphicon glyphicon-pencil"></i> Nueva</a></li>
+								<li><a href={{ Route('manageUniversities') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar</a></li>
 							</ul>
 						</li>
 						
@@ -99,15 +101,15 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Equipo</a></li>
-								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Equipos</a></li>
+								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i>Nuevo</a></li>
+								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i>Gestionar</a></li>
 								<li><a href={{ Route('registrationTeam') }}><i class="glyphicon glyphicon-pencil"></i>Inscripción</a></li>
 							</ul>
 						</li>
 					</ul>
 				@elseif(session()->get('data')['rol'] == 'D') <!--PESTAÑAS DEL DIRECTOR -->
 					<ul class="nav">
-						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i> Inicio Director</a></li>
+						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i>Inicio</a></li>
 						<li class="submenu">
 							<a href="#">
 								<i class="glyphicon glyphicon-list"></i> Usuarios
@@ -115,8 +117,8 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createUser') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Usuario</a></li>
-								<li><a href={{ Route('manageUsers') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Usuarios</a></li>
+								<li><a href={{ Route('createUser') }}><i class="glyphicon glyphicon-pencil"></i>Nuevo</a></li>
+								<li><a href={{ Route('manageUsers') }}><i class="glyphicon glyphicon-pencil"></i>Gestionar</a></li>
 							</ul>
 						</li>
 						<li class="submenu">
@@ -126,11 +128,29 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i> Nuevo Equipo</a></li>
-								<li><a href={{ Route('manageTeamsD') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar Equipos</a></li>
+								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i>Nuevo</a></li>
+								<li><a href={{ Route('manageTeamsD') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar</a></li>
 								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i>Otras Universidades</a></li>
 							</ul>
 						</li>
+
+						<li class="submenu">
+							<a href="#">
+								<i class="glyphicon glyphicon-list"></i>Jugadores
+								<span class="caret pull-right"></span>
+							</a>
+							<!-- Sub menu -->
+								<ul>
+									<!--con disciplina en el menu-->
+									@foreach (session()->get('disciplinas') as $disciplina)
+										<li><a href={{ Route('managePl', $disciplina->id_disciplina) }}><i class="glyphicon glyphicon-pencil"></i>{{$disciplina->nombre_disciplina}}</a></li>
+									@endforeach	
+									<li><a href={{ Route('managePlayers')}}><i class="glyphicon glyphicon-pencil"></i>Gestionar</a></li>
+								</ul>
+
+						</li>
+
+
 					</ul>
 				@elseif (session()->get('key',null) == null || session()->get('data')['rol'] == 'U') <!--PESTAÑAS DEL USUARIO COMÚN -->
 					<ul class="nav">
@@ -155,7 +175,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Developed by <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
+               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Desarrollado por <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
             </div>
 
          </div>

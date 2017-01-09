@@ -53,7 +53,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
-                                        <td><a href="{{ route('deleteUserFromTeam', array('cedula_usuario' => $jugador->cedula, 'id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></a></td>
+                                        <td><a href="{{ route('deleteUserFromTeam', array('cedula_usuario' => $jugador->cedula, 'id_equipo' => $equipo->id_equipo)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a></td>
                                     </tr>
 
                                 @endforeach

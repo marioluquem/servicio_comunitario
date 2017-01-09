@@ -91,11 +91,11 @@
                                     <br>
                                     {!!Form::label('Género: ', null, array('style'=>'font-size:14px;'))!!}
                                     @if( $user->sexo == 'M')
-                                        {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="m" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
-                                        {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="f" class="genero"  style ="margin-left: 4px; margin-right: 4px;" >
+                                        {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="M" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
+                                        {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="F" class="genero"  style ="margin-left: 4px; margin-right: 4px;" >
                                     @elseif ($user->sexo == 'F')
-                                        {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="m" class="genero"  style ="margin-left: 4px; margin-right: 4px;" >
-                                        {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="f" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
+                                        {!!Form::label('M', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="M" class="genero"  style ="margin-left: 4px; margin-right: 4px;" >
+                                        {!!Form::label('F', null, array('style'=>'font-size:14px;'))!!}  <input type="radio" name="sexo" value="F" class="genero"  style ="margin-left: 4px; margin-right: 4px;" checked>
                                      @endif
                                     <br>
                                     <input type="submit" class="btn btn-primary" value="Guardar Cambios" onclick="validar_formulario()">

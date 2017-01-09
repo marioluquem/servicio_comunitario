@@ -11,21 +11,7 @@
     {!! Html::style('css/estilos.css') !!}
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $( "#fecha_limite_inscripcion" ).datepicker({
-                dateFormas: "yyyy-mm-dd",
-                defaultDate:"y + 1m",
-                changeYear: true,
-                changeMonth: true,
-                showAnim: "slideDown",
-                showButtonPanel: true,
-                showMonthAfterYear: true,
-                yearRange: "2016:2030"
-
-            });
-        } );
-    </script>
+   
 @stop
 
 @include('alerts.success')
@@ -40,19 +26,22 @@
             <div class="row">
                 <div class="box">
                     <div class="content-wrap">
-                        <form action="registrationTeam" method="post" enctype="multipart/form-data" id="formulario_registro">
+                        {!!Form::open(array('url'=>'uploadRegistrationPlayer', 'method'=>'post','id'=>'formulario_update' , 'files'=>true))!!}
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <div class="datetimepicker">
                             <br>
-                            <label class="control-label" style="font-size:14px;">Establecer Fecha Limite de Inscripción:</label>
-                            <input class="datetimepicker" id="fecha_limite_inscripcion" name="fecha_limite_inscripcion">
-
+                            <label class="control-label" style="font-size:14px;">Constancia de Estudio:</label>
+                            <input id="Constancia" name="Constancia" type="file" class=" form-control file">
+                            
+                            <input type="hidden" name="cedula" value={{$cedula}}>
+                            
+                      
                             <br>
                             <br>
                             <input type="submit" class="btn btn-primary" value="Guardar">
 
                         </div>
-                       </form>
+                       {!! Form::close() !!}
                     </div>
                 </div>
             </div>
@@ -72,3 +61,6 @@
 {!!Html::script('js/custom.js')!!}
 <script src="js/validacion_formulario.js"></script>
 @stop
+
+
+

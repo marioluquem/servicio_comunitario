@@ -27,7 +27,7 @@
 	              <!-- Logo -->
 	              <div class="logo">
 	                 <h1><!--suppress HtmlUnknownTarget -->
-						 <a href="index.php">Login - CEFODAR</a></h1>
+						 <a href="index.php">Login</a></h1>
 	              </div>
 	           </div>
 	        </div>
@@ -42,10 +42,11 @@
 			            <div class="content-wrap">
 							{!! Form::open(array('url'=>'login', 'method'=>'POST', 'id'=>'formulario_login')) !!}
 			                <h6>Inicio de Sesión</h6>
-			                <div class="social">
+			              <!--  <div class="social">
 	                            <a class="face_login" href="#">
 	                                <span class="face_icon">
 	                                    <!--suppress HtmlUnknownTarget, HtmlUnknownTarget -->
+	                                    <!--
 										<img src="images/facebook.png" alt="fb">
 	                                </span>
 	                                <span class="text">Iniciar Sesión con Facebook</span>
@@ -55,7 +56,7 @@
 	                                <span>o bien,</span>
 	                                <hr class="right">
 	                            </div>
-	                        </div>
+	                        </div> -->
 							{!! Form::text ('cedula', null, array('class'=>'form-control','placeholder'=>'Cédula','id'=>'cedula'))!!}
 							{!! Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password','id'=>'password')) !!}
 			                <div class="action">

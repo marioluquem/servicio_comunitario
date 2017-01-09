@@ -98,6 +98,7 @@ class UsuarioController extends Controller
     {
             //Traemos el usuario de la BD
             $usuario = DB::table('USUARIO')->select('*')->where('cedula', '=', $request['cedula'])->first();
+            $disciplinas = DB::select('select * from DISCIPLINA');
 
             //Si el usuario existe y la contraseña introducida coincide
             if (($usuario != null) && (password_verify($request['password'], $usuario->password))) {
@@ -132,6 +133,7 @@ class UsuarioController extends Controller
                 $request->session()->put('key', $usuario->cedula);
                 $request->session()->put('rol', $rol->tipo_rol);
                 $request->session()->put('data', $data);
+                $request->session()->put('disciplinas',$disciplinas);
 
                 return View::make('profile', $data);
             }
@@ -203,5 +205,33 @@ class UsuarioController extends Controller
         return Redirect::to('/');
     }
 
+ public function uploadRegistrationPlayer(Request $request){
+
+         try{
+            //Obtiene el nombre de los archivos (imágenes)
+            $archivoConstancia = $request->file('Constancia');
+            $nombre_constancia = $request->file('Constancia')->getClientOriginalName();
+            $key =  $request['cedula']."/". "ConstanciaEstudio.pdf";
+
+            DB::update('update USUARIO set Constancia = ? where cedula = ?',['S',$request['cedula']]);
+
+
+            try{
+                //Guardamos las imágenes en disco local
+                \Storage::disk('images')->put($key,file_get_contents($archivoConstancia, FILE_USE_INCLUDE_PATH));
+               
+            }catch(Exception $e){
+                Session::flash('message-error', 'El archivo excede el tamaño máximo');
+                return Redirect::to('uploadRegistration');
+            }
+
+            }catch (Exception $e){
+            Session::flash('message-error', 'Hubo un problema. No se pudo registrar');
+            if($request->session()->get('rol') == 'A' || $request->session()->get('rol') == 'D')
+              return Redirect::to('uploadRegistration');
+            }   
+        Session::flash('message', 'Constancia agregada exitosamente');    
+        return Redirect::to('/');
+    }
 
 }

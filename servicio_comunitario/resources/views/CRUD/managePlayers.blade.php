@@ -20,70 +20,45 @@
 @include('alerts.success')
 @include('alerts.errors')
 
+
+
+
 @section('content')
         <div class="col-md-10">
                 <div class="content-box-large">
                         <div class="panel-heading">
-                            <div class="panel-title"><h2>Usuarios</h2></div>
+                            <div class="panel-title"><h2>Jugadores</h2></div>
                         </div>
                         <div class="panel-body">
-                        @if($rol!='D')
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                                 <thead>
                                 <tr>
-                                    <th>Editar</th>
                                     <th>Cédula</th>
                                     <th>Nombre</th>
-                                    <th>Rol</th>
-                                    <th>Universidad</th>
-                                    <th>Correo</th>
-                                    <th>Género</th>
-                                    <th>Eliminar</th>
+                                    <th>Equipo</th>
+                                    <th>Disciplina</th>
+                                    <th>Constancia de Inscripción</th>
+                                    
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($data as $user)
                                     <tr class="odd gradeX" id="{{$user->cedula}}" >
-                                        <td><a href="{{ route('detailUser', array('cedula' => $user->cedula)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button></a></td>
                                         <td>{{ $user->cedula }} <br>  <img src="{{ asset('images/'.$user->cedula.'/'.$user->foto) }}" height="80px" width="80px"></td>
                                         <td>{{ $user->primer_nombre ." ". $user->primer_apellido }}</td>
-                                        <td>{{ $user->tipo_rol}}</td>
-                                        <td> {{ $user->acronimo }}</td>
-                                        <td class="center"> {{ $user->correo }}</td>
-                                        <td class="center">{{ $user->sexo}} </td>
-                                        <td><a href="{{ route('deleteUser', array('cedula' => $user->cedula)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a></td>
+                                        <td class="center"> {{ $user->nombre_equipo }}</td>
+                                        <td class="center">{{ $user->nombre_disciplina}} </td>
+                                         @if($user->constancia == 'S')
+                                            <td><a href={{ Route('viewRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Ver</i></button></a>
+                                            <a href={{ Route('deleteRegistration', $user->cedula) }}><button class="btn btn-danger"><i class="glyphicon glyphicon-file">Eliminar</i></button></a>
+                                            </td>
+                                        @else
+                                            <td><a href={{ Route('uploadRegistration', $user->cedula) }}><button class="btn btn-primary"><i class="glyphicon glyphicon-file">Adjuntar</i></button></a></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
-                            </table>
-                        @else
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-                                <thead>
-                                <tr>
-                                    <th>Editar</th>
-                                    <th>Cédula</th>
-                                    <th>Nombre</th>
-                                    <th>Rol</th>
-                                    <th>Correo</th>
-                                    <th>Género</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($data as $user)
-                                    <tr class="odd gradeX" id="{{$user->cedula}}" >
-                                        <td><a href="{{ route('detailUser', array('cedula' => $user->cedula)) }}"><button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button></a></td>
-                                        <td>{{ $user->cedula }} <br>  <img src="{{ asset('images/'.$user->cedula.'/'.$user->foto) }}" height="80px" width="80px"></td>
-                                        <td>{{ $user->primer_nombre ." ". $user->primer_apellido }}</td>
-                                        <td>{{ $user->tipo_rol}}</td>
-                                        <td class="center"> {{ $user->correo }}</td>
-                                        <td class="center">{{ $user->sexo}} </td>
-                                        <td><a href="{{ route('deleteUser', array('cedula' => $user->cedula)) }}"  id="dialog"><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></a></td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        @endif        
+                            </table>     
                         </div>
                 </div>
         </div>
