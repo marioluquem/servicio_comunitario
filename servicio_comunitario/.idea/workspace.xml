@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab0f6765-bdc5-4ff8-87d2-66d4743ffc15" name="Default" comment="quinto commit 2:&#10;&#10;- muchas cosas nuevas en equipo&#10;&#10;-tiene un detalle en representante, al actualizar la información del equipo agregando un representante con el &quot;radio button&quot; no lo actualiza en la base de datos. Al parecer el query está bien, y le está llegando la información del representante elegido. Revisar bien.">
+    <list default="true" id="ab0f6765-bdc5-4ff8-87d2-66d4743ffc15" name="Default" comment="septimo">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/EquipoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/EquipoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/RutasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/RutasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UniversidadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UniversidadController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/codigo_sql.sql" afterPath="$PROJECT_DIR$/app/codigo_sql.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/cache/config.php" afterPath="$PROJECT_DIR$/bootstrap/cache/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRUD/createTeam.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/createTeam.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRUD/detailUniv.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/detailUniv.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRUD/manageTeams.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/manageTeams.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/CRUD/manageUniversities.blade.php" afterPath="$PROJECT_DIR$/resources/views/CRUD/manageUniversities.blade.php" />
     </list>
     <ignored path="servicio_comunitario.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,18 +28,78 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.074074">
+            <state vertical-scroll-proportion="0.0">
               <caret line="90" column="58" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RutasController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RutasController.php">
+      <file leaf-file-name="validacion_formulario.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/validacion_formulario.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.444445">
-              <caret line="146" column="166" selection-start-line="146" selection-start-column="166" selection-end-line="146" selection-end-column="166" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/register.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="84" column="129" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="129" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manageUsers.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/CRUD/manageUsers.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detailUser.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/CRUD/detailUser.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createUser.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/CRUD/createUser.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="71" column="117" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detailTeam.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.523316">
+              <caret line="52" column="202" selection-start-line="52" selection-start-column="202" selection-end-line="52" selection-end-column="202" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TablesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TablesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="39.22222">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -59,38 +108,8 @@
       <file leaf-file-name="EquipoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EquipoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.777778">
-              <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniversidadController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UniversidadController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.046632">
-              <caret line="90" column="82" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manageTeams.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/CRUD/manageTeams.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1111112">
-              <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detailTeam.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.481482">
-              <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="206" column="52" selection-start-line="206" selection-start-column="52" selection-end-line="206" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -116,10 +135,7 @@
       </map>
     </option>
     <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
-      </GitPushTagMode>
+      <GitPushTagMode />
     </option>
   </component>
   <component name="IdeDocumentHistory">
@@ -158,10 +174,6 @@
         <option value="$PROJECT_DIR$/resources/views/CRUD/createUniversity.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/CRUD/createTeam.php" />
         <option value="$PROJECT_DIR$/resources/views/CRUD/manageUsers.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/validacion_formulario.js" />
-        <option value="$PROJECT_DIR$/resources/views/CRUD/detailUser.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/CRUD/createUser.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/register.blade.php" />
         <option value="$USER_HOME$/Downloads/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/layouts/main.blade.php" />
@@ -174,8 +186,12 @@
         <option value="$PROJECT_DIR$/resources/views/CRUD/manageTeams.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RutasController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EquipoController.php" />
-        <option value="$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UniversidadController.php" />
+        <option value="$PROJECT_DIR$/public/js/validacion_formulario.js" />
+        <option value="$PROJECT_DIR$/resources/views/CRUD/detailUser.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/register.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/CRUD/createUser.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php" />
       </list>
     </option>
   </component>
@@ -249,6 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -336,49 +353,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servicio_comunitario" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servicio_comunitario" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servicio_comunitario" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servicio_comunitario" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -530,7 +506,25 @@
       <option name="project" value="LOCAL" />
       <updated>1476309824327</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="sexto commit mario:&#10;&#10;- se cambio el &quot;id&quot; de todas las tablas por &quot;id_nombreTabla&quot;&#10;- se arreglo el problema que al elegir un equipo en manageTeams te llevaba al detalle de otro equipo&#10;- se agregaron comboboxes de disciplina, universidad y genero en detalleEquipo&#10;- se agregó la funcionalidad de BORRAR EQUIPO, borrando el equipo y su conexión con universidades y usuarios.&#10;- se actualizó la funcionalidad de BORRAR UNIVERSIDAD, ahora cuando se borra una universidad, se borran sus conexiones con cualquier equipo, y tambien se borran los equipos de esa univ. (los usuarios no se borran)&#10;- se arregló la asignación del representante del equipo, ahora lo asigna sin problemas">
+      <created>1476651484783</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1476651484783</updated>
+    </task>
+    <task id="LOCAL-00013" summary="septimo commit mario:&#10;&#10;- se pusieron los M y F en mayúsculas en registro y createUser, así como en validaciones.&#10;- se quitaron los caracteres - y _ de la comprobación de caracteres para habilitar subir imagenes con dichos caracteres.&#10;- se quito el campo &quot;segundo nombre&quot; de la validación de campos vacíos ya que hay personas que no tienen segundo nombre">
+      <created>1476652221364</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1476652221364</updated>
+    </task>
+    <task id="LOCAL-00014" summary="octavo commit mario:&#10;- a petición de Juan, cambiar los mensajes Subir imagen de Cédula de Identidad y Subir Foto para Nómina de Juego, en el registro y creación de usuarios nuevos">
+      <created>1476652722961</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1476652722961</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -542,7 +536,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -555,6 +548,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32649842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -580,7 +574,10 @@
     <MESSAGE value="Cuarto commit pt2:&#10;-Actualización del archivo codigo_sql.sql" />
     <MESSAGE value="quinto commit:&#10;&#10;- muchas cosas nuevas en equipo&#10;&#10;-tiene un detalle en representante, al actualizar la información del equipo agregando un representante con el &quot;radio button&quot; no lo actualiza en la base de datos. Al parecer el query está bien, y le está llegando la información del representante elegido. Revisar bien." />
     <MESSAGE value="quinto commit 2:&#10;&#10;- muchas cosas nuevas en equipo&#10;&#10;-tiene un detalle en representante, al actualizar la información del equipo agregando un representante con el &quot;radio button&quot; no lo actualiza en la base de datos. Al parecer el query está bien, y le está llegando la información del representante elegido. Revisar bien." />
-    <option name="LAST_COMMIT_MESSAGE" value="quinto commit 2:&#10;&#10;- muchas cosas nuevas en equipo&#10;&#10;-tiene un detalle en representante, al actualizar la información del equipo agregando un representante con el &quot;radio button&quot; no lo actualiza en la base de datos. Al parecer el query está bien, y le está llegando la información del representante elegido. Revisar bien." />
+    <MESSAGE value="sexto commit mario:&#10;&#10;- se cambio el &quot;id&quot; de todas las tablas por &quot;id_nombreTabla&quot;&#10;- se arreglo el problema que al elegir un equipo en manageTeams te llevaba al detalle de otro equipo&#10;- se agregaron comboboxes de disciplina, universidad y genero en detalleEquipo&#10;- se agregó la funcionalidad de BORRAR EQUIPO, borrando el equipo y su conexión con universidades y usuarios.&#10;- se actualizó la funcionalidad de BORRAR UNIVERSIDAD, ahora cuando se borra una universidad, se borran sus conexiones con cualquier equipo, y tambien se borran los equipos de esa univ. (los usuarios no se borran)&#10;- se arregló la asignación del representante del equipo, ahora lo asigna sin problemas" />
+    <MESSAGE value="septimo commit mario:&#10;&#10;- se pusieron los M y F en mayúsculas en registro y createUser, así como en validaciones.&#10;- se quitaron los caracteres - y _ de la comprobación de caracteres para habilitar subir imagenes con dichos caracteres.&#10;- se quito el campo &quot;segundo nombre&quot; de la validación de campos vacíos ya que hay personas que no tienen segundo nombre" />
+    <MESSAGE value="octavo commit mario:&#10;- a petición de Juan, cambiar los mensajes Subir imagen de Cédula de Identidad y Subir Foto para Nómina de Juego, en el registro y creación de usuarios nuevos" />
+    <option name="LAST_COMMIT_MESSAGE" value="octavo commit mario:&#10;- a petición de Juan, cambiar los mensajes Subir imagen de Cédula de Identidad y Subir Foto para Nómina de Juego, en el registro y creación de usuarios nuevos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -589,13 +586,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.761658">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/cache/services.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.673575">
@@ -680,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/validacion_formulario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="49" selection-start-line="82" selection-start-column="49" selection-end-line="82" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5647668">
@@ -733,7 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7988506">
           <caret line="778" column="26" selection-start-line="778" selection-start-column="26" selection-end-line="778" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.93333334">
           <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.111111">
           <caret line="380" column="28" selection-start-line="380" selection-start-column="28" selection-end-line="380" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.0">
           <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,7 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.60103625">
           <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.111111">
           <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -830,7 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.222222">
           <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,15 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.0">
           <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-66.0">
-          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-71.55556">
           <caret line="146" column="9" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,23 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09326425">
           <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/CRUD/createUser.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31088084">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/CRUD/detailUser.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32642487">
-          <caret line="85" column="63" selection-start-line="85" selection-start-column="63" selection-end-line="85" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,15 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0794473">
           <caret line="50" column="77" selection-start-line="50" selection-start-column="77" selection-end-line="50" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/CRUD/manageUsers.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6683937">
-          <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,13 +842,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.666667">
           <caret line="43" column="45" selection-start-line="39" selection-start-column="36" selection-end-line="43" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.074074">
+        <state vertical-scroll-proportion="0.0">
           <caret line="90" column="58" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
           <folding />
         </state>
@@ -918,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.699482">
           <caret line="109" column="72" selection-start-line="109" selection-start-column="72" selection-end-line="109" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,15 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14507772">
           <caret line="36" column="121" selection-start-line="36" selection-start-column="121" selection-end-line="36" selection-end-column="121" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EquipoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.777778">
-          <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,7 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.444445">
           <caret line="146" column="166" selection-start-line="146" selection-start-column="166" selection-end-line="146" selection-end-column="166" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -950,22 +878,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1111112">
           <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UniversidadController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-65.333336">
+          <caret line="90" column="82" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/validacion_formulario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/CRUD/manageUsers.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="129" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/CRUD/createUser.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="117" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/CRUD/detailUser.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EquipoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="206" column="52" selection-start-line="206" selection-start-column="52" selection-end-line="206" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TablesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="39.22222">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/CRUD/detailTeam.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.481482">
-          <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UniversidadController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.046632">
-          <caret line="90" column="82" selection-start-line="90" selection-start-column="82" selection-end-line="90" selection-end-column="82" />
+        <state vertical-scroll-proportion="1.523316">
+          <caret line="52" column="202" selection-start-line="52" selection-start-column="202" selection-end-line="52" selection-end-column="202" />
           <folding />
         </state>
       </provider>
