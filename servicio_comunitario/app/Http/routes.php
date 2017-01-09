@@ -30,6 +30,7 @@ Route::get('logout',['uses'=>'UsuarioController@cerrarSesion', 'as' =>'logout'])
 
 //Enrutamiento entre páginas, a través de controllers ---------------------------------------
 Route::get('register',['uses'=>'RutasController@getRegisterPage', 'as'=>'register']);
+Route::get('recupera',['uses'=>'RutasController@getRecuperaPage', 'as'=>'recupera']);
 Route::get('login',['uses'=>'RutasController@getLoginPage', 'as'=>'login']);
 Route::get('calendar',['uses'=>'RutasController@getCalendarPage', 'as'=>'calendar']);
 Route::get('stats',['uses'=>'RutasController@getStatsPage', 'as'=>'stats']);
@@ -117,3 +118,6 @@ Route::get('viewRegistration/{cedula}' , ['uses' => 'PdfController@viewRegistrat
 Route::get('deleteRegistration/{cedula}' , ['uses' => 'PdfController@deleteRegistrationData', 'as' => 'deleteRegistration']);
 
 
+//Recupera contraseña
+
+Route::post('recuperaVerifica',['uses'=>'RutasController@getRecuperaVerificaPage', 'as'=>'recuperaVerifica']);

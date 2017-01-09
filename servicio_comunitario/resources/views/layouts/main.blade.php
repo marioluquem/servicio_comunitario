@@ -47,6 +47,7 @@
 								@if(session()->get('key', null) == null)
 	                          		<li><a href={{ route('login') }}>Iniciar Sesión</a></li>
 	                          		<li><a href="{{ route('register') }}">Registrarse</a></li>
+									<li><a href="{{ route('recupera') }}">Recupera Contraseña</a></li>
 								@else
 									<li><a href={{ route('profile') }}>Mi Perfil</a></li>
 									<li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
@@ -68,9 +69,11 @@
                 	<ul class="nav">
                     <!-- Main menu -->
 						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i>Inicio</a></li>
+						<!--
 						<li><a href={{ Route('calendar') }}><i class="glyphicon glyphicon-calendar"></i> Calendar Admin</a></li>
 						<li><a href={{ Route('stats') }}><i class="glyphicon glyphicon-stats"></i> Statistics (Charts) Admin</a></li>
 						<li><a href={{ Route('tables') }}><i class="glyphicon glyphicon-list"></i> Tables Admin</a></li>
+						-->
 						<li class="submenu">
 							<a href="#">
 								<i class="glyphicon glyphicon-list"></i> Usuarios
@@ -155,12 +158,14 @@
 				@elseif (session()->get('key',null) == null || session()->get('data')['rol'] == 'U') <!--PESTAÑAS DEL USUARIO COMÚN -->
 					<ul class="nav">
 						<li class="current"><a href={{ Route('index') }}><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
+						<!--
 						<li><a href={{ Route('calendar') }}><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
 						<li><a href={{ Route('stats') }}><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
 						<li><a href={{ Route('tables') }}><i class="glyphicon glyphicon-list"></i> Tables</a></li>
 						<li><a href={{ Route('buttons') }}><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
 						<li><a href={{ Route('editors') }}><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
 						<li><a href={{ Route('forms') }}><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
+						-->
 					</ul>
 				@endif
              </div>

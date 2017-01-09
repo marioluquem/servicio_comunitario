@@ -75,6 +75,11 @@ class UsuarioController extends Controller
                         'fk_rol'=>3
                     ]);
 
+                    DB::table('USUARIO_PREGUNTA')->insert([
+                        'respuesta'=> $request['respuesta_secreta'],
+                        'fk_pregunta'=>$request['pregunta_secreta'],
+                        'fk_usuario'=>$request['cedula']
+                    ]);
 
                     Session::flash('message', 'Se ha registrado satisfactoriamente');
                 }catch (Exception $e){

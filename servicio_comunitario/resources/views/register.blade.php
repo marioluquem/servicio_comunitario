@@ -77,7 +77,15 @@
                                     <br>
                                         <label class="control-label" style="font-size:14px;">Fecha de nacimiento:</label>
                                         <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
-
+                                    <br>
+                                        <label class="control-label" style="font-size:14px;">Pregunta de Seguridad:</label>
+                                    <select class="form-control" name="pregunta_secreta" id="pregunta_secreta">
+                                        @foreach($preguntas as $pregunta)
+                                            <option value="{{ $pregunta->id_pregunta }}">{{ $pregunta->pregunta }}</option>
+                                        @endforeach
+                                    </select>
+                                    <br>
+                                        <input type="text" class="form-control" id="respuesta_secreta" name="respuesta_secreta">
                                     <br>
                                         <label class="control-label" style="font-size:14px;">Subir Foto para Nómina de Juego:</label>
                                         <input id="foto" name="foto" type="file" class=" form-control file">
