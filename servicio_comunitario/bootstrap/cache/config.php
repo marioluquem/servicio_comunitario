@@ -38,6 +38,7 @@
       23 => 'servicio_comunitario\\Providers\\AuthServiceProvider',
       24 => 'servicio_comunitario\\Providers\\EventServiceProvider',
       25 => 'servicio_comunitario\\Providers\\RouteServiceProvider',
+      26 => 'Barryvdh\\DomPDF\\ServiceProvider',
     ),
     'aliases' => 
     array (
@@ -73,6 +74,7 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'PDF' => 'Barryvdh\\DomPDF\\Facade',
     ),
   ),
   'auth' => 
@@ -209,7 +211,7 @@
       'mysql' => 
       array (
         'driver' => 'mysql',
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'marioluquem',
         'username' => 'root',
@@ -223,7 +225,7 @@
       'pgsql' => 
       array (
         'driver' => 'pgsql',
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'marioluquem',
         'username' => 'root',
@@ -239,7 +241,7 @@
       'cluster' => false,
       'default' => 
       array (
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'password' => NULL,
         'port' => '6379',
         'database' => 0,
@@ -391,5 +393,30 @@
       0 => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\resources\\views',
     ),
     'compiled' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\framework\\views',
+  ),
+  'dompdf' => 
+  array (
+    'show_warnings' => false,
+    'orientation' => 'portrait',
+    'defines' => 
+    array (
+      'DOMPDF_FONT_DIR' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\fonts/',
+      'DOMPDF_FONT_CACHE' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario\\storage\\fonts/',
+      'DOMPDF_TEMP_DIR' => 'C:\\Users\\Mario\\AppData\\Local\\Temp',
+      'DOMPDF_CHROOT' => 'C:\\Users\\Mario\\Documents\\servicio_comunitario_git\\servicio_comunitario',
+      'DOMPDF_UNICODE_ENABLED' => true,
+      'DOMPDF_ENABLE_FONT_SUBSETTING' => false,
+      'DOMPDF_PDF_BACKEND' => 'CPDF',
+      'DOMPDF_DEFAULT_MEDIA_TYPE' => 'screen',
+      'DOMPDF_DEFAULT_PAPER_SIZE' => 'a4',
+      'DOMPDF_DEFAULT_FONT' => 'serif',
+      'DOMPDF_DPI' => 96,
+      'DOMPDF_ENABLE_PHP' => false,
+      'DOMPDF_ENABLE_JAVASCRIPT' => true,
+      'DOMPDF_ENABLE_REMOTE' => true,
+      'DOMPDF_FONT_HEIGHT_RATIO' => 1.100000000000000088817841970012523233890533447265625,
+      'DOMPDF_ENABLE_CSS_FLOAT' => false,
+      'DOMPDF_ENABLE_HTML5PARSER' => false,
+    ),
   ),
 );

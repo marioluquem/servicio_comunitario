@@ -46,6 +46,7 @@ CREATE TABLE EQUIPO(
 
 CREATE TABLE USU_EQUI_UNI(
 	representante boolean,
+	rol_equipo varchar(50),
 	fk_usuario integer,
 	fk_universidad integer not null,
 	fk_equipo integer not null
@@ -82,7 +83,10 @@ CREATE TABLE PARTIDO(
 	fk_cancha integer not null
 );
 
-
+CREATE TABLE INSCRIPCION (
+	id_inscripcion integer NOT NULL,
+  	fecha_limite date
+);
 
 ---------------------------------------------------------CONSTRAINTS-----------------------------------------------------------------
 

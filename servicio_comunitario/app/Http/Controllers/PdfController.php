@@ -17,7 +17,7 @@ class PdfController extends Controller
     public function nominaEquipo($id_equipo){
 
 
-        $imageRoute = '/Applications/XAMPP/xamppfiles/htdocs/servicio_comunitario/servicio_comunitario/servicio_comunitario/public/images';
+        $imageRoute = 'C:\Users\Mario\Documents\servicio_comunitario_git\servicio_comunitario\public/images';
         $dataEquipo = $this->obtenerDatosEquipo($id_equipo);
         $dataJugadores = $this->obtenerDatosJugadores($id_equipo);
         $usus_equi_uni = DB::table('USU_EQUI_UNI')->select('*')->where('USU_EQUI_UNI.fk_equipo',$id_equipo)->get();
