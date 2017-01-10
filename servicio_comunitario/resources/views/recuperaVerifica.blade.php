@@ -40,8 +40,10 @@
             <div class="login-wrapper">
                 <div class="box">
                     <div class="content-wrap">
-                        {!! Form::open(array('url'=>'recuperaVerifica', 'method'=>'POST', 'id'=>'recuperaVerifica')) !!}
+                        {!! Form::open(array('url'=>'enviarClave', 'method'=>'POST', 'id'=>'enviarClave')) !!}
                         <h6>Pregunta secreta:</h6>
+                        {{ Form::hidden('id_pregunta', $pregunta->id_pregunta) }}
+                        {{ Form::hidden('cedula', $cedula) }}
                         <input class="form-control" type="text" value="{{ $pregunta->pregunta }}">
                         <h6>Respuesta:</h6>
                         {!! Form::text ('respuesta_secreta', null, array('class'=>'form-control','placeholder'=>'Su respuesta secreta..','id'=>'respuesta_secreta'))!!}

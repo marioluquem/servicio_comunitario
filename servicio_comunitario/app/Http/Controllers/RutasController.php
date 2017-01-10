@@ -47,7 +47,7 @@ class RutasController extends Controller
     public function getRecuperaVerificaPage(Request $request){
         $preguntaSecreta = DB::table('PREGUNTA_SECRETA')
                                     ->join('USUARIO_PREGUNTA', 'USUARIO_PREGUNTA.fk_pregunta','=','PREGUNTA_SECRETA.id_pregunta')
-                                    ->select('PREGUNTA_SECRETA.pregunta')
+                                    ->select('*')
                                     ->where('USUARIO_PREGUNTA.fk_usuario','=',$request->cedula)
                                     ->first();
         return view('recuperaVerifica', array('pregunta' => $preguntaSecreta, 'cedula'=>$request->cedula));

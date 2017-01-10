@@ -121,3 +121,5 @@ Route::get('deleteRegistration/{cedula}' , ['uses' => 'PdfController@deleteRegis
 //Recupera contraseña
 
 Route::post('recuperaVerifica',['uses'=>'RutasController@getRecuperaVerificaPage', 'as'=>'recuperaVerifica']);
+
+Route::post('enviarClave',['uses'=>'UsuarioController@cambiarPassword', 'as'=>'enviarClave']);
