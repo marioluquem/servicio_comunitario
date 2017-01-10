@@ -244,6 +244,7 @@ class UsuarioController extends Controller
         $id_pregunta = $request->id_pregunta;
         $respuesta = $request->respuesta_secreta;
         $cedula = $request->cedula;
+        $nuevoPassword = $request->password;
 
         //Leemos la respuesta secreta del usuario
         $respuestaBD = DB::table('USUARIO_PREGUNTA')
@@ -254,16 +255,15 @@ class UsuarioController extends Controller
                                 ])
                                 ->first();
 
-        if ($respuesta == $respuestaBD->respuesta){
-            $nuevoPassword = $this->generarPasswordAleatorio(8);
+        if ($respuesta == $respuestaBD->respuesta) {
             $nuevoPasswordCifrado = password_hash($nuevoPassword, PASSWORD_DEFAULT);
-            DB::update('update USUARIO set password = ? where cedula = ?',[$nuevoPasswordCifrado,$cedula]);
-            Session::flash('message', 'Se ha enviado su nueva contraseña a su correo electrónico');
-            return view('muestraClave', array('clave'=>$nuevoPassword));
+            DB::update('update USUARIO set password = ? where cedula = ?', [$nuevoPasswordCifrado, $cedula]);
+            Session::flash('message', 'Su contraseña ha sido modificada exitosamente');
+            return Redirect::to('/');
         }
         else{
             Session::flash('message-error', 'Respuesta incorrecta');
-            return Redirect::to('muestraClave');
+            return Redirect::to('/');
         }
     }
 
