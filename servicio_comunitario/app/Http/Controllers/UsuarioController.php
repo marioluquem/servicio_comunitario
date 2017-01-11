@@ -96,6 +96,8 @@ class UsuarioController extends Controller
 
     public function validarUsuario(LoginRequest $request)
     {
+         
+
             //Traemos el usuario de la BD
             $usuario = DB::table('USUARIO')->select('*')->where('cedula', '=', $request['cedula'])->first();
             $disciplinas = DB::select('select * from DISCIPLINA');
@@ -231,7 +233,7 @@ class UsuarioController extends Controller
               return Redirect::to('uploadRegistration');
             }   
         Session::flash('message', 'Constancia agregada exitosamente');    
-        return Redirect::to('/');
+        return Redirect::to('managePlayers');
     }
 
 }

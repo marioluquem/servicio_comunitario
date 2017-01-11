@@ -141,10 +141,10 @@
 							</a>
 							<!-- Sub menu -->
 								<ul>
-									<!--con disciplina en el menu-->
+									<!--con disciplina en el menu
 									@foreach (session()->get('disciplinas') as $disciplina)
 										<li><a href={{ Route('managePl', $disciplina->id_disciplina) }}><i class="glyphicon glyphicon-pencil"></i>{{$disciplina->nombre_disciplina}}</a></li>
-									@endforeach	
+									@endforeach	-->
 									<li><a href={{ Route('managePlayers')}}><i class="glyphicon glyphicon-pencil"></i>Gestionar</a></li>
 								</ul>
 
