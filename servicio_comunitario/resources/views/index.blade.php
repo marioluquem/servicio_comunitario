@@ -25,17 +25,29 @@
 				<div class="content-box-large box-with-header">
 					<h3>Bienvenido al nuevo portal de la Liga Universitaria!</h3>
 					<br>
-					<h4>Regístrate en el menú superior derecho para ser parte de esta comunidad de atletas!</h4>
+					<h4>Regístrate en el menú superior derecho para ser parte de esta comunidad de atletas.</h4>
 					<br /><br />
 				</div>
 			</div>
 		</div>
-
+			
 		  	<div class="row">
 		  		<div class="col-md-6">
+		  			<div class="content-box-header">
+			  					<div class="panel-title">Comunicados</div>
+								
+								<div class="panel-options">
+							
+								</div>
+				  			</div>
+				  			<div class="content-box-large box-with-header">
+
+				  				Inscripciones Abiertas.
+				  				
+		  			<!--
 		  			<div class="content-box-large">
 		  				<div class="panel-heading">
-							<div class="panel-title">Noticias</div>
+							<div class="panel-title">Siguenos</div>
 							
 							<div class="panel-options">
 								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -43,14 +55,15 @@
 							</div>
 						</div>
 		  				<div class="panel-body">
-		  					Ut tristique adipiscing mauris, sit amet suscipit metus porta quis. Donec dictum tincidunt erat, eu blandit ligula. Nam sit amet dolor sapien. Quisque velit erat, congue sed suscipit vel, feugiat sit amet enim. Suspendisse interdum enim at mi tempor commodo. Sed tincidunt sed tortor eu scelerisque. Donec luctus malesuada vulputate. Nunc vel auctor metus, vel adipiscing odio. Aliquam aliquet rhoncus libero, at varius nisi pulvinar nec. Aliquam erat volutpat. Donec ut neque mi. Praesent enim nisl, bibendum vitae ante et, placerat pharetra magna. Donec facilisis nisl turpis, eget facilisis turpis semper non. Maecenas luctus ligula tincidunt iasdsd vitae ante et, 
-				  			<br /><br />
-				  			Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque sed consectetur erat. Maecenas in elementum libero. Sed consequat pellentesque ultricies. Ut laoreet vehicula nisl sed placerat. Duis posuere lectus n, eros et hendrerit pellentesque, ante magna condimentum sapien, eget ultrices eros libero non orci. Etiam varius diam lectus.
+		  					<a target= "_blank" href="http://www.ligau.com.ve"><img src="images/noticiaslogo.png" class="imagen" height="50px" width="60px" style="border-radius: 10px"></a>
 							<br /><br />
 		  				</div>
+		  				-->
+
 		  			</div>
 		  		</div>
-
+		  		
+		  		<!--
 		  		<div class="col-md-6">
 		  			<div class="row">
 		  				<div class="col-md-12">
@@ -69,10 +82,11 @@
 							</div>
 		  				</div>
 		  			</div>
+		  			-->
 		  			<div class="row">
-		  				<div class="col-md-12">
+		  				<div class="col-md-6">
 		  					<div class="content-box-header">
-			  					<div class="panel-title">Comunicados</div>
+			  					<div class="panel-title">Siguenos</div>
 								
 								<div class="panel-options">
 									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -80,8 +94,9 @@
 								</div>
 				  			</div>
 				  			<div class="content-box-large box-with-header">
-				  				
-					  			Pellentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit amet dignissim erat. Aliquam erat volutpat. Aenean laoreet metus leo, laoreet feugiat enim suscipit quis. Praesent mauris mauris, ornare vitae tincidunt sed, hendrerit eget augue. Nam nec vestibulum nisi, eu dignissim nulla.
+				  				<a target= "_blank" href="http://www.ligau.com.ve"><img src="images/noticiaslogo.png" class="imagen" height="40px" width="40px" hspace="10px"></a>    
+				  				<a target= "_blank" href="https://twitter.com/ligauve?lang=es"><img src="images/logotwitter.png" class="imagen" height="40px" width="50px" hspace="10px"></a>
+					  			<a target= "_blank" href="https://www.instagram.com/ligauve/"><img src="images/instalogo.png" class="imagen" height="40px" width="40px" hspace="10px"></a>
 								<br /><br />
 							</div>
 		  				</div>

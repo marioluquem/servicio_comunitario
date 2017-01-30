@@ -2,7 +2,7 @@
 <!--suppress ALL -->
 <html>
   <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Liga Universitaria Caracas</title>
 
     @yield('includesHead')
     
@@ -21,7 +21,7 @@
 	              <!-- Logo -->
 	              <div class="logo">
 	                 <h1><!--suppress HtmlUnknownTarget -->
-						 <a href="index.php">Liga U</a></h1>
+						 <a href="index.php"><img src="images/logoligaU.png" class="imagen" height="50px" width="60px" style="border-radius: 10px"> LigaU</a></h1>
 			   </div>
 	           </div>
 	           <div class="col-md-5">
@@ -180,7 +180,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Desarrollado por <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
+               Copyright 2016 <a href='#'>Liga Universitaria</a>
             </div>
 
          </div>
