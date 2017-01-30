@@ -46,6 +46,7 @@ CREATE TABLE EQUIPO(
 
 CREATE TABLE USU_EQUI_UNI(
 	representante boolean,
+	rol_equipo varchar(50),
 	fk_usuario integer,
 	fk_universidad integer not null,
 	fk_equipo integer not null
@@ -82,7 +83,21 @@ CREATE TABLE PARTIDO(
 	fk_cancha integer not null
 );
 
+CREATE TABLE INSCRIPCION (
+	id_inscripcion integer NOT NULL,
+  	fecha_limite date
+);
 
+CREATE TABLE PREGUNTA_SECRETA(
+	id_pregunta integer not null AUTO_INCREMENT PRIMARY KEY ,
+	pregunta VARCHAR(100) not null
+);
+
+CREATE TABLE USUARIO_PREGUNTA(
+	respuesta VARCHAR(100),
+	fk_usuario integer not null,
+	fk_pregunta integer not null
+);
 
 ---------------------------------------------------------CONSTRAINTS-----------------------------------------------------------------
 
@@ -110,3 +125,7 @@ INSERT INTO DISCIPLINA VALUES(2, 'FUTBOL SALA');
 INSERT INTO DISCIPLINA VALUES(3, 'VOLEIBOL');
 INSERT INTO DISCIPLINA VALUES(4, 'BASKET');
 INSERT INTO DISCIPLINA VALUES(5, 'TENIS DE MESA');
+
+INSERT INTO PREGUNTA_SECRETA VALUES(1, 'Nombre de mi primera mascota');
+INSERT INTO PREGUNTA_SECRETA VALUES(2, 'Segundo nombre de mi abuela');
+INSERT INTO PREGUNTA_SECRETA VALUES(3, 'Lugar de nacimiento de mi padre');

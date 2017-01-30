@@ -6,6 +6,7 @@ namespace servicio_comunitario\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 use servicio_comunitario\Http\Requests;
 
@@ -33,7 +34,23 @@ class RutasController extends Controller
         return view('login');
     }
     public function getRegisterPage(){
-        return view('register');
+
+        $preguntas = DB::table('PREGUNTA_SECRETA')
+                            ->select('*')
+                            ->get();
+
+        return view('register', array('preguntas' => $preguntas ));
+    }
+    public function getRecuperaPage(){
+        return view('recupera');
+    }
+    public function getRecuperaVerificaPage(Request $request){
+        $preguntaSecreta = DB::table('PREGUNTA_SECRETA')
+                                    ->join('USUARIO_PREGUNTA', 'USUARIO_PREGUNTA.fk_pregunta','=','PREGUNTA_SECRETA.id_pregunta')
+                                    ->select('*')
+                                    ->where('USUARIO_PREGUNTA.fk_usuario','=',$request->cedula)
+                                    ->first();
+        return view('recuperaVerifica', array('pregunta' => $preguntaSecreta, 'cedula'=>$request->cedula));
     }
     public function getCalendarPage(){
         return view('calendar');

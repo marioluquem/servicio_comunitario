@@ -75,6 +75,11 @@ class UsuarioController extends Controller
                         'fk_rol'=>3
                     ]);
 
+                    DB::table('USUARIO_PREGUNTA')->insert([
+                        'respuesta'=> $request['respuesta_secreta'],
+                        'fk_pregunta'=>$request['pregunta_secreta'],
+                        'fk_usuario'=>$request['cedula']
+                    ]);
 
                     Session::flash('message', 'Se ha registrado satisfactoriamente');
                 }catch (Exception $e){
@@ -234,6 +239,43 @@ class UsuarioController extends Controller
             }   
         Session::flash('message', 'Constancia agregada exitosamente');    
         return Redirect::to('managePlayers');
+    }
+
+
+    public function cambiarPassword(Request $request){
+        $id_pregunta = $request->id_pregunta;
+        $respuesta = $request->respuesta_secreta;
+        $cedula = $request->cedula;
+        $nuevoPassword = $request->password;
+
+        //Leemos la respuesta secreta del usuario
+        $respuestaBD = DB::table('USUARIO_PREGUNTA')
+                                ->select('respuesta')
+                                ->where([
+                                    ['fk_usuario','=',$cedula],
+                                    ['fk_pregunta','=',$id_pregunta]
+                                ])
+                                ->first();
+
+        if ($respuesta == $respuestaBD->respuesta) {
+            $nuevoPasswordCifrado = password_hash($nuevoPassword, PASSWORD_DEFAULT);
+            DB::update('update USUARIO set password = ? where cedula = ?', [$nuevoPasswordCifrado, $cedula]);
+            Session::flash('message', 'Su contraseña ha sido modificada exitosamente');
+            return Redirect::to('/');
+        }
+        else{
+            Session::flash('message-error', 'Respuesta incorrecta');
+            return Redirect::to('/');
+        }
+    }
+
+    function generarPasswordAleatorio($longitud) {
+        $key = '';
+        $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+        $max = strlen($pattern)-1;
+        for($i=0;$i < $longitud;$i++)
+            $key .= $pattern{rand(0,$max)};
+        return $key;
     }
 
 }
