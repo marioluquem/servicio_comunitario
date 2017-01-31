@@ -13,15 +13,14 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body style="background-color: #B40431;">
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><!--suppress HtmlUnknownTarget -->
-						 <a href="index.php">Liga U</a></h1>
+						 <a href="index.php"><img src="images/LIGAU.png" height="80px" width="150px" alt="">  BETA</a>
 			   </div>
 	           </div>
 	           <div class="col-md-5">
@@ -180,7 +179,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2016 <a href='#'>Liga Universitaria</a> /  Desarrollado por <a href='#'>Mario Luque , Clara Rosa Aguilarte Trías</a>
+               Copyright 2017 <a href='#'>Liga Universitaria</a>
             </div>
 
          </div>
