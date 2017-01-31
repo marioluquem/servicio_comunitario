@@ -109,15 +109,26 @@ class PdfController extends Controller
       public function deleteRegistrationData($cedula){
 
 
-       DB::update('update USUARIO set constancia = ? where cedula =? ',['N',$cedula]);
+
+     try {
+
+         DB::update('update USUARIO set constancia = ? where cedula =? ',['N',$cedula]);
 
         $path = public_path().'/images/'.$cedula.'/ConstanciaEstudio.pdf';
         
         unlink($path); 
 
+
+     }catch(Exception $e) {
+
+        Session::flash('message-error', 'No se elimino el archivo');
+        return Redirect::to('/');
+     }
         Session::flash('message', 'Constancia eliminada'); 
        
-        return Redirect::to('/');
+        return Redirect::to('managePlayers');
+
+
 
     }
 

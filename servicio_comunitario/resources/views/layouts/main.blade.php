@@ -2,7 +2,7 @@
 <!--suppress ALL -->
 <html>
   <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Liga Universitaria Caracas</title>
 
     @yield('includesHead')
     
@@ -20,7 +20,8 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-						 <a href="index.php"><img src="images/LIGAU.png" height="80px" width="150px" alt="">  BETA</a>
+	                 <h1><!--suppress HtmlUnknownTarget -->
+						 <a href="index.php"><img src="images/logoligaU.png" class="imagen" height="50px" width="60px" style="border-radius: 10px"> LigaU</a></h1>
 			   </div>
 	           </div>
 	           <div class="col-md-5">
@@ -143,10 +144,10 @@
 							</a>
 							<!-- Sub menu -->
 								<ul>
-									<!--con disciplina en el menu-->
+									<!--con disciplina en el menu
 									@foreach (session()->get('disciplinas') as $disciplina)
 										<li><a href={{ Route('managePl', $disciplina->id_disciplina) }}><i class="glyphicon glyphicon-pencil"></i>{{$disciplina->nombre_disciplina}}</a></li>
-									@endforeach	
+									@endforeach	-->
 									<li><a href={{ Route('managePlayers')}}><i class="glyphicon glyphicon-pencil"></i>Gestionar</a></li>
 								</ul>
 
