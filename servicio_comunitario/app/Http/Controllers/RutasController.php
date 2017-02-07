@@ -74,7 +74,11 @@ class RutasController extends Controller
     //---------------------------CRUDS ADMIN-------------------------------
 
     public function getCreateUser(){
-        return view('CRUD/createUser');
+        $preguntas = DB::table('PREGUNTA_SECRETA')
+            ->select('*')
+            ->get();
+
+        return view('CRUD/createUser', array('preguntas' => $preguntas ));
     }
 
     public function getDetailUser($cedula){
@@ -188,7 +192,7 @@ class RutasController extends Controller
              $iduniv = DB::table('USU_EQUI_UNI')->select('*')->
             where('USU_EQUI_UNI.fk_usuario','=',$data['cedula'])->first();
 
-            $equipos =  DB::select('select distinct(id_equipo) id_equipo, acronimo, id_universidad , id_disciplina , nombre_disciplina , nombre_equipo , genero_equipo  from equipo , usu_equi_uni , disciplina , universidad where fk_universidad = id_universidad and fk_equipo = id_equipo and id_disciplina = fk_disciplina and fk_universidad <> ?', [$iduniv->fk_universidad]);
+            $equipos =  DB::select('select distinct(id_equipo) id_equipo, acronimo, id_universidad , id_disciplina , nombre_disciplina , nombre_equipo , genero_equipo  from EQUIPO, USU_EQUI_UNI , DISCIPLINA , UNIVERSIDAD where fk_universidad = id_universidad and fk_equipo = id_equipo and id_disciplina = fk_disciplina and fk_universidad <> ?', [$iduniv->fk_universidad]);
            
 
         }     

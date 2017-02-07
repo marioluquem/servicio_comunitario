@@ -5,24 +5,23 @@
     <title>Liga Universitaria Caracas</title>
 
     @yield('includesHead')
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body style="background-color: #B40431;">
+  <body>
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><!--suppress HtmlUnknownTarget -->
-						 <a href="index.php"><img src="images/logoligaU.png" class="imagen" height="50px" width="60px" style="border-radius: 10px"> LigaU</a></h1>
-			   </div>
+	                 <h1>
+			    <a href="#"><img src="http://www.dataligau.com.ve/images/logoligaU.jpg" alt="logo" height="50px" width="60px" style="border-radius: 10px">  LigaU</a>
+			 </h1>
+			</div>
 	           </div>
 	           <div class="col-md-5">
 	              <div class="row">
@@ -47,7 +46,9 @@
 								@if(session()->get('key', null) == null)
 	                          		<li><a href={{ route('login') }}>Iniciar Sesión</a></li>
 	                          		<li><a href="{{ route('register') }}">Registrarse</a></li>
+									
 									<li><a href="{{ route('recupera') }}">Recupera Contraseña</a></li>
+									
 								@else
 									<li><a href={{ route('profile') }}>Mi Perfil</a></li>
 									<li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
@@ -131,7 +132,7 @@
 							</a>
 							<!-- Sub menu -->
 							<ul>
-								<li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i>Nuevo</a></li>
+								<!-- <li><a href={{ Route('createTeam') }}><i class="glyphicon glyphicon-pencil"></i>Nuevo</a></li> -->
 								<li><a href={{ Route('manageTeamsD') }}><i class="glyphicon glyphicon-pencil"></i> Gestionar</a></li>
 								<li><a href={{ Route('manageTeams') }}><i class="glyphicon glyphicon-pencil"></i>Otras Universidades</a></li>
 							</ul>
@@ -180,7 +181,7 @@
          <div class="container">
          
             <div class="copy text-center">
-               Copyright 2017 <a href='#'>Liga Universitaria</a>
+               Copyright 2016 <a href='#'>Liga Universitaria</a>
             </div>
 
          </div>

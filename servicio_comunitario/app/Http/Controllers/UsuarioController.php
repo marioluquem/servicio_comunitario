@@ -101,59 +101,73 @@ class UsuarioController extends Controller
 
     public function validarUsuario(LoginRequest $request)
     {
-         
 
-            //Traemos el usuario de la BD
-            $usuario = DB::table('USUARIO')->select('*')->where('cedula', '=', $request['cedula'])->first();
-            $disciplinas = DB::select('select * from DISCIPLINA');
 
-            //Si el usuario existe y la contraseña introducida coincide
-            if (($usuario != null) && (password_verify($request['password'], $usuario->password))) {
+        //Traemos el usuario de la BD
+        $usuario = DB::table('USUARIO')->select('*')->where('cedula', '=', $request['cedula'])->first();
+        $disciplinas = DB::select('select * from DISCIPLINA');
+        $preguntaSecreta = DB::table('USUARIO_PREGUNTA')
+            ->join('PREGUNTA_SECRETA', 'PREGUNTA_SECRETA.id_pregunta','=','USUARIO_PREGUNTA.fk_pregunta')
+            ->select('*')
+            ->where('fk_usuario','=',$request->cedula)
+            ->first();
+        $preguntas = DB::table('PREGUNTA_SECRETA')
+            ->select('*')
+            ->get();
 
-                //Creamos el path del que se leerán las imágenes
-                $path = 'images/' . $usuario->cedula . '/';
+        //Si el usuario existe y la contraseña introducida coincide
+        if (($usuario != null) && (password_verify($request['password'], $usuario->password))) {
 
-                //Obtenemos el ROL del usuario
-                $rol = DB::table('ROL')
-                    ->join('USUARIO', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
-                    ->select('ROL.tipo_rol')
-                    ->where('USUARIO.cedula', '=', $request['cedula'])
-                    ->first();
+            //Creamos el path del que se leerán las imágenes
+            $path = 'images/' . $usuario->cedula . '/';
 
-                //Arreglamos la data para regresarla
-                $data = array(
-                    'cedula' => $usuario->cedula,
-                    'nombre_usuario' => $usuario->usuario,
-                    'primer_nombre' => $usuario->primer_nombre,
-                    'segundo_nombre' => $usuario->segundo_nombre,
-                    'primer_apellido' => $usuario->primer_apellido,
-                    'segundo_apellido' => $usuario->segundo_apellido,
-                    'correo' => $usuario->correo,
-                    'fecha_nacimiento' => $usuario->fecha_nacimiento,
-                    'sexo' => $usuario->sexo,
-                    'foto' => $path . $usuario->foto,
-                    'dni' => $path . $usuario->dni,
-                    'rol' => $rol->tipo_rol
-                );
+            //Obtenemos el ROL del usuario
+            $rol = DB::table('ROL')
+                ->join('USUARIO', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
+                ->select('ROL.tipo_rol')
+                ->where('USUARIO.cedula', '=', $request['cedula'])
+                ->first();
 
-                //Creamos la sesión del usuario
-                $request->session()->put('key', $usuario->cedula);
-                $request->session()->put('rol', $rol->tipo_rol);
-                $request->session()->put('data', $data);
-                $request->session()->put('disciplinas',$disciplinas);
+            //Arreglamos la data para regresarla
+            $data = array(
+                'cedula' => $usuario->cedula,
+                'nombre_usuario' => $usuario->usuario,
+                'primer_nombre' => $usuario->primer_nombre,
+                'segundo_nombre' => $usuario->segundo_nombre,
+                'primer_apellido' => $usuario->primer_apellido,
+                'segundo_apellido' => $usuario->segundo_apellido,
+                'correo' => $usuario->correo,
+                'fecha_nacimiento' => $usuario->fecha_nacimiento,
+                'sexo' => $usuario->sexo,
+                'foto' => $path . $usuario->foto,
+                'foto_nombre' => $usuario->foto,
+                'dni' => $path . $usuario->dni,
+                'dni_nombre' =>$usuario->dni,
+                'rol' => $rol->tipo_rol,
+                'pregunta_secreta' => $preguntaSecreta->pregunta,
+                'id_pregunta' => $preguntaSecreta->id_pregunta,
+                'respuesta_secreta' => $preguntaSecreta->respuesta,
+                'preguntas' => $preguntas
+            );
 
-                return View::make('profile', $data);
-            }
-            else{
-                // Si no existe el usuario o la contraseña es incorrecta
-                Session::flash('message-error', 'Datos incorrectos');
-                return Redirect::to('login');
-            }
+            //Creamos la sesión del usuario
+            $request->session()->put('key', $usuario->cedula);
+            $request->session()->put('rol', $rol->tipo_rol);
+            $request->session()->put('data', $data);
+            $request->session()->put('disciplinas',$disciplinas);
+
+            return View::make('profile', $data);
+        }
+        else{
+            // Si no existe el usuario o la contraseña es incorrecta
+            Session::flash('message-error', 'Datos incorrectos');
+            return Redirect::to('login');
+        }
     }
 
 
     public function actualizarUsuario(Request $request){
-         try{
+        try{
 
             DB::table('USUARIO')
                 ->where('USUARIO.cedula', '=', $request->cedula)
@@ -166,23 +180,23 @@ class UsuarioController extends Controller
                     'USUARIO.sexo' =>  $request->sexo
                 ]);
 
-             $existeUsuario = DB::table('USU_EQUI_UNI')->select('*')
-             ->where('fk_usuario','=',$request['cedula'])->first();   
+            $existeUsuario = DB::table('USU_EQUI_UNI')->select('*')
+                ->where('fk_usuario','=',$request['cedula'])->first();
 
-             if ($existeUsuario!= null) {
+            if ($existeUsuario!= null) {
 
-                    DB::table('USU_EQUI_UNI')->where('fk_usuario','=',$request->cedula)
+                DB::table('USU_EQUI_UNI')->where('fk_usuario','=',$request->cedula)
                     ->update(['fk_universidad'=>$request->id_universidad]);
-                 # code...
-             } else{
+                # code...
+            } else{
 
                 DB::table('USU_EQUI_UNI')->insert([
-                        'fk_usuario' => $request['cedula'],
-                        'fk_universidad' => $request['id_universidad']
-                    ]);
+                    'fk_usuario' => $request['cedula'],
+                    'fk_universidad' => $request['id_universidad']
+                ]);
             }
 
-                 
+
 
             Session::flash('message', 'Se ha actualizado con éxito');
         }catch (Exception $e){
@@ -190,6 +204,152 @@ class UsuarioController extends Controller
         }
         return Redirect::to('manageUsers');
 
+    }
+
+    public function actualizarFotoUsuario(Request $request){
+        //Obtiene los nombres de las imágenes anteriores para borrarlas
+        $fotoAnterior = DB::table('USUARIO')
+            ->select('foto')
+            ->where('cedula','=',$request->cedula)
+            ->first();
+
+        //Obtiene el nombre de los archivos (imágenes)
+        $archivoFoto = $request->file('foto');
+        $nombre_foto = $archivoFoto->getClientOriginalName();
+        $key =  $request['cedula']."/". $nombre_foto;
+
+        try{
+            //Eliminamos las imágenes anteriores
+            \Storage::disk('images')->delete([$request->cedula ."/". $fotoAnterior->foto]);
+            //Guardamos las imágenes en disco local
+            \Storage::disk('images')->put($key,file_get_contents($archivoFoto, FILE_USE_INCLUDE_PATH));
+            //insertamos los datos del usuario
+            DB::table('USUARIO')
+                ->where('USUARIO.cedula', '=', $request->cedula)
+                ->update([
+                    'foto'=>$nombre_foto
+                ]);
+
+            $request->session()->put('data.foto', "images/".$request->cedula ."/".$nombre_foto);
+            Session::flash('message', 'Imágen de perfil actualizada exitosamente');
+            return View::make('profile', session('data'));
+        }catch (Exception $e){
+            Session::flash('message-error', 'Error eliminando foto');
+            return Redirect::to('profile' , session('data'));
+        }
+    }
+
+
+    public function actualizarDNIUsuario(Request $request){
+
+        //Obtiene los nombres de las imágenes anteriores para borrarlas
+        $dniAnterior = DB::table('USUARIO')
+            ->select('dni')
+            ->where('cedula','=',$request->cedula)
+            ->first();
+
+        //Obtiene el nombre de los archivos (imágenes)
+        $archivoDNI = $request->file('dni');
+        $nombre_dni = $archivoDNI->getClientOriginalName();
+        $key2 =  $request['cedula']."/". $nombre_dni;
+
+        try{
+            //Eliminamos las imágenes anteriores
+            \Storage::disk('images')->delete([$request->cedula ."/". $dniAnterior->dni]);
+            //Guardamos las imágenes en disco local
+            \Storage::disk('images')->put($key2,file_get_contents($archivoDNI, FILE_USE_INCLUDE_PATH));
+            //insertamos los datos del usuario
+            DB::table('USUARIO')
+                ->where('USUARIO.cedula', '=', $request->cedula)
+                ->update([
+                    'dni'=>$nombre_dni
+                ]);
+
+            $request->session()->put('data.dni', "images/". $request->cedula ."/".$nombre_dni);
+	    Session::flash('message', 'Imágen de cédula actualizada exitosamente');
+            return View::make('profile', session('data'));
+        }catch (Exception $e){
+            Session::flash('message-error', 'Error eliminando cédula');
+            return Redirect::to('profile', session('data'));
+        }
+    }
+
+
+
+
+    public function actualizarDatosUsuario(Request $request){
+
+        //Cambiamos el formato de la fecha para adecuarlo a la BD
+        $date = date("Y-m-d", strtotime($request['fecha_nacimiento']));
+
+        try{
+            //insertamos los datos del usuario
+            DB::table('USUARIO')
+                ->where('USUARIO.cedula', '=', $request->cedula)
+                ->update([
+                    'USUARIO.usuario' => $request->usuario,
+                    'USUARIO.primer_nombre' => $request->primer_nombre,
+                    'USUARIO.segundo_nombre' => $request->segundo_nombre,
+                    'USUARIO.primer_apellido' => $request->primer_apellido,
+                    'USUARIO.segundo_apellido' => $request->segundo_apellido,
+                    'USUARIO.correo' => $request->correo,
+                    'USUARIO.fecha_nacimiento' =>  $date
+                ]);
+
+            //insertamos la pregunta y respuesta secreta
+            DB::table('USUARIO_PREGUNTA')
+                ->where('fk_usuario','=',$request->cedula)
+                ->update([
+                    'respuesta'=> $request->respuesta_secreta,
+                    'fk_pregunta'=>$request->pregunta_secreta,
+                    'fk_usuario'=>$request->cedula
+                ]);
+
+        }catch (Exception $e){
+            Session::flash('message-error', 'Error actualizando usuario');
+            return Redirect::to('profile');
+        }
+
+        //leemos el rol del usuario
+        $rol = DB::table('ROL')
+            ->join('USUARIO', 'USUARIO.fk_rol', '=', 'ROL.id_rol')
+            ->select('ROL.tipo_rol')
+            ->where('USUARIO.cedula', '=', $request->cedula)
+            ->first();
+
+        //leemos las preguntas para retornarlas al perfil
+        $preguntas = DB::table('PREGUNTA_SECRETA')
+            ->select('*')
+            ->get();
+
+        //Creamos el path del que se leerán las imágenes
+        $path = 'images/' . $request->cedula . '/';
+
+        //Arreglamos la data para regresarla
+        $data = [
+            'cedula' => $request->cedula,
+            'nombre_usuario' => $request->usuario,
+            'primer_nombre' => $request->primer_nombre,
+            'segundo_nombre' => $request->segundo_nombre,
+            'primer_apellido' => $request->primer_apellido,
+            'segundo_apellido' => $request->segundo_apellido,
+            'correo' => $request->correo,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'sexo' => $request->sexo,
+            'foto' => session('data.foto'),
+            'dni' => session('data.dni'),
+            'rol' => $rol->tipo_rol,
+            'sexo' => $request->sexo,
+            'pregunta_secreta' => $request->pregunta,
+            'id_pregunta' => $request->id_pregunta,
+            'respuesta_secreta' => $request->respuesta,
+            'preguntas' => $preguntas
+        ];
+
+        //Creamos la sesión del usuario
+        $request->session()->put('data', $data);
+	Session::flash('message', 'Datos actualizados exitosamente');
+        return View::make('profile', $data);
     }
 
 

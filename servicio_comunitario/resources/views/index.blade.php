@@ -23,10 +23,12 @@
 					</div>
 				</div>
 				<div class="content-box-large box-with-header">
-					<h3>Bienvenido al nuevo portal de la Liga Universitaria!</h3>
+					<h3>Bienvenido al nuevo portal de registro de la Liga Universitaria!</h3>
 					<br>
-					<h4>Regístrate en el menú superior derecho para ser parte de esta comunidad de atletas.</h4>
+					<h4>Regístrate en el menú superior para ser parte de esta comunidad de atletas.</h4>
 					<br /><br />
+					<h5> Fase Beta , pronto se añadirán nuevas funcionalidades</h5>
+					<br />
 				</div>
 			</div>
 		</div>

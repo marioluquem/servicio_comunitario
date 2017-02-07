@@ -60,7 +60,7 @@
 							{!! Form::text ('cedula', null, array('class'=>'form-control','placeholder'=>'Cédula','id'=>'cedula'))!!}
 							{!! Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password','id'=>'password')) !!}
 			                <div class="action">
-								<input type="submit" class="btn btn-primary signup" value="Entrar">
+								<input type="submit" class="btn btn-primary signup" value="ENTRAR">
 			                    <a class="btn btn-primary signup" href={{ route('index') }}>Volver</a>
 			                </div>
 							{!! Form::close()!!}

@@ -74,6 +74,12 @@ Route::get('manageTeamsD',['uses'=> 'RutasController@getManageTeamsDirector','as
 Route::post('register', ['uses' => 'UsuarioController@registrarUsuario', 'as' => 'register']);
 //actualizar usuario
 Route::post('updateUser', ['uses' => 'UsuarioController@actualizarUsuario', 'as' => 'updateUser']);
+//actualizar datos por el usuario
+Route::post('update_data', ['uses' => 'UsuarioController@actualizarDatosUsuario', 'as' => 'update_data']);
+//actualizar foto del usuario
+Route::post('update_picture', ['uses' => 'UsuarioController@actualizarFotoUsuario', 'as' => 'update_picture']);
+//actualizar cedula del usuario
+Route::post('update_dni', ['uses' => 'UsuarioController@actualizarDNIUsuario', 'as' => 'update_dni']);
 //eliminar usuario
 Route::get('deleteUser/{cedula}', ['uses' => 'UsuarioController@eliminarUsuario', 'as' => 'deleteUser']);
 

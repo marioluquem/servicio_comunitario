@@ -40,7 +40,7 @@
                   <!-- Logo -->
                   <div class="logo">
                      <h1><!--suppress HtmlUnknownTarget -->
-                         <a href="index.php">CEFODAR - REGISTRO</a></h1>
+                         <a href="index.php"> REGISTRO</a></h1>
                   </div>
                </div>
             </div>
@@ -93,8 +93,8 @@
                                         <label class="control-label" style="font-size:14px;">Subir imagen de Cédula de Identidad:</label>
                                         <input id="dni" name="dni" type="file" class=" form-control file">
                                     <br>
-                                    <input type="button" class="btn btn-primary" value="Registrarme" onclick="javascript:validar_formulario()">
-                                    
+                                    <input type="button" class="btn btn-primary" value="REGISTRARME" onclick="javascript:validar_formulario()">
+                                    <a class="btn btn-primary signup" href={{ route('index') }}>Volver</a>
                                 </div>
                             {!!Form::close()!!}
                         </div>

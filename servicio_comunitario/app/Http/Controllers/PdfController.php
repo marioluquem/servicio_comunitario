@@ -71,7 +71,10 @@ class PdfController extends Controller
             ->join('EQUIPO', 'EQUIPO.id_equipo', '=', 'USU_EQUI_UNI.fk_equipo')
             ->join('UNIVERSIDAD', 'UNIVERSIDAD.id_universidad', '=', 'USU_EQUI_UNI.fk_universidad')
             ->select('*')
-            ->where('EQUIPO.id_equipo', $id_equipo)
+            ->where([
+                ['EQUIPO.id_equipo', $id_equipo],
+                ['USU_EQUI_UNI.rol_equipo', '=' ,'Jugador']
+            ])
             ->distinct()
             ->get();
 
