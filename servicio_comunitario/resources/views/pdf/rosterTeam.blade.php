@@ -73,8 +73,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                           @for($x =0 ; $x<count($dataJugadores)-1 ; $x+=3)
-                                <tr>                                    
+                           @for($x =0 ; $x<count($dataJugadores) ; $x++)
+                                    @if ($x == 0 or $x % 3 == 0)
+                                        <tr>
+                                       @endif
                                     <td class="center" style="border: 1px solid black; text-align:center;"> <img src="{{$imageRoute.'/'.$dataJugadores[$x]->cedula.'/'.$dataJugadores[$x]->foto }}" height="60px" width="60px"></td> </td>
                                     <td class="center" style="border: 1px solid black; text-align:center;">
                                         <p style="padding:0; margin: 0;">{{ $dataJugadores[$x]->primer_nombre ." ". $dataJugadores[$x]->primer_apellido }}</p>
@@ -90,41 +92,13 @@
                                     @endif -->
 
 
-                                    <td></td>
+                                       @if ($x == 0 or $x % 2 != 0)
+                                           <td></td>
+                                       @endif
 
-
-                                    <td class="center" style="border: 1px solid black; text-align:center;"> <img src="{{$imageRoute.'/'.$dataJugadores[$x+1]->cedula.'/'.$dataJugadores[$x+1]->foto }}" height="60px" width="60px"></td> </td>
-                                    <td class="center" style="border: 1px solid black; text-align:center;">
-                                        <p style="padding:0; margin: 0;">{{ $dataJugadores[$x+1]->primer_nombre ." ". $dataJugadores[$x+1]->primer_apellido }}</p>
-                                        <p style="padding:0; margin: 0;">{{ $dataJugadores[$x+1]->cedula }}</p>
-                                        <p style="padding:0; margin: 0;">{{$dataJugadores[$x+1]->fecha_nacimiento}}</p>
-                                    </td>
-                                      <!-- Metodo para el rol : @if($usus_equi_uni!=null)
-                                      @foreach($usus_equi_uni as $usu_equi_uni)
-                                      @if($usu_equi_uni->fk_usuario == $dataJugadores[$x+1]->cedula)
-                                              <td class="center">{{$usu_equi_uni->rol_equipo}}</td>
-                                            @endif
-                                      @endforeach
-                                      @endif -->
-
-
-                                    <td></td>
-
-
-                                    <td class="center" style="border: 1px solid black; text-align:center;"> <img src="{{$imageRoute.'/'.$dataJugadores[$x+2]->cedula.'/'.$dataJugadores[$x+2]->foto }}" height="60px" width="60px"></td> </td>
-                                    <td class="center" style="border: 1px solid black; text-align:center;">
-                                        <p style="padding:0; margin: 0;">{{ $dataJugadores[$x+2]->primer_nombre ." ". $dataJugadores[$x+2]->primer_apellido }}</p>
-                                        <p style="padding:0; margin: 0;">{{ $dataJugadores[$x+2]->cedula }}</p>
-                                        <p style="padding:0; margin: 0;">{{$dataJugadores[$x+2]->fecha_nacimiento}}</p>
-                                    </td>
-                                    <!-- Metodo para el rol : @if($usus_equi_uni!=null)
-                                    @foreach($usus_equi_uni as $usu_equi_uni)
-                                    @if($usu_equi_uni->fk_usuario == $dataJugadores[$x+2]->cedula)
-                                            <td class="center">{{$usu_equi_uni->rol_equipo}}</td>
-                                            @endif
-                                    @endforeach
-                                    @endif -->
-                                    </tr>                           
+                                       @if ($x != 0 and $x % 2 == 0)
+                                        </tr>
+                                    @endif
                            @endfor
                             </tbody>
                         </table>
@@ -148,9 +122,11 @@
                             </tr>
                             </thead>
                             <tbody>                                  
-                           @for($x =0 ; $x<count($dataCuerpoTecnico)-1 ; $x+=2) 
-                            
-                                <tr>                                    
+                           @for($x =0 ; $x<count($dataCuerpoTecnico) ; $x++)
+
+                               @if ($x == 0 or $x % 3 == 0)
+                                <tr>
+                                    @endif
                                     <td class="center" style="border: 1px solid black; text-align:center;"> <img src="{{$imageRoute.'/'.$dataCuerpoTecnico[$x]->cedula.'/'.$dataCuerpoTecnico[$x]->foto }}" height="60px" width="60px"></td> </td>
                                     <td class="center" style="border: 1px solid black; text-align:center;">
                                         <p style="padding:0; margin: 0;">{{ $dataCuerpoTecnico[$x]->primer_nombre ." ". $dataCuerpoTecnico[$x]->primer_apellido }}</p>
@@ -164,40 +140,14 @@
                                         @endif
                                     </td>
 
-
+                                    @if ($x == 0 or $x % 2 != 0)
                                     <td></td>
+                                    @endif
 
+                                    @if ($x != 0 and $x % 2 == 0)
+                                        </tr>
+                                     @endif
 
-                                    <td class="center" style="border: 1px solid black; text-align:center;"> <img src="{{$imageRoute.'/'.$dataCuerpoTecnico[$x+1]->cedula.'/'.$dataCuerpoTecnico[$x+1]->foto }}" height="60px" width="60px"></td> </td>
-                                    <td class="center" style="border: 1px solid black; text-align:center;">
-                                        <p style="padding:0; margin: 0;">{{ $dataCuerpoTecnico[$x+1]->primer_nombre ." ". $dataCuerpoTecnico[$x+1]->primer_apellido }}</p>
-                                        <p style="padding:0; margin: 0;">{{ $dataCuerpoTecnico[$x+1]->cedula }}</p>
-                                        @if($usus_equi_uni!=null)
-                                            @foreach($usus_equi_uni as $usu_equi_uni)
-                                                @if($usu_equi_uni->fk_usuario == $dataCuerpoTecnico[$x+1]->cedula)
-                                                    <p style="padding:0; margin: 0;">{{$usu_equi_uni->rol_equipo}}</p>
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    </td>
-
-
-                                    <td></td>
-
-
-                                    <td class="center" style="border: 1px solid black; text-align:center;"> <img src="{{$imageRoute.'/'.$dataCuerpoTecnico[$x+2]->cedula.'/'.$dataCuerpoTecnico[$x+2]->foto }}" height="60px" width="60px"></td> </td>
-                                    <td class="center" style="border: 1px solid black; text-align:center;">
-                                        <p style="padding:0; margin: 0;">{{ $dataCuerpoTecnico[$x+2]->primer_nombre ." ". $dataCuerpoTecnico[$x+2]->primer_apellido }}</p>
-                                        <p style="padding:0; margin: 0;">{{ $dataCuerpoTecnico[$x+2]->cedula }}</p>
-                                        @if($usus_equi_uni!=null)
-                                            @foreach($usus_equi_uni as $usu_equi_uni)
-                                                @if($usu_equi_uni->fk_usuario == $dataCuerpoTecnico[$x+2]->cedula)
-                                                    <p style="padding:0; margin: 0;">{{$usu_equi_uni->rol_equipo}}</p>
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    </td>
-                                    </tr>                           
                            @endfor
                             </tbody>
                         </table>

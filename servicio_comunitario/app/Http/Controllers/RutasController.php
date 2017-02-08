@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use servicio_comunitario\Http\Requests;
 
@@ -45,12 +46,21 @@ class RutasController extends Controller
         return view('recupera');
     }
     public function getRecuperaVerificaPage(Request $request){
-        $preguntaSecreta = DB::table('PREGUNTA_SECRETA')
-                                    ->join('USUARIO_PREGUNTA', 'USUARIO_PREGUNTA.fk_pregunta','=','PREGUNTA_SECRETA.id_pregunta')
-                                    ->select('*')
-                                    ->where('USUARIO_PREGUNTA.fk_usuario','=',$request->cedula)
-                                    ->first();
-        return view('recuperaVerifica', array('pregunta' => $preguntaSecreta, 'cedula'=>$request->cedula));
+
+        if (DB::table('USUARIO')->select('*')->where('cedula','=',$request->cedula)->first() != null) {
+            $preguntaSecreta = DB::table('PREGUNTA_SECRETA')
+                ->join('USUARIO_PREGUNTA', 'USUARIO_PREGUNTA.fk_pregunta', '=', 'PREGUNTA_SECRETA.id_pregunta')
+                ->select('*')
+                ->where('USUARIO_PREGUNTA.fk_usuario', '=', $request->cedula)
+                ->first();
+
+            return view('recuperaVerifica', array('pregunta' => $preguntaSecreta, 'cedula'=>$request->cedula));
+        }
+        else{
+            Session::flash('message-error', 'No existe el usuario asociado a dicha cédula');
+            return view('recupera');
+        }
+
     }
     public function getCalendarPage(){
         return view('calendar');

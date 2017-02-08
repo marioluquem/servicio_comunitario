@@ -30,6 +30,11 @@ class UsuarioController extends Controller
             $nombre_dni = $archivoDNI->getClientOriginalName();
             $key2 =  $request['cedula']."/". $nombre_dni;
 
+            if ($nombre_foto == $nombre_dni){
+                Session::flash('message-error', 'Las imágenes no pueden tener el mismo nombre');
+                return Redirect::to('register');
+            }
+
             try{
                 //Guardamos las imágenes en disco local
                 \Storage::disk('images')->put($key,file_get_contents($archivoFoto, FILE_USE_INCLUDE_PATH));

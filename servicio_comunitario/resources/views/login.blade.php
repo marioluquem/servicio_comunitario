@@ -68,9 +68,13 @@
 			        </div>
 
 			        <div class="already">
-			            <p>Aún no tienes una cuenta? Ingresa aquí </p>
+			            <p>Aún no tienes una cuenta? Ingresa aquí -></p>
 			            <!--suppress HtmlUnknownTarget -->
 						<a href={{  route('register') }}>Registrarse</a>
+						<br>
+						<p>No recuerdas tu contraseña? Recupera aquí -></p>
+						<!--suppress HtmlUnknownTarget -->
+						<a href={{  route('recupera') }}>Recuperar</a>
 			        </div>
 			    </div>
 			</div>
